@@ -200,8 +200,8 @@ const MainSessionContent = ()=>{
         </MainSessionText>
       </MainSessionTop>
       {
-        phase4 ? null
-        : <MainSessionInner>
+        !phase4 &&
+        <MainSessionInner>
           {
             MainSessionData.map((item, idx, id)=>(
               <CardItem key={idx} item={item} idx={idx} setModal={setModal} setModalFalse={setModalFalse}/>
@@ -216,18 +216,16 @@ const MainSessionContent = ()=>{
         </MainSessionInner>
       }
       {
-        phase4
-        ? 
-          <CardWrap>
-            <CardInner>
-              {
-                SessionData.map((item, idx)=>(
-                  <CardSession key={idx} id={item.id} col="col-3" title={item.title} date={item.date} discription={item.discription} image={item.picture} bookmark={true} tag={item.tag} type={item.type} setModal={setModal} setModalFalse={setModalFalse}/>
-                ))
-              }
-            </CardInner>
-          </CardWrap>
-        : null
+        phase4 &&
+        <CardWrap>
+          <CardInner>
+            {
+              SessionData.map((item, idx)=>(
+                <CardSession key={idx} id={item.id} col="col-3" title={item.title} date={item.date} discription={item.discription} image={item.picture} bookmark={true} tag={item.tag} type={item.type} setModal={setModal} setModalFalse={setModalFalse}/>
+              ))
+            }
+          </CardInner>
+        </CardWrap>
       }
       <LinkArea>
         <ButtonLink url="/liveTech" color="black" size="medium">Go to Tech Sessions</ButtonLink>

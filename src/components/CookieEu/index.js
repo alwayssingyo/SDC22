@@ -263,8 +263,7 @@ const CookieEu = ()=>{
 
 			{/* management modal */}
 			{
-        openManage ? <PopupManage setOpen={setOpenManage} setOpenConfirm={setOpenConfirm}/>
-        : null
+        openManage && <PopupManage setOpen={setOpenManage} setOpenConfirm={setOpenConfirm}/>
       }
 
 			{/* Cookie confirm popoup */}

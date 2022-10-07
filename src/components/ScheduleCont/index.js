@@ -207,20 +207,19 @@ const ScheduleCont = ()=>{
                     </Link>
                   </div>
                   {
-                    after
-                    ? <GridInfo>
-                        <div className='inner'>
-                          <GridInfoList>
-                            <div className='title'>Session Room 1</div>
-                            <GridItem title={sessionDataA.title} time={sessionDataA.time} speaker={sessionDataA.speaker}/>
-                          </GridInfoList>
-                          <GridInfoList>
-                            <div className='title'>Session Room 2</div>
-                            <GridItem title={sessionDataB.title} time={sessionDataB.time} speaker={sessionDataB.speaker}/>
-                          </GridInfoList>
-                        </div>
-                      </GridInfo>
-                    : null
+                    after &&
+                    <GridInfo>
+                      <div className='inner'>
+                        <GridInfoList>
+                          <div className='title'>Session Room 1</div>
+                          <GridItem title={sessionDataA.title} time={sessionDataA.time} speaker={sessionDataA.speaker}/>
+                        </GridInfoList>
+                        <GridInfoList>
+                          <div className='title'>Session Room 2</div>
+                          <GridItem title={sessionDataB.title} time={sessionDataB.time} speaker={sessionDataB.speaker}/>
+                        </GridInfoList>
+                      </div>
+                    </GridInfo>
                   }
                 </div>
                 <div className='index'>
@@ -247,33 +246,32 @@ const ScheduleCont = ()=>{
                     </Link>
                   </div>
                   {
-                    after
-                    ? <GridInfo className={more ? 'is-appended' : ''}>
-                        <div className='inner'>
-                          <GridInfoList className={moreA ? 'is-appended' : ''}>
-                            <button className='title' onClick={moreAHandler}>Session Room 1<span className='info_btn_icon'></span></button>
-                            <div className='grid_session'>
-                              {
-                                sessionDataA02.map((item, idx)=>(
-                                  <GridItem key={item.id} title={item.title} time={item.time} speaker={item.speaker}/>
-                                ))
-                              }
-                            </div>
-                          </GridInfoList>
-                          <GridInfoList className={moreB ? 'is-appended' : ''}>
-                            <button className='title' onClick={moreBHandler}>Session Room 2<span className='info_btn_icon'></span></button>
-                            <div className='grid_session'>
-                              {
-                                sessionDataB02.map((item, idx)=>(
-                                  <GridItem key={item.id} title={item.title} time={item.time} speaker={item.speaker} bHall={true}/>
-                                ))
-                              }
-                            </div>
-                          </GridInfoList>
-                        </div>
-                        <GridInfoMore onClick={textHandler} className={more ? 'is-appended' : ''}>{ more ? "Close" : "More" }</GridInfoMore>
-                      </GridInfo>
-                    : null
+                    after &&
+                    <GridInfo className={more ? 'is-appended' : ''}>
+                      <div className='inner'>
+                        <GridInfoList className={moreA ? 'is-appended' : ''}>
+                          <button className='title' onClick={moreAHandler}>Session Room 1<span className='info_btn_icon'></span></button>
+                          <div className='grid_session'>
+                            {
+                              sessionDataA02.map((item, idx)=>(
+                                <GridItem key={item.id} title={item.title} time={item.time} speaker={item.speaker}/>
+                              ))
+                            }
+                          </div>
+                        </GridInfoList>
+                        <GridInfoList className={moreB ? 'is-appended' : ''}>
+                          <button className='title' onClick={moreBHandler}>Session Room 2<span className='info_btn_icon'></span></button>
+                          <div className='grid_session'>
+                            {
+                              sessionDataB02.map((item, idx)=>(
+                                <GridItem key={item.id} title={item.title} time={item.time} speaker={item.speaker} bHall={true}/>
+                              ))
+                            }
+                          </div>
+                        </GridInfoList>
+                      </div>
+                      <GridInfoMore onClick={textHandler} className={more ? 'is-appended' : ''}>{ more ? "Close" : "More" }</GridInfoMore>
+                    </GridInfo>
                   }
                 </div>
                 <div className='index'>
@@ -346,26 +344,23 @@ const ScheduleCont = ()=>{
                     </Link>
                   </div>
                   {
-                    after
-                    ? <GridInfo>
-                        <div className='inner'>
-                          <GridInfoList>
-                            <div className='title'>Session Room 1</div>
-                            <GridItem title={sessionDataA.title} time={sessionDataA.time} speaker={sessionDataA.speaker}/>
-                          </GridInfoList>
-                          <GridInfoList>
-                            <div className='title'>Session Room 2</div>
-                            <GridItem title={sessionDataB.title} time={sessionDataB.time} speaker={sessionDataB.speaker}/>
-                          </GridInfoList>
-                        </div>
-                      </GridInfo>
-                    : null
+                    after &&
+                    <GridInfo>
+                      <div className='inner'>
+                        <GridInfoList>
+                          <div className='title'>Session Room 1</div>
+                          <GridItem title={sessionDataA.title} time={sessionDataA.time} speaker={sessionDataA.speaker}/>
+                        </GridInfoList>
+                        <GridInfoList>
+                          <div className='title'>Session Room 2</div>
+                          <GridItem title={sessionDataB.title} time={sessionDataB.time} speaker={sessionDataB.speaker}/>
+                        </GridInfoList>
+                      </div>
+                    </GridInfo>
                   }
                 </div>
                 {
-                  isDesktop 
-                  ? null
-                  : <div className='index'></div>
+                  !isDesktop && <div className='index'></div>
                 }
                 <div className='item_wrap item-04'>
                   <div className='box'>
@@ -394,33 +389,32 @@ const ScheduleCont = ()=>{
                     </Link>
                   </div>
                   {
-                    after
-                    ? <GridInfo className={more ? 'is-appended' : ''}>
-                        <div className='inner'>
-                          <GridInfoList className={moreA ? 'is-appended' : ''}>
-                            <button className='title' onClick={moreAHandler}>Session Room 1<span className='info_btn_icon'></span></button>
-                            <div className='grid_session'>
-                              {
-                                sessionDataA02.map((item, idx)=>(
-                                  <GridItem key={item.id} title={item.title} time={item.time} speaker={item.speaker}/>
-                                ))
-                              }
-                            </div>
-                          </GridInfoList>
-                          <GridInfoList className={moreB ? 'is-appended' : ''}>
-                            <button className='title' onClick={moreBHandler}>Session Room 2<span className='info_btn_icon'></span></button>
-                            <div className='grid_session'>
-                              {
-                                sessionDataB02.map((item, idx)=>(
-                                  <GridItem key={item.id} title={item.title} time={item.time} speaker={item.speaker} bHall={true}/>
-                                ))
-                              }
-                            </div>
-                          </GridInfoList>
-                        </div>
-                        <GridInfoMore onClick={textHandler} className={more ? 'is-appended' : ''}>{ more ? "Close" : "More" }</GridInfoMore>
-                      </GridInfo>
-                    : null
+                    after &&
+                    <GridInfo className={more ? 'is-appended' : ''}>
+                      <div className='inner'>
+                        <GridInfoList className={moreA ? 'is-appended' : ''}>
+                          <button className='title' onClick={moreAHandler}>Session Room 1<span className='info_btn_icon'></span></button>
+                          <div className='grid_session'>
+                            {
+                              sessionDataA02.map((item, idx)=>(
+                                <GridItem key={item.id} title={item.title} time={item.time} speaker={item.speaker}/>
+                              ))
+                            }
+                          </div>
+                        </GridInfoList>
+                        <GridInfoList className={moreB ? 'is-appended' : ''}>
+                          <button className='title' onClick={moreBHandler}>Session Room 2<span className='info_btn_icon'></span></button>
+                          <div className='grid_session'>
+                            {
+                              sessionDataB02.map((item, idx)=>(
+                                <GridItem key={item.id} title={item.title} time={item.time} speaker={item.speaker} bHall={true}/>
+                              ))
+                            }
+                          </div>
+                        </GridInfoList>
+                      </div>
+                      <GridInfoMore onClick={textHandler} className={more ? 'is-appended' : ''}>{ more ? "Close" : "More" }</GridInfoMore>
+                    </GridInfo>
                   }
                 </div>
                 <div className='index'>

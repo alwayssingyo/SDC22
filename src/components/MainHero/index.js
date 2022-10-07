@@ -349,62 +349,57 @@ const MainHero = ()=>{
 							<HeroIntroBtnWrap>
 								{/* phase1,2 버튼  */}
 								{
-									phase3 || phase4
-									? null
-									: <HeroIntroBtn onClick={()=>{ popupHandler();} } className="hero_intro_btn">
-											<Button color="white" size="medium">Watch Full Video</Button>
-										</HeroIntroBtn>
+									!phase3 && !phase4 &&
+									<HeroIntroBtn onClick={()=>{ popupHandler();} } className="hero_intro_btn">
+										<Button color="white" size="medium">Watch Full Video</Button>
+									</HeroIntroBtn>
 								}
 								{/* phase3 - ~ 11: 30까지의 버튼  */}
 								{
-									phase3 && time === 'before'
-									? <>
-											<HeroIntroBtn className="hero_intro_btn is-keynote is-live">
-												<ButtonLink url="/liveTech" color="white" size="medium">Join the Keynote</ButtonLink>
-											</HeroIntroBtn>
-											<HeroIntroBtn className="hero_intro_btn is-session is-dim">
-												<ButtonLink url="/keynote" color="white" size="medium">Join Tech Sessions</ButtonLink>
-											</HeroIntroBtn>
-										</>
-									: null
+									phase3 && time === 'before' &&
+									<>
+										<HeroIntroBtn className="hero_intro_btn is-keynote is-live">
+											<ButtonLink url="/liveTech" color="white" size="medium">Join the Keynote</ButtonLink>
+										</HeroIntroBtn>
+										<HeroIntroBtn className="hero_intro_btn is-session is-dim">
+											<ButtonLink url="/keynote" color="white" size="medium">Join Tech Sessions</ButtonLink>
+										</HeroIntroBtn>
+									</>
 								}
 								{/* phase3 - 11:30 ~ 5:30까지의 버튼  */}
 								{
-									phase3 && time === 'present'
-									?	<>
-											<HeroIntroBtn className="hero_intro_btn is-keynote is-dim">
-												<ButtonLink url="/liveTech" color="white" size="medium">Join the Keynote</ButtonLink>
-											</HeroIntroBtn>
-											<HeroIntroBtn className="hero_intro_btn is-session is-live">
-												<ButtonLink url="/keynote" color="white" size="medium">Join Tech Sessions</ButtonLink>
-											</HeroIntroBtn>
-										</>
-									: null
+									phase3 && time === 'present' &&
+									<>
+										<HeroIntroBtn className="hero_intro_btn is-keynote is-dim">
+											<ButtonLink url="/liveTech" color="white" size="medium">Join the Keynote</ButtonLink>
+										</HeroIntroBtn>
+										<HeroIntroBtn className="hero_intro_btn is-session is-live">
+											<ButtonLink url="/keynote" color="white" size="medium">Join Tech Sessions</ButtonLink>
+										</HeroIntroBtn>
+									</>
 								}
 								{/* phase3 - 5:30~까지의 버튼  */}
 								{
-									phase3 && time === 'after'
-									?	<>
-											<HeroIntroBtn className="hero_intro_btn">
-												<ButtonLink url="/liveTech" color="white" size="medium">Join the Keynote</ButtonLink>
-											</HeroIntroBtn>
-											<HeroIntroBtn className="hero_intro_btn">
-												<ButtonLink url="/keynote" color="white" size="medium">Join Tech Sessions</ButtonLink>
-											</HeroIntroBtn>
-										</>
-									: null
+									phase3 && time === 'after' &&
+									<>
+										<HeroIntroBtn className="hero_intro_btn">
+											<ButtonLink url="/liveTech" color="white" size="medium">Join the Keynote</ButtonLink>
+										</HeroIntroBtn>
+										<HeroIntroBtn className="hero_intro_btn">
+											<ButtonLink url="/keynote" color="white" size="medium">Join Tech Sessions</ButtonLink>
+										</HeroIntroBtn>
+									</>
 								}
 								{
-									phase4
-									? <>
-											<HeroIntroBtn className="hero_intro_btn">
-												<ButtonLink url="/keynote" color="white" size="medium">Watch the Keynote</ButtonLink>
-											</HeroIntroBtn>
-											<HeroIntroBtn className="hero_intro_btn">
-												<Button onClick={ ()=>{window.open('https://www.youtube.com/')} } color="white" size="medium">Watch the Highlight</Button>
-											</HeroIntroBtn>
-										</>
-									: null
+									phase4 &&
+									<>
+										<HeroIntroBtn className="hero_intro_btn">
+											<ButtonLink url="/keynote" color="white" size="medium">Watch the Keynote</ButtonLink>
+										</HeroIntroBtn>
+										<HeroIntroBtn className="hero_intro_btn">
+											<Button onClick={ ()=>{window.open('https://www.youtube.com/')} } color="white" size="medium">Watch the Highlight</Button>
+										</HeroIntroBtn>
+									</>
 								}
 							</HeroIntroBtnWrap>
 						</HeroIntroText>
@@ -468,50 +463,43 @@ const MainHero = ()=>{
 
 			{/* youtube popup */}
 			{
-				open ? <PopupYoutube open={open} setOpen={setOpen} setPlay={setPlay}/>
-				: null
+				open && <PopupYoutube open={open} setOpen={setOpen} setPlay={setPlay}/>
 			}
 
 			{/* calendar popup */}
 			{
-				addCalendar ? <PopupCalendar setOpen={setAddCalendar}/>
-				: null
+				addCalendar && <PopupCalendar setOpen={setAddCalendar}/>
 			}
 
 			{/* cookie popoup */}
 			{
-        openPopup ? <PopupCookie setOpen={setOpenPopup} setOpenManage={setOpenManage}/>
-        : null
+        openPopup && <PopupCookie setOpen={setOpenPopup} setOpenManage={setOpenManage}/>
       }
 
 			{/* cookie modal */}
 			{
-        openModal ? <ModalCookie setOpen={setOpenModal} setOpenManage={setOpenManage}/>
-        : null
+        openModal && <ModalCookie setOpen={setOpenModal} setOpenManage={setOpenManage}/>
       }
 
 			{/* management modal */}
 			{
-        openManage ? <PopupManage setOpen={setOpenManage} setOpenConfirm={setOpenConfirm}/>
-        : null
+        openManage && <PopupManage setOpen={setOpenManage} setOpenConfirm={setOpenConfirm}/>
       }
 
 			{/* Cookie confirm popoup */}
 			{
-        openConfirm ? <PopupConfirm
+        openConfirm && <PopupConfirm
 					modal={openConfirm}
 					setModal={setOpenConfirm}
 					title="Preferences Submitted"
 					desc="You have successfully updated your cookie preferences."
 					btnText="Close"
 				/>
-        : null
       }
 
 			{/* Survey popup */}
 			{
-				openSurvey && phase4 ? <PopupSurvey setOpenSurvey={setOpenSurvey} />
-				: null
+				openSurvey && phase4 && <PopupSurvey setOpenSurvey={setOpenSurvey} />
 			}
 		</>
 	)

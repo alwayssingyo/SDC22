@@ -122,32 +122,33 @@ const Tech = ()=>{
 				<TechFilterBtn onClick={openFilter}>Filter<span>3</span></TechFilterBtn>
 				<TechLeft>
 					{
-						isDesktop ? <Filter setOpen={setFilterOpen}/> : (filterOpen ? <Filter setOpen={setFilterOpen}/> : null)
+						isDesktop 
+						? <Filter setOpen={setFilterOpen}/> 
+						: filterOpen && <Filter setOpen={setFilterOpen}/>
 					}
 				</TechLeft>
 				<TechRight>
 					<CardWrap>
 						{
-							phase3
-							?	<CardRoomWrap>
-									<CardRoomInner>
-										<div className='card_bg'>
-											{
-												CardRoomData.map((item,idx)=>(
-													<CardRoom
-														key={idx} 
-														link={item.link}
-														image={item.image} 
-														title={item.title}
-														time={item.time}
-														live={item.live}
-													/>
-												))
-											}
-										</div>
-									</CardRoomInner>
-								</CardRoomWrap>
-							: null
+							phase3 &&
+							<CardRoomWrap>
+								<CardRoomInner>
+									<div className='card_bg'>
+										{
+											CardRoomData.map((item,idx)=>(
+												<CardRoom
+													key={idx} 
+													link={item.link}
+													image={item.image} 
+													title={item.title}
+													time={item.time}
+													live={item.live}
+												/>
+											))
+										}
+									</div>
+								</CardRoomInner>
+							</CardRoomWrap>
 						}
 						<CardInner ref={cardRef}>
 							{

@@ -41,9 +41,9 @@ const Banner = (props) => {
               }
 
               {
-                buttonLengthOne == false
-                ?(
-                  <>
+                buttonLengthOne 
+                ? <BannerBtnLink className="fullWidth"><ALink className='btn' href={`${props.buttonUrl}`} color="border" size="medium" rel="noopener noreferrer">{props.buttonText}</ALink></BannerBtnLink>
+                : <>
                     <BannerBtnLink><ALink className='btn' href={`${props.buttonUrl}`} color="border" size="medium" rel="noopener noreferrer">{props.buttonText}</ALink></BannerBtnLink>
                     { 
                       popupRight
@@ -51,14 +51,6 @@ const Banner = (props) => {
                       : <BannerBtnLink><ALink className='btn' href={`${props.buttonUrl}`} color="border" size="medium" rel="noopener noreferrer">{props.buttonText2}</ALink></BannerBtnLink>
                     }
                   </>
-                  )
-                :( null )
-              }
-
-              {
-                buttonLengthOne
-                ?(<BannerBtnLink className="fullWidth"><ALink className='btn' href={`${props.buttonUrl}`} color="border" size="medium" rel="noopener noreferrer">{props.buttonText}</ALink></BannerBtnLink>)
-                :( null )
               }
 
             </BannerBoxInfo>
@@ -81,9 +73,7 @@ const Banner = (props) => {
               }
 
               {
-                buttonUrl
-                ?(<BannerBtnLink className="right"><ALink className='btn' href={`${props.buttonUrl}`} color="border" size="medium" rel="noopener noreferrer">{props.buttonText}</ALink></BannerBtnLink>)
-                :( null )
+                buttonUrl && <BannerBtnLink className="right"><ALink className='btn' href={`${props.buttonUrl}`} color="border" size="medium" rel="noopener noreferrer">{props.buttonText}</ALink></BannerBtnLink>
               }
             </BannerBoxInfo>
           </BannerBoxInner>

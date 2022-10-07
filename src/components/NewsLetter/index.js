@@ -36,15 +36,14 @@ const NewsLetter = ()=>{
       </NewsLetterInner>
       {/* newsletter confirm popup */}
       {
-        modal
-        ? <Popup
-            modal={modal}
-            setModal={setModal}
-            title="Confirmed"
-            desc="Thank you for the subscription"
-            btnText="OK"
-          />
-        : null
+        modal &&
+        <Popup
+          modal={modal}
+          setModal={setModal}
+          title="Confirmed"
+          desc="Thank you for the subscription"
+          btnText="OK"
+        />
       }
     </NewsLetterCon>
   )

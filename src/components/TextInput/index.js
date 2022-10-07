@@ -25,9 +25,7 @@ const InputText = ({label, value, onChangeText, placeholder, id, disabled, error
           disabled={disabled}
         />
         {
-          error
-          ? <TextInputError>Error text Error text Error text</TextInputError>
-          : null
+          error && <TextInputError>Error text Error text Error text</TextInputError>
         }
       </TextInputArea>
     </TextInputWrap>

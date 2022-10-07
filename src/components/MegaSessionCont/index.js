@@ -113,14 +113,13 @@ const MegaSessionCont = (props)=>{
         </SessionRoomScheduleInner>
       </SessionRoomSchedule>
       {
-        modal
-        ? <Popup
-            modal={modal}
-            setModal={setModal}
-            notify="Please refresh this page at 16:30 <Br />Do you want to refresh"
-            btnText="OK"
-          />
-        : null
+        modal &&
+        <Popup
+          modal={modal}
+          setModal={setModal}
+          notify="Please refresh this page at 16:30 <Br />Do you want to refresh"
+          btnText="OK"
+        />
       }
     </>
 

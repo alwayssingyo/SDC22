@@ -135,42 +135,37 @@ const CardSession = ({ id, col, border, image, title, discription, bookmark, vid
               <CardInfo className='Text'>
                 <CardText>{discription}</CardText>
                 {
-                  tag
-                  ? <CardTagWrap ref={tagWrapRef}>
-                      <div className='tag_inner' ref={tagInner}>
-                        {
-                          tagData&&tagData.map((item, idx)=>(
-                            <CardTag key={idx}>{item}</CardTag>
-                          ))
-                        }
-                        <CardMore className={tag.length > 2 ? 'is-active' : null}>+ {tag.length - tagData.length}</CardMore>
-                      </div>
-                    </CardTagWrap>
-                  : null
+                  tag &&
+                  <CardTagWrap ref={tagWrapRef}>
+                    <div className='tag_inner' ref={tagInner}>
+                      {
+                        tagData&&tagData.map((item, idx)=>(
+                          <CardTag key={idx}>{item}</CardTag>
+                        ))
+                      }
+                      <CardMore className={tag.length > 2 ? 'is-active' : null}>+ {tag.length - tagData.length}</CardMore>
+                    </div>
+                  </CardTagWrap>
                 }
               </CardInfo>
 
               {
-                type
+                type &&
+                phase2 || phase3
                 ?
-                  phase2 || phase3
-                  ?
-                    type === "LIVE"
-                    /* LIVE On is provided only in 3 (live red tag on the first card is a sample)  */
-                    ? <CardType className={ isLive ? 'onLive' : '' }><CardTypeInner className='inner'><span className='tag'>{type}</span></CardTypeInner></CardType>
-                    : <CardType className={ isLive ? 'onLive' : '' }><CardTypeInner className='inner'><span className='tag'>{type}</span></CardTypeInner></CardType>
-                  : <CardType ><CardTypeInner className='inner'><span className='tag'>{type}</span></CardTypeInner></CardType>
-
-                : null
+                  type === "LIVE"
+                  /* LIVE On is provided only in 3 (live red tag on the first card is a sample)  */
+                  ? <CardType className={ isLive ? 'onLive' : '' }><CardTypeInner className='inner'><span className='tag'>{type}</span></CardTypeInner></CardType>
+                  : <CardType className={ isLive ? 'onLive' : '' }><CardTypeInner className='inner'><span className='tag'>{type}</span></CardTypeInner></CardType>
+                : <CardType ><CardTypeInner className='inner'><span className='tag'>{type}</span></CardTypeInner></CardType>
               }
             </Link>
 
             {
-              bookmark
-              ? <CardBookmark>
-                  <BookmarkToggleItem setModal={setModal} setModalFalse={setModalFalse} tooltipOpen={tooltipOpen} setTooltipOpen={setTooltipOpen}/>
-                </CardBookmark>
-              : null
+              bookmark && 
+              <CardBookmark>
+                <BookmarkToggleItem setModal={setModal} setModalFalse={setModalFalse} tooltipOpen={tooltipOpen} setTooltipOpen={setTooltipOpen}/>
+              </CardBookmark>
             }
 
             {/* Bookmark tooltip */}

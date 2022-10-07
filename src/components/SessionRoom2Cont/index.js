@@ -53,15 +53,14 @@ const SessionRoom2Cont = (props)=>{
         }
         <KeynoteContText className={ props.session ? 'KeynoteContText is-session' : 'KeynoteContText' }>
           {
-            props.released && !props.vodOpen // 라이브 오픈 후, vod 업로드 이전
-            ? <KeynoteBadgeWrap>
-                <KeynoteBadge>
-                  <div className='inner'>
-                    <span className='tag'>LIVE</span>
-                  </div>
-                </KeynoteBadge>
-              </KeynoteBadgeWrap>
-            : ''
+            props.released && !props.vodOpen && // 라이브 오픈 후, vod 업로드 이전
+            <KeynoteBadgeWrap>
+              <KeynoteBadge>
+                <div className='inner'>
+                  <span className='tag'>LIVE</span>
+                </div>
+              </KeynoteBadge>
+            </KeynoteBadgeWrap>
           }
           <KeynoteContTitle className='KeynoteContTitle'>
             <div className='title'>{props.title}</div>

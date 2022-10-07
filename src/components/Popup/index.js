@@ -20,16 +20,11 @@ const Popup = ({modal, setModal, version, title, desc, CloseText, btnText, linkT
 					<PopupDesc>
 						{desc}
 						{
-							link
-							?	<a href={link} className="link">{linkText}</a>
-							: null
+							link && <a href={link} className="link">{linkText}</a>
 						}
 					</PopupDesc>
 					{
-						notify
-						?<PopupOnlyNoti className="noti" dangerouslySetInnerHTML={{ __html : notify }} />
-						: null
-						
+						notify && <PopupOnlyNoti className="noti" dangerouslySetInnerHTML={{ __html : notify }} />
 					}
 					{
 						version === 'alert' // Alert popup case

@@ -270,41 +270,38 @@ const KeynoteCont = (props)=>{
         }
 
         {
-          props.session
-          ?<>
-              {/* On the session detail page, use the Sessiondesc component instead of the KeynoteContDesc*/}
-              <SessionDesc ref={ref} className={more ? 'SessionDesc is-appended' : 'SessionDesc'} dangerouslySetInnerHTML={{ __html : props.desc }} />
-              {/* More button in sessionDetail page */}
-              <KeynotebtnWrap className={btnBlock ? 'block' : ''}>
-                <KeynoteMore onClick={textHandler} className={  more ? 'is-appended' : ''}>
-                  { more ? "Less" : "More" }
-                </KeynoteMore>
-              </KeynotebtnWrap>
-            </>
-          : null
+          props.session &&
+          <>
+            {/* On the session detail page, use the Sessiondesc component instead of the KeynoteContDesc*/}
+            <SessionDesc ref={ref} className={more ? 'SessionDesc is-appended' : 'SessionDesc'} dangerouslySetInnerHTML={{ __html : props.desc }} />
+            {/* More button in sessionDetail page */}
+            <KeynotebtnWrap className={btnBlock ? 'block' : ''}>
+              <KeynoteMore onClick={textHandler} className={  more ? 'is-appended' : ''}>
+                { more ? "Less" : "More" }
+              </KeynoteMore>
+            </KeynotebtnWrap>
+          </>
         }
 				<KeynoteContText className={ props.session ? 'KeynoteContText is-session' : 'KeynoteContText' }>
           {
-            !props.session && props.released && !props.vodOpen // 라이브 오픈 후, vod 업로드 이전
-            ? <KeynoteBadgeWrap>
-                <KeynoteBadge>
-                  <div className='inner'>
-                    <span className='tag'>LIVE</span>
-                  </div>
-                </KeynoteBadge>
-              </KeynoteBadgeWrap>
-            : ''
+            !props.session && props.released && !props.vodOpen && // 라이브 오픈 후, vod 업로드 이전
+            <KeynoteBadgeWrap>
+              <KeynoteBadge>
+                <div className='inner'>
+                  <span className='tag'>LIVE</span>
+                </div>
+              </KeynoteBadge>
+            </KeynoteBadgeWrap>
           }
 					<KeynoteContTitle className='KeynoteContTitle'>
 						<div className='title'>{props.title}</div>
               <div className='btn'>
                 {/* Like button in sessionDetail page */}
                 {
-                  props.session
-                  ? <KeynoteContLike onClick={likeHandler} className={like ? 'is-active' : ''}>
-                      <KeynoteContLikeTooltip className='like_tooltip'>Was this helpful?</KeynoteContLikeTooltip>
-                    </KeynoteContLike>
-                  : null
+                  props.session &&
+                  <KeynoteContLike onClick={likeHandler} className={like ? 'is-active' : ''}>
+                    <KeynoteContLikeTooltip className='like_tooltip'>Was this helpful?</KeynoteContLikeTooltip>
+                  </KeynoteContLike>
                 }
                 <BookmarkToggleItem setModal={setModal} setModalFalse={setModalFalse} tooltipOpen={tooltipOpen} setTooltipOpen={setTooltipOpen}/>
                 {/* Bookmark tooltip */}
@@ -316,7 +313,7 @@ const KeynoteCont = (props)=>{
               {/* Use in sessionDetail page */}
                 <div className='tag_wrap'>
                 {
-                  props.type ? <KeynoteContType className={props.released ? 'released' : ''}><span>{props.type}</span></KeynoteContType> : null
+                  props.type && <KeynoteContType className={props.released ? 'released' : ''}><span>{props.type}</span></KeynoteContType>
                 }
                 {
                   TagData && TagData.map((item,idx)=>(
@@ -327,16 +324,13 @@ const KeynoteCont = (props)=>{
 					  </KeynoteContTitle>
 					  <KeynoteContDesc className='KeynoteContDesc' dangerouslySetInnerHTML={{ __html : props.desc }} />
             {
-              phase4
-              ? ''
-              :
+              !phase4 &&
               <KeynoteContLink  className='KeynoteContLink' href="https://www.youtube.com/watch?v=ElMqHkG26sM&list=PL7PfK8Mp1rLHOrUvW_v9h12pd7TFOXMEL&index=2" target="_blank">Watch last year's Keynote</KeynoteContLink>
             }
 
             {
-              props.session || !phase4
-              ? ''
-              :<>
+              !props.session && phase4 &&
+              <>
                 <KeynoteTimeStampTitle>Chapter</KeynoteTimeStampTitle>
                 <KeynoteTimeStamp>
                     <KeynoteTimeStampWrap className={ nextSlide !== 0 ? 'timestampe not-first' : 'timestampe' } >

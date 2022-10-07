@@ -1,0 +1,164 @@
+$black: #1e1e1e;
+$white: #fff;
+
+@mixin button-color($color) {
+  background-color: $color;
+
+  &:hover:not([disabled]):not(.disabled) {
+    @if ($color == $black) {
+      background-color: #555;
+    } @else if ($color == $white) {
+      background-color: #ddd;
+    }
+  }
+
+  &:active:not([disabled]):not(.disabled) {
+    background-color: darken($color, 10%);
+  }
+
+  &.outline {
+    color: #1e1e1e;
+    background-color: transparent;
+    border: 1px solid #1e1e1e;
+
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+    @if ($color == $black) {
+      background-color: #ddd;
+      color: #aaa;
+    }
+    @if ($color == $white) {
+      background-color: #555;
+      color: #8f8f8f;
+    }
+  }
+
+  &.disabled {
+    cursor: default;
+    @if ($color == $black) {
+      background-color: #ddd;
+      color: #aaa;
+    }
+    @if ($color == $white) {
+      background-color: #555;
+      color: #8f8f8f;
+    }
+  }
+}
+
+
+.Button,.Link, .aLink {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 200px;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+	font-family: 'SamsungOne-700';
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  &.large {
+    height: 4em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    font-size: 1.25em;
+  }
+
+  &.medium {
+    height: 2.988em;
+    padding-left: 1.3em;
+    padding-right: 1.3em;
+    font-size: 1.15em;
+  }
+
+  &.small {
+    height: 1.75em;
+    font-size: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  height: 2.988em;
+  padding-left: 1.3em;
+  padding-right: 1.3em;
+  font-size: 1.15em;
+
+  &.black {
+    @include button-color($black);
+  }
+
+  &.white {
+    color: #000;
+    @include button-color($white);
+  }
+
+  &.border {
+    color: #000;
+    border: solid 1px #1e1e1e;
+    @include button-color($white);
+    &:disabled,
+    &.disabled {
+      opacity: 0.4;
+    }
+  }
+
+  &.borderWhite {
+    color: #fff;
+    border: solid 1px #fff;
+    &:hover:not([disabled]):not(.disabled) {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    &:disabled,
+    &.disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+  }
+
+  &.borderGray {
+    color: #000;
+    border: solid 1px #dcdcdc;
+    &:hover:not([disabled]):not(.disabled) {
+      background-color: rgba(54, 54, 54, 0.1);
+    }
+    &:disabled,
+    &.disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+  }
+
+  &+& {
+    margin-left: 1em;
+  }
+
+  &.fullWidth {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    justify-content: center;
+
+    & + & {
+      margin-left: 0;
+      margin-top: 1em;
+    }
+  }
+
+  @media screen and (max-width: 768px){
+    min-width: 180px;
+
+    &.medium {
+      height: 2.88em;
+      font-size: 1em;
+    }
+  }
+}

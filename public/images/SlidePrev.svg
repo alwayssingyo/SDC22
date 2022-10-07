@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <clipPath id="h4vezd3e5a">
+            <path d="M2470 0v1832H0V0h2470z"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#h4vezd3e5a)" transform="translate(-687 -1109)">
+        <path d="m717 1111-20 18 19.15 18" stroke="#000" stroke-width="2" fill="none" stroke-linecap="square" stroke-miterlimit="10" opacity="60%"/>
+    </g>
+</svg>

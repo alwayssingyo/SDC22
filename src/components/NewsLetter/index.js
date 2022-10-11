@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
 import { NewsLetterCon, NewsLetterInner, NewsLetterTitle, NewsLetterSubtitle, NewsLetterInnerContent, NewsLetterInput,NewsLetterAgree, LinkArea } from './NewsLetterElement';
 import InputText from '../TextInput';
 import CheckBox from '../Checkbox';
@@ -27,7 +26,7 @@ const NewsLetter = ()=>{
             <InputText label="Last Name" placeholder="Last Name" id="Lastt Name"/>
           </NewsLetterInput>
           <NewsLetterAgree>
-            <CheckBox id={"chkAgree"}/><span className='text'>I agree that Samsung Developers may use the data given by me for the newsletter.</span><a href="https://developer.samsung.com/privacy?lang=en" target="_blank">Detail</a>
+            <CheckBox id={"chkAgree"}/><span className='text'>I agree that Samsung Developers may use the data given by me for the newsletter.</span><a href="https://developer.samsung.com/privacy?lang=en" target="_blank" rel="noopener noreferrer">Detail</a>
           </NewsLetterAgree>
           <LinkArea>
             <Button color="black" size="medium" onClick={openPopup}>Subscribe</Button>

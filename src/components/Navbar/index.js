@@ -8,17 +8,13 @@ import Arrow from './NavArrow'
 
 const Navbar = ()=>{
 
+	//phase3 유무 체크
+	const [phase3, setPhase3] = useState(false);
+	//phase4 유무 체크
+	const [phase4, setPhase4] = useState(false);
+
 	//session dropdown controll
 	const [dropdownOpen, setDropdownOpen] = useState(false);
-
-
-	const dropdownOpenHandler = ()=>{
-		setDropdownOpen(true);
-	}
-
-	const dropdownCloseHandler = ()=>{
-		setDropdownOpen(false);
-	}
 
 	//side menu controll
 	const [sideMenu, setSideMenu] = useState(false);
@@ -35,19 +31,14 @@ const Navbar = ()=>{
 
   };
 
-  const [color, setColor] = useState('black');
 	const locationObj = useLocation();
-
-	//phase3 유무 체크
-	const [phase3, setPhase3] = useState(false);
-	//phase4 유무 체크
-	const [phase4, setPhase4] = useState(false);
+  const [color, setColor] = useState('black');
 	const [scrollVal, setScrollVal] = useState(0);
 
 	//check color version
 	const checkColor = useCallback( ()=>{
 		// phase에 따라 스크롤 양 계산
-		if( phase3 === true || phase4 == true ){
+		if( phase3 || phase4 ){
 			setScrollVal(1);
 		}else {
 			setScrollVal(2);
@@ -58,7 +49,7 @@ const Navbar = ()=>{
 		}else {
 			setColor("black");
 		}
-	},[phase3, scrollVal]);
+	},[phase3, phase4, scrollVal]);
 
   useEffect(()=>{
 		//Other page
@@ -67,16 +58,10 @@ const Navbar = ()=>{
 		//Main
 		}else {
 			checkColor();
+
+			//Only main page has scroll event
+			window.addEventListener('scroll', checkColor);
 		}
-	}, [locationObj, checkColor])
-
-
-  useEffect(()=>{
-		//Not main return
-		if (locationObj.pathname !== '/') return
-
-		//Only main page has scroll event
-		window.addEventListener('scroll', checkColor);
 
 		return () => window.removeEventListener('scroll', checkColor);
 	}, [locationObj, checkColor])
@@ -98,11 +83,13 @@ const Navbar = ()=>{
 						color={color}
 						className={ locationObj.pathname === '/liveTech' || locationObj.pathname === '/speaker' ? 'is-selected' : '' }
 					>
-						<button onMouseEnter={dropdownOpenHandler} onMouseLeave={dropdownCloseHandler}>Sessions<NavArrow open={dropdownOpen}><Arrow fill={color === 'black' ? '#fff' : locationObj.pathname === '/liveTech' || locationObj.pathname === '/speaker' ? "#2088fd" : '#000'} opacity="0.8"/></NavArrow>
+						<button onMouseEnter={()=>{setDropdownOpen(true)}} onMouseLeave={()=>{setDropdownOpen(false)}}>
+							Sessions
+							<NavArrow open={dropdownOpen}><Arrow fill={color === 'black' ? '#fff' : locationObj.pathname === '/liveTech' || locationObj.pathname === '/speaker' ? "#2088fd" : '#000'} opacity="0.8"/></NavArrow>
 							<NavDropdown open={dropdownOpen} color={color}>
 								<div className='inner'>
-									<NavDropdownLink color={color}><Link to="/liveTech" onClick={dropdownCloseHandler}>Tech Sessions</Link></NavDropdownLink>
-									<NavDropdownLink color={color}><Link to="/speaker" onClick={dropdownCloseHandler}>Speakers</Link></NavDropdownLink>
+									<NavDropdownLink color={color}><Link to="/liveTech" onClick={()=>{setDropdownOpen(false)}}>Tech Sessions</Link></NavDropdownLink>
+									<NavDropdownLink color={color}><Link to="/speaker" onClick={()=>{setDropdownOpen(false)}}>Speakers</Link></NavDropdownLink>
 								</div>
 							</NavDropdown>
 						</button>

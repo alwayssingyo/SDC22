@@ -34,6 +34,7 @@ const MainHero = ()=>{
 	const tlText1 = useRef();
 	const tlText2 = useRef();
 
+	// text interaction
 	useLayoutEffect(()=>{
 
     gsap.registerPlugin(ScrollTrigger);
@@ -80,7 +81,7 @@ const MainHero = ()=>{
 			tl.current.kill();
 			tlFirst.current.kill();
 		}
-	}, []);
+	}, [phase3, phase4]);
 
 	// 26일 이후로 d-day 기준 date 설정
 	const d = new Date();
@@ -100,7 +101,8 @@ const MainHero = ()=>{
 		standardTime: 100,
 	});
 
-	const dDay = ()=>{
+	// d-day 계산
+	const dDay = useCallback(()=>{
 		const currentTime = new Date().getTime();
 		const distanceToDate = countdownDate - currentTime;
 
@@ -109,9 +111,10 @@ const MainHero = ()=>{
 		days = `${days + 1}`;
 
 		setDayState({ days: days });
-	}
+	}, [countdownDate]);
 
-	const dDayTime = ()=>{
+	// 24시간 이내 남았을 경우 남은 시간 계산
+	const dDayTime = useCallback(()=>{
 		const currentTime = new Date().getTime();
 		const distanceToDate = countdownTime - currentTime;
 
@@ -130,19 +133,10 @@ const MainHero = ()=>{
 		seconds = `${seconds}`;
 
 		setTimeState({ hours: hours, minutes, seconds, standardTime: standardTime});
-	}
+	},[countdownTime]);
 
-	//Countdown
+	//Countdown interactions
 	useLayoutEffect(() => {
-		//D-day 계산
-		if (countdownDate) {
-			dDay();
-		}
-		//남은 시간 계산
-		if (countdownTime) {
-			dDayTime();
-		}
-
     setInterval(() => {
 			//D-day 계산
 			if (countdownDate) {
@@ -153,7 +147,7 @@ const MainHero = ()=>{
 				dDayTime();
 			}
 		}, 1000);
-  }, [countdownDate, countdownTime]);
+  }, [countdownDate, countdownTime, dDay, dDayTime]);
 
 	// PC, MO 체크
 	const [isDesktop, setDesktop] = useState(window.innerWidth > 769);
@@ -193,6 +187,7 @@ const MainHero = ()=>{
 	const [odometerValue, setOdometerValue] = useState(0);
 	const [over, setOver] = useState(false);
 
+	//days flip animation
 	useLayoutEffect(()=>{
 		if( phase3 === true || phase4 === true ){
 			return
@@ -201,15 +196,16 @@ const MainHero = ()=>{
 		if( over === true ){
 			setOdometerValue(dayState.days || '0');
 		}
-	},[over])
+	},[phase3, phase4, over, dayState.days])
 
+	//히어로 상단에서 일정 스크롤 이상 스크롤시 액션 시작
 	const checkScroll = useCallback(()=>{
 		if( window.scrollY > 500 ){
 			if( over === false ){
 				setOver(true);
 			}
 		}
-	},[])
+	},[over])
 
   useLayoutEffect(() => {
 		if( phase3 === true || phase4 === true ){
@@ -219,46 +215,41 @@ const MainHero = ()=>{
 		window.addEventListener('scroll', checkScroll);
 
 		return () => window.removeEventListener('scroll', checkScroll);
-	},[checkScroll]);
+	},[phase3, phase4, checkScroll]);
 
-	/* Hero Motion */
-	const keys = {37: 1, 38: 1, 39: 1, 40: 1};
+	
+	/* Hero snap motion */
 	const preventDefault = (e) => {
 		e.preventDefault();
 		return false;
 	}
-	const preventDefaultForScrollKeys = (e) => {
+
+	const preventDefaultForScrollKeys = useCallback((e) => {
+		const keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
 		if (keys[e.keyCode]) {
 			preventDefault(e);
 			return false;
 		}
-	}
+	},[]);
 	
-	// call this to Disable
-	const disableScroll = () => {
+  //Snap Action
+	const goToSection = useCallback((i) => {
+		gsap.registerPlugin(ScrollToPlugin);
+
+		const onSlideChangeEnd = () => {
+			// call this to Enable
+			window.removeEventListener('DOMMouseScroll', preventDefault, false);
+			window.removeEventListener('mousewheel', preventDefault);
+			window.removeEventListener('touchmove', preventDefault);
+			window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+		}
+
+		// call this to Disable
 		window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
 		window.addEventListener('mousewheel', preventDefault); // modern desktop
 		window.addEventListener('touchmove', preventDefault); // mobile
 		window.addEventListener('keydown', preventDefaultForScrollKeys, false);
-	}
-	
-	// call this to Enable
-	const enableScroll = () => {
-		window.removeEventListener('DOMMouseScroll', preventDefault, false);
-		window.removeEventListener('mousewheel', preventDefault);
-		window.removeEventListener('touchmove', preventDefault);
-		window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
-	}
-
-	const onSlideChangeEnd = () => {
-		enableScroll()
-	}
-	
-  //Snap Action
-	const goToSection = (i) => {
-		disableScroll();
-
-		gsap.registerPlugin(ScrollToPlugin);
 
 		gsap.to(window, {
 			scrollTo: { y: i * window.innerHeight, autoKill: false },
@@ -266,7 +257,7 @@ const MainHero = ()=>{
 			ease: "Power4.easeOut",
 			onComplete: onSlideChangeEnd,
 		});
-  }
+  },[preventDefaultForScrollKeys]);
 
 	useLayoutEffect(()=>{
 		if( phase3 || phase4 ){
@@ -279,7 +270,7 @@ const MainHero = ()=>{
       scrollTrigger: {
         trigger: '.hero_intro_text',
 				start: "1% top",
-        onEnter: () => goToSection(1)
+        onEnter: () => goToSection(1) // snap to naxt sction
       }
     })
 
@@ -287,10 +278,10 @@ const MainHero = ()=>{
       scrollTrigger: {
         trigger: '.hero_text',
 				start: "99% top",
-        onEnterBack: () => goToSection(0)
+        onEnterBack: () => goToSection(0) // snap to first sction
       }
     })
-  },[]);
+  },[phase3, phase4, goToSection]);
 
 	// cookie popup
 	const [openPopup, setOpenPopup] = useState(false);
@@ -313,14 +304,13 @@ const MainHero = ()=>{
 				<HeroInner className={ phase3 || phase4 ? 'is-phase3' : '' }>
 					<HeroDim className='hero_dim'/>
 						<ReactPlayer id="video"
-						url={video_source}
-						width=''
-						height=''
-						playing={play}
-						playsinline={true}
-						loop={true}
-						muted={true}
-					
+							url={video_source}
+							width=''
+							height=''
+							playing={play}
+							playsinline={true}
+							loop={true}
+							muted={true}
 						/>
 					<HeroContent>
 						<HeroIntroText className='hero_intro_text'>
@@ -395,6 +385,7 @@ const MainHero = ()=>{
 										</HeroIntroBtn>
 									</>
 								}
+								{/* phase4 버튼  */}
 								{
 									phase4 &&
 									<>

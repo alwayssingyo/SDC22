@@ -145,7 +145,6 @@ const ScheduleCont = ()=>{
 
   // gsap interaction
 	const tl = useRef();
-  const tabRef = useRef();
 	const gridRef = useRef();
 
   const [tab, setTab] = useState(false);
@@ -301,7 +300,7 @@ const ScheduleCont = ()=>{
             </ScheduleWrap>
           </TabPanel>
           {/* On-Site Tab */}
-          <TabPanel ref={tabRef}>
+          <TabPanel>
             <ScheduleWrap ref={gridRef}>
               <ScheduleGrid className='on-site'>
                 <div className='index'>

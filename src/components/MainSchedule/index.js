@@ -6,14 +6,7 @@ import ButtonLink from '../ButtonLink';
 const MainSchedule = ()=>{
 	//phase4 유무 체크
 	const [phase4, setPhase4] = useState(false);
-
-	const hoverEnter = (e) => {
-		e.target.closest('.item').classList.add('is-active');
-	}
-	const hoverLeave = (e) => {
-		e.target.closest('.item').classList.remove('is-active');
-	}
-
+	
 	return (
 		<>
 			{

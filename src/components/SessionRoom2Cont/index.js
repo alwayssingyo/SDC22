@@ -1,18 +1,11 @@
-import React, {useState, useEffect, useRef} from 'react';
-import Slider from 'react-slick';
+import React, {useRef} from 'react';
 import { KeynoteContContainer, KeynoteContInner, KeynoteContVideo, KeynoteContSoon, KeynoteContText, KeynoteContTitle, KeynoteContDesc, KeynoteBadge, KeynoteBadgeWrap } from '../KeynoteCont/KeynoteContElements';
-import { SessionRoomNoti, SessionRoomSchedule, RoomScheduleGrid, SessionRoomScheduleInner, RoomTitle, RoomScheduleBox, RoomScheduleInner, RoomScheduleTime, RoomScheduleTitle, RoomScheduleWrap } from './../SessionRoomCont/SessionRoomContElement';
+import { SessionRoomNoti, SessionRoomSchedule, RoomScheduleGrid, SessionRoomScheduleInner, RoomTitle, RoomScheduleBox, RoomScheduleInner, RoomScheduleTitle, RoomScheduleWrap } from './../SessionRoomCont/SessionRoomContElement';
 import  ReactPlayer  from  'react-player/lazy'
 import { Link } from 'react-router-dom';
 
 
 const SessionRoom2Cont = (props)=>{
-	//phase4 유무 체크
-	const [phase4, setPhase4] = useState(false);
-
-
-
-  const ref = useRef(null);
 
   const playerRef = useRef(null);
 
@@ -71,15 +64,10 @@ const SessionRoom2Cont = (props)=>{
       </KeynoteContInner>
     </KeynoteContContainer>
   
-    {
-      /* SessionRoomSchedule */
-    }
+    {/* SessionRoomSchedule */}
     <SessionRoomSchedule>
       <SessionRoomScheduleInner>
         <RoomTitle>Schedule</RoomTitle>
-        {
-          /* RoomScheduleWra */
-        }
 
         <RoomScheduleWrap>
           <RoomScheduleInner>

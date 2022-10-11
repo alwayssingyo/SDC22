@@ -163,7 +163,7 @@ const MainIntro = ()=>{
 			}
 			ScrollTrigger.clearMatchMedia();
 		}
-	}, [q, textQ]);
+	}, [phase3, q, textQ]);
 
 	//Go to Sign Up
 	const goToPage = ()=>{

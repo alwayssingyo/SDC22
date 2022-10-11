@@ -1,6 +1,5 @@
 import React,{useLayoutEffect, useRef} from 'react';
 import {gsap} from 'gsap';
-// import { ScrollTrigger } from 'gsap/all';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { PopupSurveyContainer, PopupSurveyInner } from './PopupSurveyElement';
 import { PopupClose } from '../Popup/PopupElements';
@@ -13,7 +12,6 @@ const PopupSurvey = ({setOpenSurvey})=>{
 
   const closePopup = () => {
     setOpenSurvey(false);
-    document.body.style.overflow = "auto";
   }
 
   useLayoutEffect( () => {
@@ -37,7 +35,7 @@ const PopupSurvey = ({setOpenSurvey})=>{
         <p>Make a moment to tell us your experience</p>
         <ALink className='btn' href="https://www.samsungdeveloperconference.com/" color="border" size="medium" fullWidth={true} rel="noopener noreferrer">Go to survey</ALink>
         <PopupClose onClick={closePopup}></PopupClose>
-        </PopupSurveyInner>
+      </PopupSurveyInner>
     </PopupSurveyContainer>
   )
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { Support, SupportWrap, SupportInner, SupportTitle, SupportBanner, SupportBannerTitle, SupportBannerInner, SupportItem, SupportItemTitle } from './SupportContElements';
 import Accordion from '../Accordion';
@@ -8,9 +7,7 @@ import Banner from '../Banner';
 
 
 const SupportCont = ()=> {
-  const [index, setIndex] = useState(0);
   const [phase4, setPhase4] = useState(false);
-
 
 	return (
     <Support>
@@ -167,16 +164,15 @@ const SupportCont = ()=> {
                 />
               </SupportItem>
               {
-                !phase4?               <SupportItem>
-                <SupportItemTitle>Hotel Reservations</SupportItemTitle>
-                <Accordion
-                title="Could you help me with a hotel reservation for SDC22?"
-                content="We are pleased to help you for a hotel reservation. Please note that all rooms are available on a first-come, first-served basis and we encourage you to act quickly if you are still in need of accommodations. <a href=mailto:test@test.com target='_blank' rel='noopener noreferrer'>Request hotel reservations now.</a>"
-                />
-              </SupportItem>
-              : null
-
-              }
+                !phase4 &&
+                  <SupportItem>
+                    <SupportItemTitle>Hotel Reservations</SupportItemTitle>
+                    <Accordion
+                    title="Could you help me with a hotel reservation for SDC22?"
+                    content="We are pleased to help you for a hotel reservation. Please note that all rooms are available on a first-come, first-served basis and we encourage you to act quickly if you are still in need of accommodations. <a href=mailto:test@test.com target='_blank' rel='noopener noreferrer'>Request hotel reservations now.</a>"
+                    />
+                  </SupportItem>
+                }
             </SupportInner>
 
           </SupportWrap>

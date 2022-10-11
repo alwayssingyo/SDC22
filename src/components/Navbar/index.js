@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { NavContainer, NavInner, NavButton, NavTitle, NavMenu, NavLink, NavDropdown, NavDropdownLink, NavArrow, NavRight } from './NavbarElements';
 import SideMenu from '../SideMenu'
 import NavLogo from './NavLogo'
-import Btn from './NavButton'
 import Arrow from './NavArrow'
 
 const Navbar = ()=>{

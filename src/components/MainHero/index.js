@@ -82,12 +82,17 @@ const MainHero = ()=>{
 		}
 	}, []);
 
-	const [countdownDate] = useState(new Date(2022, 9, 12).getTime()); // 2022년 10월 12일
+	// 26일 이후로 d-day 기준 date 설정
+	const d = new Date();
+	const day = d.getDate();
+	const targetDate = new Date(new Date().setDate(day + 26))
+
+	const [countdownDate] = useState(targetDate.getTime());
 	const [dayState, setDayState] = useState({
 		days: 0
 	});
 
-	const [countdownTime] = useState(new Date(2022, 9, 12, 10, 0, 0).getTime()); // 2022년 10월 12일 오전 10시
+	const [countdownTime] = useState(targetDate.getTime());
 	const [timeState, setTimeState] = useState({
 		hours: 0,
 		minutes: 0,

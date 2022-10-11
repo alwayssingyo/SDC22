@@ -78,30 +78,28 @@ const MypageActivity = ()=>{
 	return (
     <ActivityContainer>
       <ActivityInner>
-
-        {/* 북마크 저장 내역이 있는 경우 */}
-        <Section title="My Activities">
-          <SectionSubtext>Bookmarked</SectionSubtext>
-          <SectionWrap>
-            {
-              SessionData.map((item, idx)=>(
-                <CardSession key={idx} id={item.id} col="col-3" title={item.title} date={item.date} discription={item.discription} image={item.picture} bookmark={true} tag={item.tag} type={item.type} setModal={setModal} setModalFalse={setModalFalse}/>
-              ))
-            }
-          </SectionWrap>
-        </Section>
-
-        {/* 북마크 저장 내역이 없는 경우 */}
-        {/* <Section title="My Activities">
-          <ActivityNodata>
-            <NodataTitle>You have no saved bookmark.</NodataTitle>
-            <NodataLink><Link to='/liveTech'>View Sessions</Link></NodataLink>
-          </ActivityNodata>
-        </Section> */}
-
-        {/* 북마크 저장 내역이 있는 경우에만 활성화 */}
-        <MoreButton><Button color="white" size="medium" outline="outline">More</Button></MoreButton>
-        
+        {
+          SessionData.length > 0
+          ? <>
+              <Section title="My Activities">
+                <SectionSubtext>Bookmarked</SectionSubtext>
+                <SectionWrap>
+                  {
+                    SessionData.map((item, idx)=>(
+                      <CardSession key={idx} id={item.id} col="col-3" title={item.title} date={item.date} discription={item.discription} image={item.picture} bookmark={true} tag={item.tag} type={item.type} setModal={setModal} setModalFalse={setModalFalse}/>
+                    ))
+                  }
+                </SectionWrap>
+              </Section>
+              <MoreButton><Button color="white" size="medium" outline="outline">More</Button></MoreButton>
+            </>
+          : <Section title="My Activities">
+              <ActivityNodata>
+                <NodataTitle>You have no saved bookmark.</NodataTitle>
+                <NodataLink><Link to='/liveTech'>View Sessions</Link></NodataLink>
+              </ActivityNodata>
+            </Section>
+        }
       </ActivityInner>
 
       {/* toast popup */}

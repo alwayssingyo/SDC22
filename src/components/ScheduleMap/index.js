@@ -16,7 +16,7 @@ const ScheduleMap = ()=>{
               </MapDesc>
             </MapText>
             <MapImage>
-              <img src={process.env.PUBLIC_URL + '/images/img-map.png'}></img>
+              <img src={process.env.PUBLIC_URL + '/images/img-map.png'} alt=""></img>
             </MapImage>
             <MapLink>
               <Button color="white" size="medium" outline="outline">View Detailed Map</Button>

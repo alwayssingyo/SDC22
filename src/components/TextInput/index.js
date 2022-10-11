@@ -4,7 +4,7 @@ import { TextInputWrap, TextInputLabel, TextInputArea, TextInput, TextInputError
 
 // label: 제목
 // value: 인풋 값
-// onChangeText : 인풋 체인지 이벤트
+// changeText : 인풋 체인지 이벤트
 // placeholder : 헬프 텍스트
 // id : 아이디
 // disabled : 비활성화 체크
@@ -21,7 +21,7 @@ const InputText = ({label, value, onChangeText, placeholder, id, disabled, error
           id={id}
           placeholder={placeholder}
           value={value}
-          onChangeText={onChangeText}
+          onChange={onChangeText}
           disabled={disabled}
         />
         {

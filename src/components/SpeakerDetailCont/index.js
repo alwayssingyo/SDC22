@@ -25,14 +25,14 @@ const SpeakerDetailCont = (props)=>{
         }
       }
     }
-  }, [descRef, btnBlock]);
+  }, [descRef]);
   
   useEffect(()=>{
     descHandler();
 
     window.addEventListener("resize", descHandler);
     return () => window.removeEventListener("resize", descHandler);
-  }, []);
+  }, [descHandler]);
 
   return(
     <SpeakerDetailWrap>

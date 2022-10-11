@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { TermsContContainer, TermsContInner, TermsDropdownGroup, TermsContWrap, TermsContTop, TermsContTitle, TermsItemSubTitle, TermsContVersion,TermsContDesc, TermsContLink, TermsContItem, TermsItemTitle, TermsItemP, TermsItemPtagTitle,  TermsItemLink, TermsContToc, TermsTocInner, TermsTocItem, TermsContListNumber, TermsTable } from '../TermsCont/TermsContElements';
+import { TermsContContainer, TermsContInner, TermsDropdownGroup, TermsContWrap, TermsContTop, TermsContTitle, TermsItemSubTitle ,TermsContDesc, TermsContItem, TermsItemTitle, TermsItemP,  TermsItemLink, TermsContToc, TermsTocInner, TermsTocItem, TermsTable } from '../TermsCont/TermsContElements';
 import Dropdown from '../Dropdown';
 
 const TermPrivacyContKo = ()=>{
@@ -41,64 +40,36 @@ const TermPrivacyContKo = ()=>{
   /*
     language dropdown in privacy page
   */
-  const location = useLocation();
-  const isPrivacyPage = location.pathname.includes('privacy');
-  const hasBtnClass = (route) => {return location.pathname === route ? "hasBtn" : null};
   const dropdownUrl = ["/privacy/lang=ko","/privacy/lang=eu", "/privacy/lang=us", "/privacy/lang=latinAmerica", "/privacy/lang=brazil", "/privacy/lang=turkey"];
   const dropdownBtnText = ["Republic Of Korea","EU", "US", "Latin America", "Brazil", "Turkey"];
   const dropdownBtnTextDate = ["EFFECTIVE : 09/06/2022"];
   const dropdownDateUrl = ["/privacy/lang=ko"];
 
-  //EN
-  // const dropdownBtnTextDate = ["EFFECTIVE : 01/29/2020","11/06/2019 ~ 29/01/2020"];
-  // const dropdownDateUrl = ["/privacy?lang=eu","version=1"];
-  //KOREAN
-  // const dropdownBtnTextDate = ["최종수정 : 2022년 2월 9일","시행일자 : 2021년 1월 1일", "시행일자 : 2020년 10월 30일" ];
-  // const dropdownDateUrl = ["/privacy?lang=ko", "version=1", "version=2"];
-  //CHINESE
-  // const dropdownBtnTextDate = ["生效日期 : 02/15/2022","06/01/2021 ~ 02/14/2022"];
-  // const dropdownDateUrl = ["/privacy?lang=zh", "version=1"];
-  //GLOBAL
-  // const dropdownBtnTextDate = ["EFFECTIVE : 01/29/2020","11/23/2019 ~ 01/29/2020"];
-  // const dropdownDateUrl = ["/privacy?lang=global", "version=1"];
 	return (
     <TermsContContainer>
       <TermsContInner>
         <TermsContWrap>
 
           <TermsContTop>
-          {
-            isPrivacyPage ?  <TermsContTitle>삼성개발자컨퍼런스 (SDC) 개인정보 처리방침</TermsContTitle>
-
-                          :  <TermsContTitle>Samsung Developer Conference<br />Terms & Conditions</TermsContTitle>
-          }
-          {
-            isPrivacyPage ?  ''
-
-                          :  <TermsContVersion><span>Global</span>  EFFECTIVE : 06/09/2022</TermsContVersion>
-          }
-
-            {
-              isPrivacyPage &&
-              <TermsDropdownGroup>
-                <Dropdown
-                  btnText="Republic Of Korea"
-                  url= {dropdownUrl}
-                  itemText = {dropdownBtnText}
-                />
-                <Dropdown
-                  btnText="EFFECTIVE : 09/06/2022"
-                  itemText = {dropdownBtnTextDate}
-                  url= {dropdownDateUrl}
-                />
-              </TermsDropdownGroup>
-
-            }
+            <TermsContTitle>삼성개발자컨퍼런스 (SDC) 개인정보 처리방침</TermsContTitle>
+            <TermsDropdownGroup>
+              <Dropdown
+                btnText="Republic Of Korea"
+                url= {dropdownUrl}
+                itemText = {dropdownBtnText}
+              />
+              <Dropdown
+                btnText="EFFECTIVE : 09/06/2022"
+                itemText = {dropdownBtnTextDate}
+                url= {dropdownDateUrl}
+              />
+            </TermsDropdownGroup>
             <TermsContDesc>
             삼성전자는 사용자의 개인정보를 안전하게 보호하는 것을 가장 중요하게 생각합니다.<br />
             삼성전자는 사용자가 신뢰할 수 있도록, 사용자가 제공한 개인정보를 목적에 따라 적법하게 사용하고, 제공한 개인정보에 대한 사용자의 권리와 선택을 보장하기 위해 최선을 다합니다. 이를 위해 제공된 개인정보가 어떤 목적으로 사용되고, 어떻게 보호되는지, 투명하게 공개합니다. 또한 사용자가 어떤 권리를 갖는지, 그 권리를 어떻게 행사할 수 있는지 자세히 알려드립니다.
             </TermsContDesc>
           </TermsContTop>
+
           <TermsContItem ref={el => (tocRef.current[0] = el)}>
             <TermsItemTitle>1. 개인정보 수집 항목 및 방법</TermsItemTitle>
             <TermsItemSubTitle>(1) 개인정보 수집 항목</TermsItemSubTitle>

@@ -1,7 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { TermsContContainer, TermsContInner, TermsDropdownGroup, TermsContWrap, TermsContTop, TermsContTitle, TermsContVersion,TermsContDesc, TermsContLink, TermsContItem, TermsItemTitle, TermsItemP, TermsItemLink, TermsContToc, TermsTocInner, TermsTocItem } from './TermsContElements';
-import Dropdown from '../Dropdown';
+import { TermsContContainer, TermsContInner, TermsContWrap, TermsContTop, TermsContTitle, TermsContVersion,TermsContDesc, TermsContItem, TermsItemTitle, TermsItemP, TermsItemLink, TermsContToc, TermsTocInner, TermsTocItem } from './TermsContElements';
 
 const TermsCont = ()=>{
   const tocRef = useRef([]);
@@ -41,9 +39,6 @@ const TermsCont = ()=>{
   /*
     language dropdown in privacy page
   */
-  const location = useLocation();
-  const isPrivacyPage = location.pathname.includes('privacy');
-  const hasBtnClass = (route) => {return location.pathname === route ? "hasBtn" : null};
 
 	return (
     <TermsContContainer>
@@ -51,17 +46,8 @@ const TermsCont = ()=>{
         <TermsContWrap>
 
           <TermsContTop>
-          {
-            isPrivacyPage ?  <TermsContTitle>Samsung Developer Conference<br />Privacy Policy</TermsContTitle>
-
-                          :  <TermsContTitle>Samsung Developer Conference<br/>Terms and Conditions </TermsContTitle>
-          }
-          {
-            isPrivacyPage ?  ''
-
-                          :  <TermsContVersion><span>Global EFFECTIVE DATE: September 14. 2022</span></TermsContVersion>
-          }
-
+            <TermsContTitle>Samsung Developer Conference<br/>Terms and Conditions </TermsContTitle>
+            <TermsContVersion><span>Global EFFECTIVE DATE: September 14. 2022</span></TermsContVersion>
             <TermsContDesc>
               Please read all of the following Terms and Conditions carefully. These Terms and Conditions shall govern your use of the Samsung Developer Conference (“SDC”) event website (samsungdeveloperconference.com) and your participation in the SDC, and constitute an agreement between you and Samsung Electronics. Co. Ltd. ("Samsung"). By accessing this website, you agree that you have read, understand and agree to be legally bound by the Terms and Conditions set forth below, including the arbitration provision which provides that all dispute will be resolved by a binding arbitration.  If you are registering on behalf of another individual, it is your responsibility to ensure the person participating is aware of these Terms and Conditions and accepts them. By completing the registration on behalf of another individual you represents and warrants that you have made that person aware of these Terms and Conditions and that they have accepted them.
               <br /><br />

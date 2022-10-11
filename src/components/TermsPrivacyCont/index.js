@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { TermsContContainer, TermsContInner, TermsDropdownGroup, TermsContWrap, TermsContTop, TermsContTitle, TermsContVersion,TermsContDesc, TermsContLink, TermsContItem, TermsItemTitle, TermsItemP, TermsItemLink, TermsContToc, TermsTocInner, TermsTocItem } from '../TermsCont/TermsContElements';
+import { TermsContContainer, TermsContInner, TermsDropdownGroup, TermsContWrap, TermsContTop, TermsContTitle ,TermsContDesc , TermsContItem, TermsItemTitle, TermsItemP, TermsItemLink, TermsContToc, TermsTocInner, TermsTocItem } from '../TermsCont/TermsContElements';
 import Dropdown from '../Dropdown';
 
 const TermPrivacyCont = ()=>{
@@ -41,59 +40,30 @@ const TermPrivacyCont = ()=>{
   /*
     language dropdown in privacy page
   */
-  const location = useLocation();
-  const isPrivacyPage = location.pathname.includes('privacy');
-  const hasBtnClass = (route) => {return location.pathname === route ? "hasBtn" : null};
   const dropdownUrl = ["/privacy/lang=ko","/privacy/lang=eu", "/privacy/lang=us", "/privacy/lang=latinAmerica", "/privacy/lang=brazil", "/privacy/lang=turkey"];
   const dropdownBtnText = ["Republic Of Korea","EU", "US", "Latin America", "Brazil", "Turkey"];
   const dropdownBtnTextDate = ["EFFECTIVE : 09/06/2022", "EFFECTIVE : 01/29/2020"];
   const dropdownDateUrl = ["/privacy/lang=us", "/privacy/lang=us&version=1"];
 
-  //EN
-  // const dropdownBtnTextDate = ["EFFECTIVE : 01/29/2020","11/06/2019 ~ 29/01/2020"];
-  // const dropdownDateUrl = ["/privacy?lang=eu","version=1"];
-  //KOREAN
-  // const dropdownBtnTextDate = ["최종수정 : 2022년 2월 9일","시행일자 : 2021년 1월 1일", "시행일자 : 2020년 10월 30일" ];
-  // const dropdownDateUrl = ["/privacy?lang=ko", "version=1", "version=2"];
-  //CHINESE
-  // const dropdownBtnTextDate = ["生效日期 : 02/15/2022","06/01/2021 ~ 02/14/2022"];
-  // const dropdownDateUrl = ["/privacy?lang=zh", "version=1"];
-  //GLOBAL
-  // const dropdownBtnTextDate = ["EFFECTIVE : 01/29/2020","11/23/2019 ~ 01/29/2020"];
-  // const dropdownDateUrl = ["/privacy?lang=global", "version=1"];
 	return (
     <TermsContContainer>
       <TermsContInner>
         <TermsContWrap>
 
           <TermsContTop>
-          {
-            isPrivacyPage ?  <TermsContTitle>Samsung Developer Conference<br />Privacy Policy</TermsContTitle>
-
-                          :  <TermsContTitle>Samsung Developer Conference<br />Terms & Conditions</TermsContTitle>
-          }
-          {
-            isPrivacyPage ?  ''
-
-                          :  <TermsContVersion><span>Global</span>  EFFECTIVE : 06/09/2022</TermsContVersion>
-          }
-
-            {
-              isPrivacyPage &&
-              <TermsDropdownGroup>
-                <Dropdown
-                  btnText="US"
-                  url= {dropdownUrl}
-                  itemText = {dropdownBtnText}
-                />
-                <Dropdown
-                  btnText="EFFECTIVE : 09/06/2022"
-                  itemText = {dropdownBtnTextDate}
-                  url= {dropdownDateUrl}
-                />
-              </TermsDropdownGroup>
-
-            }
+            <TermsContTitle>Samsung Developer Conference<br />Privacy Policy</TermsContTitle>
+            <TermsDropdownGroup>
+              <Dropdown
+                btnText="US"
+                url= {dropdownUrl}
+                itemText = {dropdownBtnText}
+              />
+              <Dropdown
+                btnText="EFFECTIVE : 09/06/2022"
+                itemText = {dropdownBtnTextDate}
+                url= {dropdownDateUrl}
+              />
+            </TermsDropdownGroup>
             <TermsContDesc>
               Samsung Electronics Co., Ltd. (“<strong>Samsung</strong>,”) knows how important privacy is to its customers and their employees and partners, and we strive to be clear about how we collect, use, disclose, transfer and store your information. This Privacy Policy provides an overview of our information practices with respect to personal information collected through or for the Samsung Developer Conference (the "<strong>Business Services</strong>").
               <br/><br />

@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { TermsContContainer, TermsContInner, TermsDropdownGroup, TermsContWrap, TermsContTop, TermsContTitle, TermsContVersion,TermsContDesc, TermsContLink, TermsContItem, TermsItemTitle, TermsItemP, TermsItemPtagTitle,  TermsItemLink, TermsContToc, TermsTocInner, TermsTocItem, TermsContListNumber, TermsContListAlpha } from '../TermsCont/TermsContElements';
+import { TermsContContainer, TermsContInner, TermsDropdownGroup, TermsContWrap, TermsContTop, TermsContTitle, TermsContDesc, TermsContItem, TermsItemTitle, TermsItemP,  TermsItemLink, TermsContToc, TermsTocInner, TermsTocItem, TermsContListNumber, TermsContListAlpha } from '../TermsCont/TermsContElements';
 import Dropdown from '../Dropdown';
 
 const TermPrivacyContTurkey = ()=>{
@@ -41,59 +40,30 @@ const TermPrivacyContTurkey = ()=>{
   /*
     language dropdown in privacy page
   */
-  const location = useLocation();
-  const isPrivacyPage = location.pathname.includes('privacy');
-  const hasBtnClass = (route) => {return location.pathname === route ? "hasBtn" : null};
   const dropdownUrl = ["/privacy/lang=ko","/privacy/lang=eu", "/privacy/lang=us", "/privacy/lang=latinAmerica", "/privacy/lang=brazil", "/privacy/lang=turkey"];
   const dropdownBtnText = ["Republic Of Korea","EU", "US", "Latin America", "Brazil", "Turkey"];
   const dropdownBtnTextDate = ["EFFECTIVE : 09/06/2022"];
   const dropdownDateUrl = ["/privacy/lang=turkey"];
 
-  //EN
-  // const dropdownBtnTextDate = ["EFFECTIVE : 01/29/2020","11/06/2019 ~ 29/01/2020"];
-  // const dropdownDateUrl = ["/privacy?lang=eu","version=1"];
-  //KOREAN
-  // const dropdownBtnTextDate = ["최종수정 : 2022년 2월 9일","시행일자 : 2021년 1월 1일", "시행일자 : 2020년 10월 30일" ];
-  // const dropdownDateUrl = ["/privacy?lang=ko", "version=1", "version=2"];
-  //CHINESE
-  // const dropdownBtnTextDate = ["生效日期 : 02/15/2022","06/01/2021 ~ 02/14/2022"];
-  // const dropdownDateUrl = ["/privacy?lang=zh", "version=1"];
-  //GLOBAL
-  // const dropdownBtnTextDate = ["EFFECTIVE : 01/29/2020","11/23/2019 ~ 01/29/2020"];
-  // const dropdownDateUrl = ["/privacy?lang=global", "version=1"];
 	return (
     <TermsContContainer>
       <TermsContInner>
         <TermsContWrap>
 
           <TermsContTop>
-          {
-            isPrivacyPage ?  <TermsContTitle>Samsung Developer Conference<br />Privacy Policy</TermsContTitle>
-
-                          :  <TermsContTitle>Samsung Developer Conference<br />Terms & Conditions</TermsContTitle>
-          }
-          {
-            isPrivacyPage ?  ''
-
-                          :  <TermsContVersion><span>Global</span>  EFFECTIVE : 06/09/2022</TermsContVersion>
-          }
-
-            {
-              isPrivacyPage &&
-              <TermsDropdownGroup>
-                <Dropdown
-                  btnText="Turkey"
-                  url= {dropdownUrl}
-                  itemText = {dropdownBtnText}
-                />
-                <Dropdown
-                  btnText="EFFECTIVE : 09/06/2022"
-                  itemText = {dropdownBtnTextDate}
-                  url= {dropdownDateUrl}
-                />
-              </TermsDropdownGroup>
-
-            }
+            <TermsContTitle>Samsung Developer Conference<br />Privacy Policy</TermsContTitle>
+            <TermsDropdownGroup>
+              <Dropdown
+                btnText="Turkey"
+                url= {dropdownUrl}
+                itemText = {dropdownBtnText}
+              />
+              <Dropdown
+                btnText="EFFECTIVE : 09/06/2022"
+                itemText = {dropdownBtnTextDate}
+                url= {dropdownDateUrl}
+              />
+            </TermsDropdownGroup>
             <TermsContDesc>
               Samsung Electronics Co., Ltd. (Data Controller) (<strong>“Samsung”</strong>) knows how important privacy is to its customers and their employees and partners, and we strive to be clear about how we collect, use, disclose, transfer and store your information. The Data Controller Representative of Samsung in Turkey is “Samsung Electronics Istanbul Pazarlama ve Ticaret Ltd. Şti.”. This Privacy Policy (“KVKK Notification Text”) provides an overview of our information practices with respect to personal information collected through or for the Samsung Developer Conference with commercial customers or other services that link or refer to this KVKK Notification Text  (collectively, the <strong>"Business Services"</strong>).  
               Samsung aims to process personal data of the Business Service users in accordance with the international data protection provisions and the provisions of the Law No. 6698 on Protection of Personal Data (the “KVKK- also known as LPPD in English abbreviation”) and other legislation. 
@@ -108,6 +78,7 @@ const TermPrivacyContTurkey = ()=>{
               This KVKK Notification Text may be updated periodically to reflect changes in our personal information practices with respect to the Business Services or changes in the applicable law. We will indicate at the top of this KVKK Notification Text when it was most recently updated. If we update this KVKK Notification Text, we will let you know in advance about changes we consider to be material by placing a notice on the Business Services or by emailing you, where appropriate.
             </TermsContDesc>
           </TermsContTop>
+
           <TermsContItem ref={el => (tocRef.current[0] = el)}>
             <TermsItemTitle>What information do we collect?</TermsItemTitle>
             Samsung shall process your personal data for the purposes and legal grounds specified in this KVKK Notification Text. If there is any change in the purpose for which your personal data are processed or in the legal grounds thereof, this KVKK Notification Text shall be updated and re-published by Samsung.<br /><br />

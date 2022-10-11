@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { SideMenuContainer, SideMenuInner, SideMenuTop, SideMenuLogo, SideMenuBtn, SideMenuCont, SideMenuLink, SideMenu2Deps, SideMenuArrow, SideMenuBottom } from './SideMenuElements';
-import Logo from './NavLogo';
+import { SideMenuContainer, SideMenuInner, SideMenuCont, SideMenuLink, SideMenu2Deps, SideMenuArrow, SideMenuBottom } from './SideMenuElements';
 
 const SideMenu = ({ sideMenu, setSideMenu, pathname })=>{
 

@@ -39,37 +39,36 @@ const MainBlog= ()=>{
 	return (
 		<>
 			{
-				phase4
-				? <BlogContainer>
-						<BlogInner>
-							<BlogTop>
-								<BlogTitle>SDC22 Blogs</BlogTitle>
-								<BlogDesc>
-									Articles to inspire the builder and designer within<br/>
-									<a href="https://developer.samsung.com/blog/en-us" target='_blank' rel='noopener noreferrer'>Go to Samsung Developers Blogs</a>
-								</BlogDesc>
-							</BlogTop>
-							<BlogCont>
-								<CardWrap>
-									{
-										SessionData.map((item, idx)=>(
-											<CardBlog
-												key={idx}
-												id={item.id}
-												title={item.title} 
-												discription={item.discription} 
-												image={item.picture}
-												type={item.type} 
-												tag={item.tag} 
-												link={item.link}
-											/>
-										))
-									}
-								</CardWrap>
-							</BlogCont>
-						</BlogInner>
-					</BlogContainer>
-				: null
+				phase4 &&
+		 		<BlogContainer>
+					<BlogInner>
+						<BlogTop>
+							<BlogTitle>SDC22 Blogs</BlogTitle>
+							<BlogDesc>
+								Articles to inspire the builder and designer within<br/>
+								<a href="https://developer.samsung.com/blog/en-us" target='_blank' rel='noopener noreferrer'>Go to Samsung Developers Blogs</a>
+							</BlogDesc>
+						</BlogTop>
+						<BlogCont>
+							<CardWrap>
+								{
+									SessionData.map((item, idx)=>(
+										<CardBlog
+											key={idx}
+											id={item.id}
+											title={item.title} 
+											discription={item.discription} 
+											image={item.picture}
+											type={item.type} 
+											tag={item.tag} 
+											link={item.link}
+										/>
+									))
+								}
+							</CardWrap>
+						</BlogCont>
+					</BlogInner>
+				</BlogContainer>
 			}
 		</>
 	)

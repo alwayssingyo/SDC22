@@ -1,5 +1,5 @@
 import React from 'react';
-import { PopupContainer, PopupInner, PopupTitle, PopupDesc, PopupBottom, PopupBtnLeft, PopupBtnRight, PopupBtn, PopupClose, PopupOnlyNoti } from './PopupElements';
+import { PopupContainer, PopupInner, PopupTitle, PopupDesc, PopupBottom, PopupBtnLeft, PopupBtnRight, PopupBtn, PopupOnlyNoti } from './PopupElements';
 import Button from '../Button';
 
 const Popup = ({modal, setModal, version, title, desc, CloseText, btnText, linkText, link, notify })=>{

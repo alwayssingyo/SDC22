@@ -6,7 +6,6 @@ import MainSessionContent from '../MainSession'
 import MainSchedule from '../MainSchedule';
 import NewsLetter from '../NewsLetter';
 import MainEngagement from '../MainEngagement';
-import MainBlog from '../MainBlog';
 
 const MainContent = ()=>{
 	return (
@@ -15,7 +14,6 @@ const MainContent = ()=>{
       <MainSlide />
 			<MainSessionContent />
 			<MainSchedule />
-			{/* <MainBlog/> */}
 			<MainEngagement />
 			<NewsLetter />
 		</ContContainer>

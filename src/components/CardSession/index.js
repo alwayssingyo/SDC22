@@ -50,8 +50,6 @@ const BookmarkToggleItem = ({ setModal, setModalFalse, tooltipOpen, setTooltipOp
 // loading : 로딩 유무
 // keynote : 키노트 유무
 const CardSession = ({ id, col, border, image, title, discription, bookmark, video, tag, type, listYn, live, setModal, setModalFalse, loading, keynote }) => {
-  const [phase2, setPhase2] = useState(true);
-  const [phase3, setPhase3] = useState(false);
 
   let tagLive = live;
   const [isLive, setIsLive] = useState(false);
@@ -88,7 +86,7 @@ const CardSession = ({ id, col, border, image, title, discription, bookmark, vid
     const tagInnerWidth = tagInner.current.offsetWidth;
     setWrapWidth(tagWrapWidth);
     setInnerWidth(tagInnerWidth);
-  },[])
+  },[loading, tagLive])
 
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const closeTooltip = () => {
@@ -123,7 +121,9 @@ const CardSession = ({ id, col, border, image, title, discription, bookmark, vid
             <Link to={"/sessionDetail"}>
             {/* <Link to={"/liveTech/" + id}> */}
               <CardImage className={ video ? 'card_img has-dim' : 'card_img' }>
-                {  video ? <VideoIcon></VideoIcon> : null}
+                {  
+                  video && <VideoIcon></VideoIcon>
+                }
                 <img src={image} alt={discription}></img>
                 {
                   type === "LIVE"
@@ -148,15 +148,9 @@ const CardSession = ({ id, col, border, image, title, discription, bookmark, vid
                   </CardTagWrap>
                 }
               </CardInfo>
-
               {
-                type &&
-                phase2 || phase3
-                ?
-                  type === "LIVE"
-                  /* LIVE On is provided only in 3 (live red tag on the first card is a sample)  */
-                  ? <CardType className={ isLive ? 'onLive' : '' }><CardTypeInner className='inner'><span className='tag'>{type}</span></CardTypeInner></CardType>
-                  : <CardType className={ isLive ? 'onLive' : '' }><CardTypeInner className='inner'><span className='tag'>{type}</span></CardTypeInner></CardType>
+                type === "LIVE"
+                ? <CardType className={ isLive ? 'onLive' : '' }><CardTypeInner className='inner'><span className='tag'>{type}</span></CardTypeInner></CardType>
                 : <CardType ><CardTypeInner className='inner'><span className='tag'>{type}</span></CardTypeInner></CardType>
               }
             </Link>

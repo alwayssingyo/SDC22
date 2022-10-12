@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TermsContContainer, CookieInner, TermsContTop, CookieTitle, TermsContDesc, TermsContItem, TermsItemP, TermsItemTitle, TermsItemLink, TermsTable, TermsExtra } from '../TermsCont/TermsContElements';
+import { TermsContContainer, CookieInner, TermsContTop, CookieTitle, TermsContDesc, TermsContItem, TermsItemP, TermsItemTitle, TermsItemLink, TermsExtra } from '../TermsCont/TermsContElements';
 import PopupManage from '../../components/PopupManage';
 import PopupConfirm from '../../components/Popup';
 
@@ -155,14 +155,14 @@ const CookieLatin = ()=>{
 
       {/* Cookie confirm popoup */}
       {
-        openConfirm ? <PopupConfirm
+        openConfirm &&
+        <PopupConfirm
           modal={openConfirm}
           setModal={setOpenConfirm}
           title="Preferences Submitted"
           desc="You have successfully updated your cookie preferences."
           btnText="Close"
         />
-        : null
       }
     </>
 	)

@@ -268,14 +268,14 @@ const CookieEu = ()=>{
 
 			{/* Cookie confirm popoup */}
 			{
-        openConfirm ? <PopupConfirm
+        openConfirm &&
+        <PopupConfirm
 					modal={openConfirm}
 					setModal={setOpenConfirm}
 					title="Preferences Submitted"
 					desc="You have successfully updated your cookie preferences."
 					btnText="Close"
 				/>
-        : null
       }
     </>
 	)

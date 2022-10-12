@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardImage, VideoIcon, CardInfo, CardTitle, CardTitleVideo, CardText, CardLink } from '../CardSession/CardSessionElements';
+import { Card, CardImage, VideoIcon, CardInfo, CardTitleVideo, CardText, CardLink } from '../CardSession/CardSessionElements';
 
 // id : 아이디 
 // col : card 너비

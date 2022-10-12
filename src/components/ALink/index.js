@@ -4,7 +4,7 @@ import './../Button/style.scss';
 
 function ALink({className, children, size, color, outline, fullWidth, href }) {
   return (
-    <a href={href} target="_blank" className={classNames('aLink', className, size, color, {outline, fullWidth})} >{children}</a>
+    <a href={href} target="_blank" rel="noopener noreferrer" className={classNames('aLink', className, size, color, {outline, fullWidth})} >{children}</a>
   );
 }
 

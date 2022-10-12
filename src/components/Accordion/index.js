@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {AccordionWrap, AccordionCon, AccordionHeader, AccordionButton, AccordionBody, AccordionText } from './AccordionElement';
 import Chevron from './Chevron';
 
@@ -10,16 +10,14 @@ const Accordion = (props)=> {
 
   const content = useRef(null);
 
-  function toggleAccordion(){
+  const toggleAccordion = () => {
     setActiveSate(setActive === "" ? "active" : "");
     setHeightState(
       setActive === "active" ? "0px" : `${content.current.scrollHeight}px`
     );
     setRotateState(setActive === "active" ? "" : "open");
-
   }
 
- 
 	  return (
       <AccordionWrap>
         <AccordionCon className={`${setActive}`}>

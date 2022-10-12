@@ -8,10 +8,8 @@ import Popup from '../Popup'
 const Banner = (props) => {
   const url= props.url;
   const linkText= props.linkText;
-  const  buttonLength2 = props.buttonLength2;
   const buttonLengthOne= props.buttonLengthOne;
   const buttonUrl = props.buttonUrl;
-  const buttonUrl2 = props.buttonUrl2;
   const fullWidth = props.fullWidth;
   const popupRight = props.popupRight;
 
@@ -84,17 +82,16 @@ const Banner = (props) => {
 
     {/* alert popup */}
     {
-      modal
-      ? <Popup
-          modal={modal}
-          setModal={setModal}
-          title="Alert Sign In"
-          desc="You'll have to sign in to do that."
-          linkText="Sign In"
-          link="https://developer.samsung.com/dashboard/support"
-          btnText="OK"
-        />
-      : null
+      modal &&
+      <Popup
+        modal={modal}
+        setModal={setModal}
+        title="Alert Sign In"
+        desc="You'll have to sign in to do that."
+        linkText="Sign In"
+        link="https://developer.samsung.com/dashboard/support"
+        btnText="OK"
+      />
     }
     </>
   )

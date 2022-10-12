@@ -6,8 +6,6 @@ import  ReactPlayer  from  'react-player/lazy'
 import ToastPopup from '../ToastPopup';
 import './style.scss'
 
-
-
 const BookmarkToggleItem = ({ setModal, setModalFalse, tooltipOpen, setTooltipOpen }) => {
 
   const [Bookmark, setBookmark] = useState(false);
@@ -68,7 +66,6 @@ const KeynoteCont = (props)=>{
     setTooltipOpen(false);
   }
 
-  const [descHeight, setDescHeight] = useState(0);
   const ref = useRef(null);
   const [btnBlock, setBtnBlock] = useState(false);
 
@@ -80,7 +77,6 @@ const KeynoteCont = (props)=>{
       setBtnBlock(btnBlock);
      }
     }
-
   },[]);
 
 
@@ -105,8 +101,8 @@ const KeynoteCont = (props)=>{
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     initialSlide: 0,
     beforeChange: (current, next) => {setNextSlide(next)},
     responsive: [
@@ -136,7 +132,7 @@ const KeynoteCont = (props)=>{
 
   };
 
-  function SampleNextArrow(props) {
+  function NextArrow(props) {
     const { className, style, onClick } = props;
     return (
       <div
@@ -147,7 +143,7 @@ const KeynoteCont = (props)=>{
     );
   }
 
-  function SamplePrevArrow(props) {
+  function PrevArrow(props) {
     const { className, style, onClick } = props;
     return (
       <div
@@ -340,7 +336,7 @@ const KeynoteCont = (props)=>{
                             <KeynoteTimeStampItem key={idx} onClick={() => {setActiveId(val.id)}} className={ activeId === val.id ? "active" : "" }>
                               <button onClick={() => playerRef.current.seekTo(val.time) }>
                                 <KeynoteTimeStampImg className='thumb'>
-                                  <img src={val.thumbnail}></img>
+                                  <img src={val.thumbnail} alt={val.title}></img>
                                 </KeynoteTimeStampImg>
                                 <div className='title'>{val.title}</div>
                                 <div className='txt'> {val.text}</div>

@@ -38,8 +38,10 @@ function App() {
         <Route path="/cookie/lang=latinAmerica" element={<CookieLatin />} />
       </Routes>
 
+      {/* Footer */}
       <FooterCon />
 
+      {/* Top Button */}
       <Topbutton />
 
     </div>

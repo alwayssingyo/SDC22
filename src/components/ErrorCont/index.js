@@ -1,7 +1,6 @@
 import React from "react";
 import{ErrorWrap,ErrorWrapInner, ErrorNum, ErrorTitle, ErrorDesc} from './ErrorContElement';
 import ButtonLink from '../ButtonLink';
-import prodParams from "jshint/src/prod-params";
 
 const ErrorCont = (props) =>{
   return(

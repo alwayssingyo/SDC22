@@ -23,7 +23,7 @@ const Footer = ()=>{
         <FooterBottom>
           <FooterFamily>
             <ul>
-              <li><a href="https://developer.samsung.com" target="_blank">Samsung Developers<span><img src={process.env.PUBLIC_URL + '/images/FooterFamilyLink.svg'} alt="link"/></span></a></li>
+              <li><a href="https://developer.samsung.com" target="_blank" rel="noopener noreferrer">Samsung Developers<span><img src={process.env.PUBLIC_URL + '/images/FooterFamilyLink.svg'} alt="link"/></span></a></li>
               <li><Link to="/terms">Terms</Link></li>
               <li><Link to="/privacy/lang=us">Privacy policy</Link></li>
               <li><Link to="/cookie/lang=eu">Cookie Policy</Link></li>

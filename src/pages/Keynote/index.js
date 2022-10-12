@@ -24,10 +24,9 @@ const Keynote = ()=>{
 				released={false}
 				vodOpen={false}
 				url='https://youtu.be/1O3drPCZlTo'
-				// 세션 스케줄 확정 이후 해당 시작 시각으로 변경
 				time="10:00 AM PT"
-				/>
-				<KeynoteSpeaker />
+			/>
+			<KeynoteSpeaker />
 		</DetailContainer>
 	)
 }

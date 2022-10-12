@@ -5,8 +5,6 @@ import SpeakerDetailBottom from '../../components/SpeakerDetailBottom';
 
 const subtitle = "President & CEO\nIT & Mobile Communications Division\nSamsung Electronics";
 
-
-
 const SpeakerDetail = ()=>{
 	return (
 		<DetailContainer>

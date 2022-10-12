@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import DetailContainer from '../../components/DetailContainer'
 import TermPrivacyContLatin  from '../../components/TermsPrivacyContLatin';
 

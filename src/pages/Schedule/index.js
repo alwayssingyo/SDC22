@@ -8,9 +8,10 @@ const Schedule = ()=>{
 	return (
 		<DetailContainer>
 			<DetailHero
-			bgPc="bg-schedule.png"
-			bgMo="bg-schedule-mo.png"
-			title="Schedule" />
+				bgPc="bg-schedule.png"
+				bgMo="bg-schedule-mo.png"
+				title="Schedule"
+			/>
 			<ScheduleCont />
 			<ScheduleMap />
 		</DetailContainer>

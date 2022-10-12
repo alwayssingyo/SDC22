@@ -7,9 +7,10 @@ const Support = ()=>{
 	return (
 		<DetailContainer>
 			<DetailHero
-			bgPc="bg-support.png"
-			bgMo="bg-support-mo.png"
-			title="Support" />
+				bgPc="bg-support.png"
+				bgMo="bg-support-mo.png"
+				title="Support"
+			/>
 			<SupportFaq />
 		</DetailContainer>
 	)

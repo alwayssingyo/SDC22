@@ -1,25 +1,25 @@
 import React from 'react';
-import { SpeakerContainer, SpeakerInner, SpeakerTitle, CardWrap, CardInner } from './KeynoteSpeakerElements';
+import * as S from './style';
 import { MainSpeakers } from '../../data/MainSlideData';
-import '../MainSlide/style.scss';
+import '../MainSlide/style-slide.scss';
 import Card from '../CardSpeaker';
 
 const Speaker = () => {
   return (
-		<SpeakerContainer>
-			<SpeakerInner>
-				<SpeakerTitle>Keynote Speakers</SpeakerTitle>
-				<CardWrap>					
-					<CardInner>
+		<S.SpeakerContainer>
+			<S.SpeakerInner>
+				<S.SpeakerTitle>Keynote Speakers</S.SpeakerTitle>
+				<S.CardWrap>					
+					<S.CardInner>
 						{
 							MainSpeakers.map((item,idx)=>(
 								<Card key={idx} id={item.id} title={item.title} discription={item.discription} personImage={item.personImage}/>
 							))
 						}
-					</CardInner>
-				</CardWrap>
-			</SpeakerInner>
-		</SpeakerContainer>
+					</S.CardInner>
+				</S.CardWrap>
+			</S.SpeakerInner>
+		</S.SpeakerContainer>
 	)
 }
 

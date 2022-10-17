@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { NavContainer, NavInner, NavButton, NavTitle, NavMenu, NavLink, NavDropdown, NavDropdownLink, NavArrow, NavRight } from './NavbarElements';
+import * as S from './style';
 import SideMenu from '../SideMenu'
 import NavLogo from './NavLogo'
 import Arrow from './NavArrow'
@@ -66,64 +66,64 @@ const Navbar = ()=>{
 	}, [locationObj, checkColor])
 
 	return (
-		<NavContainer color={color} className={sideMenu ? 'active' : ''}>
-			<NavInner color={color} className={sideMenu ? 'active' : ''}>
+		<S.NavContainer color={color} className={sideMenu ? 'active' : ''}>
+			<S.NavInner color={color} className={sideMenu ? 'active' : ''}>
 
-				<NavTitle><Link to="/" className="logo"><NavLogo fill={color === 'black' ? '#ffffff' : '#000'}/></Link></NavTitle>
+				<S.NavTitle><Link to="/" className="logo"><NavLogo fill={color === 'black' ? '#ffffff' : '#000'}/></Link></S.NavTitle>
 
-				<NavMenu>
-					<NavLink
+				<S.NavMenu>
+					<S.NavLink
 						color={color}
 						className={ locationObj.pathname === '/keynote' ? 'is-selected' : '' }
 					>
 						<Link to="/keynote">Keynote</Link>
-					</NavLink>
-					<NavLink 
+					</S.NavLink>
+					<S.NavLink 
 						color={color}
 						className={ locationObj.pathname === '/liveTech' || locationObj.pathname === '/speaker' ? 'is-selected' : '' }
 					>
 						<button onMouseEnter={()=>{setDropdownOpen(true)}} onMouseLeave={()=>{setDropdownOpen(false)}}>
 							Sessions
-							<NavArrow open={dropdownOpen}><Arrow fill={color === 'black' ? '#fff' : locationObj.pathname === '/liveTech' || locationObj.pathname === '/speaker' ? "#2088fd" : '#000'} opacity="0.8"/></NavArrow>
-							<NavDropdown open={dropdownOpen} color={color}>
+							<S.NavArrow open={dropdownOpen}><Arrow fill={color === 'black' ? '#fff' : locationObj.pathname === '/liveTech' || locationObj.pathname === '/speaker' ? "#2088fd" : '#000'} opacity="0.8"/></S.NavArrow>
+							<S.NavDropdown open={dropdownOpen} color={color}>
 								<div className='inner'>
-									<NavDropdownLink color={color}><Link to="/liveTech" onClick={()=>{setDropdownOpen(false)}}>Tech Sessions</Link></NavDropdownLink>
-									<NavDropdownLink color={color}><Link to="/speaker" onClick={()=>{setDropdownOpen(false)}}>Speakers</Link></NavDropdownLink>
+									<S.NavDropdownLink color={color}><Link to="/liveTech" onClick={()=>{setDropdownOpen(false)}}>Tech Sessions</Link></S.NavDropdownLink>
+									<S.NavDropdownLink color={color}><Link to="/speaker" onClick={()=>{setDropdownOpen(false)}}>Speakers</Link></S.NavDropdownLink>
 								</div>
-							</NavDropdown>
+							</S.NavDropdown>
 						</button>
-					</NavLink>
-					<NavLink
+					</S.NavLink>
+					<S.NavLink
 						color={color}
 						className={ locationObj.pathname === '/schedule' ? 'is-selected' : '' }
 					>
 						<Link to="/schedule">Schedule</Link>
-					</NavLink>
-					<NavLink
+					</S.NavLink>
+					<S.NavLink
 						color={color}
 						className={ locationObj.pathname === '/support' ? 'is-selected' : '' }
 					>
 						<Link to="/support">Support</Link>
-					</NavLink>
-				</NavMenu>
+					</S.NavLink>
+				</S.NavMenu>
 
-				<NavRight color={color}>
+				<S.NavRight color={color}>
 					{/* hamburger btn */}
-					<NavButton color={color} className={sideMenu ? 'active' : ''} onClick={()=>{sideMenuHandler()}}><i className="toggleLine middle"></i></NavButton>
+					<S.NavButton color={color} className={sideMenu ? 'active' : ''} onClick={()=>{sideMenuHandler()}}><i className="toggleLine middle"></i></S.NavButton>
 
 					{/* sign in */}
 					{/* <NavLink color={color} className="signin"><a href="https://developer.samsung.com/dashboard/support">Sign in</a></NavLink> */}
 
 					{/* after login */}
-					<NavLink color={color} className="my-page"><Link to="/mypage">My page</Link></NavLink>
-					<NavLink color={color} className="sign-out"><button>Sign Out</button></NavLink>
-				</NavRight>
+					<S.NavLink color={color} className="my-page"><Link to="/mypage">My page</Link></S.NavLink>
+					<S.NavLink color={color} className="sign-out"><button>Sign Out</button></S.NavLink>
+				</S.NavRight>
 
-			</NavInner>
+			</S.NavInner>
 
 			{/* Side Menu */}
 			<SideMenu sideMenu={sideMenu} setSideMenu={setSideMenu} pathname={locationObj.pathname}/>
-		</NavContainer>
+		</S.NavContainer>
 	)
 }
 

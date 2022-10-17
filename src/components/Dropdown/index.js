@@ -1,6 +1,6 @@
 import {React, useState} from 'react'
 import { Link } from 'react-router-dom'
-import { DropdownWrap, DropdownBtn, DropdownList, DropdownListItem } from './DropdownElement'
+import * as S from './style'
 import Chevron from './Chevron'
 
 const Dropdown = (props) => {
@@ -13,19 +13,19 @@ const Dropdown = (props) => {
   }
 
   return(
-    <DropdownWrap className={`dropdown ${isActive ? "active" : ''}`} onClick={toggleActive}>
-      <DropdownBtn>{props.btnText}<Chevron className="arr"/></DropdownBtn>
-      <DropdownList className='list'>
+    <S.DropdownWrap className={`dropdown ${isActive ? "active" : ''}`} onClick={toggleActive}>
+      <S.DropdownBtn>{props.btnText}<Chevron className="arr"/></S.DropdownBtn>
+      <S.DropdownList className='list'>
         {
           dropdownItemText && dropdownItemText.map((item, idx) =>(
-            <DropdownListItem key={idx}>
+            <S.DropdownListItem key={idx}>
               <Link to={url[idx]}>{item}</Link>
-            </DropdownListItem>
+            </S.DropdownListItem>
           ))
         }
 
-      </DropdownList>
-    </DropdownWrap>
+      </S.DropdownList>
+    </S.DropdownWrap>
   )
 }
 

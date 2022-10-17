@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ActivityContainer, ActivityInner, SectionWrap, SectionSubtext, MoreButton, ActivityNodata, NodataTitle, NodataLink } from './MypageActivityElements';
+import * as S from './style';
 import Section from '../Section';
 import CardSession from '../CardSession';
 import Button from '../Button';
@@ -76,31 +76,31 @@ const MypageActivity = ()=>{
   const [modalFalse, setModalFalse] = useState(false);
 
 	return (
-    <ActivityContainer>
-      <ActivityInner>
+    <S.ActivityContainer>
+      <S.ActivityInner>
         {
           SessionData.length > 0
           ? <>
               <Section title="My Activities">
-                <SectionSubtext>Bookmarked</SectionSubtext>
-                <SectionWrap>
+                <S.SectionSubtext>Bookmarked</S.SectionSubtext>
+                <S.SectionWrap>
                   {
                     SessionData.map((item, idx)=>(
                       <CardSession key={idx} id={item.id} col="col-3" title={item.title} date={item.date} discription={item.discription} image={item.picture} bookmark={true} tag={item.tag} type={item.type} setModal={setModal} setModalFalse={setModalFalse}/>
                     ))
                   }
-                </SectionWrap>
+                </S.SectionWrap>
               </Section>
-              <MoreButton><Button color="white" size="medium" outline="outline">More</Button></MoreButton>
+              <S.MoreButton><Button color="white" size="medium" outline="outline">More</Button></S.MoreButton>
             </>
           : <Section title="My Activities">
-              <ActivityNodata>
-                <NodataTitle>You have no saved bookmark.</NodataTitle>
-                <NodataLink><Link to='/liveTech'>View Sessions</Link></NodataLink>
-              </ActivityNodata>
+              <S.ActivityNodata>
+                <S.NodataTitle>You have no saved bookmark.</S.NodataTitle>
+                <S.NodataLink><Link to='/liveTech'>View Sessions</Link></S.NodataLink>
+              </S.ActivityNodata>
             </Section>
         }
-      </ActivityInner>
+      </S.ActivityInner>
 
       {/* toast popup */}
       {/* 북마크 설정 팝업 */}
@@ -118,7 +118,7 @@ const MypageActivity = ()=>{
         state="success" 
         text="This session is no longer bookmarked."
       />
-    </ActivityContainer>
+    </S.ActivityContainer>
 	)
 }
 

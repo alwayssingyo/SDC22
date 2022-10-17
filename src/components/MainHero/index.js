@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import ScrollToPlugin from "gsap/ScrollToPlugin";
 import Odometer from 'react-odometerjs';
 import "odometer/themes/odometer-theme-default.css";
-import { HeroContainer, HeroDim, HeroInner, HeroContent, HeroIntroText, HeroIntroTitle, HeroIntroDesc, HeroIntroDescItem, HeroIntroBtnWrap, HeroIntroBtn, HeroTitle, HeroText, HeroCount, HeroDate, HeroDateText, HeroDesc, HeroLink, HeroArrow, HeroTime, HeroTimeItem } from './MainHeroElements';
+import * as S from './style';
 import Button from '../Button';
 import ButtonLink from '../ButtonLink';
 import PopupYoutube from '../PopupYoutube';
@@ -300,9 +300,9 @@ const MainHero = ()=>{
 
 	return (
 		<>
-			<HeroContainer ref={heroRef}>
-				<HeroInner className={ phase3 || phase4 ? 'is-phase3' : '' }>
-					<HeroDim className='hero_dim'/>
+			<S.HeroContainer ref={heroRef}>
+				<S.HeroInner className={ phase3 || phase4 ? 'is-phase3' : '' }>
+					<S.HeroDim className='hero_dim'/>
 						<ReactPlayer id="video"
 							url={video_source}
 							width=''
@@ -312,17 +312,17 @@ const MainHero = ()=>{
 							loop={true}
 							muted={true}
 						/>
-					<HeroContent>
-						<HeroIntroText className='hero_intro_text'>
-							<HeroIntroTitle className='hero_intro_title'>
+					<S.HeroContent>
+						<S.HeroIntroText className='hero_intro_text'>
+							<S.HeroIntroTitle className='hero_intro_title'>
 								{
 									phase4
 									? <span>Thanks for coming!<br/>Join us next year for SDC23</span>
 									: <span>Samsung Developer <br/>Conference 2022</span>
 								}
-							</HeroIntroTitle>
-							<HeroIntroDesc className='hero_intro_desc'>
-								<HeroIntroDescItem>
+							</S.HeroIntroTitle>
+							<S.HeroIntroDesc className='hero_intro_desc'>
+								<S.HeroIntroDescItem>
 									{
 										phase3
 										? 'Get ready to discover the future of connectivity.' //phase3
@@ -330,8 +330,8 @@ const MainHero = ()=>{
 											?	'If you’re not done exploring the latest tech innovations,' //phase4
 											: 'Wed, Oct 12, 2022 10:00 AM PT' //phase2
 									}
-								</HeroIntroDescItem>
-								<HeroIntroDescItem>
+								</S.HeroIntroDescItem>
+								<S.HeroIntroDescItem>
 									{
 										phase3
 										? 'Coming to you live from Moscone North.' //phase3
@@ -339,82 +339,82 @@ const MainHero = ()=>{
 											?	'you can experience SDC22 all over again - on demand.' //phase4
 											: 'Moscone North in \nSan Francisco and Online' //phase2
 									}
-								</HeroIntroDescItem>
-							</HeroIntroDesc>
-							<HeroIntroBtnWrap>
+								</S.HeroIntroDescItem>
+							</S.HeroIntroDesc>
+							<S.HeroIntroBtnWrap>
 								{/* phase1,2 버튼  */}
 								{
 									!phase3 && !phase4 &&
-									<HeroIntroBtn onClick={()=>{ popupHandler();} } className="hero_intro_btn">
+									<S.HeroIntroBtn onClick={()=>{ popupHandler();} } className="hero_intro_btn">
 										<Button color="white" size="medium">Watch Full Video</Button>
-									</HeroIntroBtn>
+									</S.HeroIntroBtn>
 								}
 								{/* phase3 - ~ 11: 30까지의 버튼  */}
 								{
 									phase3 && time === 'before' &&
 									<>
-										<HeroIntroBtn className="hero_intro_btn is-keynote is-live">
+										<S.HeroIntroBtn className="hero_intro_btn is-keynote is-live">
 											<ButtonLink url="/liveTech" color="white" size="medium">Join the Keynote</ButtonLink>
-										</HeroIntroBtn>
-										<HeroIntroBtn className="hero_intro_btn is-session is-dim">
+										</S.HeroIntroBtn>
+										<S.HeroIntroBtn className="hero_intro_btn is-session is-dim">
 											<ButtonLink url="/keynote" color="white" size="medium">Join Tech Sessions</ButtonLink>
-										</HeroIntroBtn>
+										</S.HeroIntroBtn>
 									</>
 								}
 								{/* phase3 - 11:30 ~ 5:30까지의 버튼  */}
 								{
 									phase3 && time === 'present' &&
 									<>
-										<HeroIntroBtn className="hero_intro_btn is-keynote is-dim">
+										<S.HeroIntroBtn className="hero_intro_btn is-keynote is-dim">
 											<ButtonLink url="/liveTech" color="white" size="medium">Join the Keynote</ButtonLink>
-										</HeroIntroBtn>
-										<HeroIntroBtn className="hero_intro_btn is-session is-live">
+										</S.HeroIntroBtn>
+										<S.HeroIntroBtn className="hero_intro_btn is-session is-live">
 											<ButtonLink url="/keynote" color="white" size="medium">Join Tech Sessions</ButtonLink>
-										</HeroIntroBtn>
+										</S.HeroIntroBtn>
 									</>
 								}
 								{/* phase3 - 5:30~까지의 버튼  */}
 								{
 									phase3 && time === 'after' &&
 									<>
-										<HeroIntroBtn className="hero_intro_btn">
+										<S.HeroIntroBtn className="hero_intro_btn">
 											<ButtonLink url="/liveTech" color="white" size="medium">Join the Keynote</ButtonLink>
-										</HeroIntroBtn>
-										<HeroIntroBtn className="hero_intro_btn">
+										</S.HeroIntroBtn>
+										<S.HeroIntroBtn className="hero_intro_btn">
 											<ButtonLink url="/keynote" color="white" size="medium">Join Tech Sessions</ButtonLink>
-										</HeroIntroBtn>
+										</S.HeroIntroBtn>
 									</>
 								}
 								{/* phase4 버튼  */}
 								{
 									phase4 &&
 									<>
-										<HeroIntroBtn className="hero_intro_btn">
+										<S.HeroIntroBtn className="hero_intro_btn">
 											<ButtonLink url="/keynote" color="white" size="medium">Watch the Keynote</ButtonLink>
-										</HeroIntroBtn>
-										<HeroIntroBtn className="hero_intro_btn">
+										</S.HeroIntroBtn>
+										<S.HeroIntroBtn className="hero_intro_btn">
 											<Button onClick={ ()=>{window.open('https://www.youtube.com/')} } color="white" size="medium">Watch the Highlight</Button>
-										</HeroIntroBtn>
+										</S.HeroIntroBtn>
 									</>
 								}
-							</HeroIntroBtnWrap>
-						</HeroIntroText>
-						<HeroText className={ phase3 || phase4 ? 'hero_text' : 'hero_text is-active'}>
+							</S.HeroIntroBtnWrap>
+						</S.HeroIntroText>
+						<S.HeroText className={ phase3 || phase4 ? 'hero_text' : 'hero_text is-active'}>
 							<div className='hero_text_title'>
-								<HeroTitle>COMING SOON</HeroTitle>
-								<HeroDesc>SDC22 kicks off in</HeroDesc>
+								<S.HeroTitle>COMING SOON</S.HeroTitle>
+								<S.HeroDesc>SDC22 kicks off in</S.HeroDesc>
 							</div>
 							<div className='hero_text_desc'>
-								<HeroCount className={timeState.standardTime > 24 ? 'is-active' : null}>
-									<HeroDate>
+								<S.HeroCount className={timeState.standardTime > 24 ? 'is-active' : null}>
+									<S.HeroDate>
 										<div className='odometer_wrap'>
 											<Odometer format="d" duration={1000} value={odometerValue} theme="default"/>
 										</div>
-										<HeroDateText>Days</HeroDateText>
-									</HeroDate>
-								</HeroCount>
-								<HeroTime className={timeState.standardTime > 24 ? '' : 'is-active'}>
-									<HeroTimeItem>
+										<S.HeroDateText>Days</S.HeroDateText>
+									</S.HeroDate>
+								</S.HeroCount>
+								<S.HeroTime className={timeState.standardTime > 24 ? '' : 'is-active'}>
+									<S.HeroTimeItem>
 										<div className="value">
 											<FlipNumbers
 												play
@@ -424,8 +424,8 @@ const MainHero = ()=>{
 											/>
 										</div>
 										<div className="text">Hours</div>
-									</HeroTimeItem>
-									<HeroTimeItem>
+									</S.HeroTimeItem>
+									<S.HeroTimeItem>
 										<div className="value">
 											<FlipNumbers
 													play
@@ -435,8 +435,8 @@ const MainHero = ()=>{
 												/>
 										</div>
 										<div className="text">Minutes</div>
-									</HeroTimeItem>
-									<HeroTimeItem>
+									</S.HeroTimeItem>
+									<S.HeroTimeItem>
 										<div className="value">
 											<FlipNumbers
 												play
@@ -446,16 +446,16 @@ const MainHero = ()=>{
 											/>
 										</div>
 										<div className="text">Seconds</div>
-									</HeroTimeItem>
-								</HeroTime>
+									</S.HeroTimeItem>
+								</S.HeroTime>
 							</div>
-							<HeroLink className='hero_text_btn'><Button color="white" size="medium" onClick={calendarHandler}>Add SDC22 to My Calendar</Button></HeroLink>
-						</HeroText>
+							<S.HeroLink className='hero_text_btn'><Button color="white" size="medium" onClick={calendarHandler}>Add SDC22 to My Calendar</Button></S.HeroLink>
+						</S.HeroText>
 						
-						<HeroArrow><img src={process.env.PUBLIC_URL + '/images/ico-hero-arrow.svg'} alt="scroll down"/></HeroArrow>
-					</HeroContent>
-				</HeroInner>
-			</HeroContainer> 
+						<S.HeroArrow><img src={process.env.PUBLIC_URL + '/images/ico-hero-arrow.svg'} alt="scroll down"/></S.HeroArrow>
+					</S.HeroContent>
+				</S.HeroInner>
+			</S.HeroContainer> 
 
 			{/* youtube popup */}
 			{

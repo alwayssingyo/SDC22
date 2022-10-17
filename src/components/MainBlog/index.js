@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BlogContainer, BlogInner, BlogTop, BlogTitle, BlogDesc, BlogCont, CardWrap } from './MainBlogElements';
+import * as S from './style';
 import CardBlog from '../CardBlog';
 
 const MainBlog= ()=>{
@@ -40,20 +40,20 @@ const MainBlog= ()=>{
 		<>
 			{
 				phase4 &&
-		 		<BlogContainer>
-					<BlogInner>
-						<BlogTop>
-							<BlogTitle>SDC22 Blogs</BlogTitle>
-							<BlogDesc>
+		 		<S.BlogContainer>
+					<S.BlogInner>
+						<S.BlogTop>
+							<S.BlogTitle>SDC22 Blogs</S.BlogTitle>
+							<S.BlogDesc>
 								Articles to inspire the builder and designer within<br/>
 								<a href="https://developer.samsung.com/blog/en-us" target='_blank' rel='noopener noreferrer'>Go to Samsung Developers Blogs</a>
-							</BlogDesc>
-						</BlogTop>
-						<BlogCont>
-							<CardWrap>
+							</S.BlogDesc>
+						</S.BlogTop>
+						<S.BlogCont>
+							<S.CardWrap>
 								{
 									SessionData.map((item, idx)=>(
-										<CardBlog
+										<S.CardBlog
 											key={idx}
 											id={item.id}
 											title={item.title} 
@@ -65,10 +65,10 @@ const MainBlog= ()=>{
 										/>
 									))
 								}
-							</CardWrap>
-						</BlogCont>
-					</BlogInner>
-				</BlogContainer>
+							</S.CardWrap>
+						</S.BlogCont>
+					</S.BlogInner>
+				</S.BlogContainer>
 			}
 		</>
 	)

@@ -1,14 +1,14 @@
 import React from 'react';
-import {SectionContainer, SectionTitle, Sectioncont} from './SectionElements'
+import * as S from './style'
 
 const Section = ({title, children})=>{
 	return (
-    <SectionContainer>
-      <SectionTitle>{title}</SectionTitle>
-      <Sectioncont>
+    <S.SectionContainer>
+      <S.SectionTitle>{title}</S.SectionTitle>
+      <S.Sectioncont>
 			  {children}
-      </Sectioncont>
-    </SectionContainer>
+      </S.Sectioncont>
+    </S.SectionContainer>
 	)
 }
 

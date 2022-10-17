@@ -1,20 +1,20 @@
 import React from 'react';
-import { CodelabContainer, CodelabInner, CodelabImg, CodelabCont, CodelabTitle, CodelabDesc, CodelabLink  } from './CodelabElements';
+import * as S from './style';
 
 const Codelab = ({ id, title, discription, image, link }) => {
   return(
-		<CodelabContainer>
-      <CodelabInner>
-        <CodelabImg className="card_img">
+		<S.CodelabContainer>
+      <S.CodelabInner>
+        <S.CodelabImg className="card_img">
           <img src={image} alt={discription}></img>
-        </CodelabImg>
-        <CodelabCont>
-          <CodelabTitle>{title}</CodelabTitle>
-          <CodelabDesc>{discription}</CodelabDesc>
-          <CodelabLink href={link} target="_blank">Go to Code Lab</CodelabLink>
-        </CodelabCont>
-      </CodelabInner>
-    </CodelabContainer>
+        </S.CodelabImg>
+        <S.CodelabCont>
+          <S.CodelabTitle>{title}</S.CodelabTitle>
+          <S.CodelabDesc>{discription}</S.CodelabDesc>
+          <S.CodelabLink href={link} target="_blank">Go to Code Lab</S.CodelabLink>
+        </S.CodelabCont>
+      </S.CodelabInner>
+    </S.CodelabContainer>
   )
 }
 

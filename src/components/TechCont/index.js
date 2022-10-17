@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { TechContainer, TechInner, TechFilterBtn, TechLeft, TechRight, CardWrap, CardInner, CardRoomWrap, CardRoomInner } from './TechContElements';
+import * as S from './style';
 import { SessionData } from '../../data/SessionData';
 import Filter from '../Filter';
 import CardSession from '../CardSession';
@@ -117,22 +117,22 @@ const Tech = ()=>{
 	]
 
 	return (
-		<TechContainer>
-			<TechInner>
-				<TechFilterBtn onClick={openFilter}>Filter<span>3</span></TechFilterBtn>
-				<TechLeft>
+		<S.TechContainer>
+			<S.TechInner>
+				<S.TechFilterBtn onClick={openFilter}>Filter<span>3</span></S.TechFilterBtn>
+				<S.TechLeft>
 					{
 						isDesktop 
 						? <Filter setOpen={setFilterOpen}/> 
 						: filterOpen && <Filter setOpen={setFilterOpen}/>
 					}
-				</TechLeft>
-				<TechRight>
-					<CardWrap>
+				</S.TechLeft>
+				<S.TechRight>
+					<S.CardWrap>
 						{
 							phase3 &&
-							<CardRoomWrap>
-								<CardRoomInner>
+							<S.CardRoomWrap>
+								<S.CardRoomInner>
 									<div className='card_bg'>
 										{
 											CardRoomData.map((item,idx)=>(
@@ -147,10 +147,10 @@ const Tech = ()=>{
 											))
 										}
 									</div>
-								</CardRoomInner>
-							</CardRoomWrap>
+								</S.CardRoomInner>
+							</S.CardRoomWrap>
 						}
-						<CardInner ref={cardRef}>
+						<S.CardInner ref={cardRef}>
 							{
 								SessionData.map((item,idx)=>(
 									<CardSession 
@@ -172,10 +172,10 @@ const Tech = ()=>{
 									/>
 								))
 							}
-						</CardInner>
-					</CardWrap>
-				</TechRight>
-			</TechInner>
+						</S.CardInner>
+					</S.CardWrap>
+				</S.TechRight>
+			</S.TechInner>
 
 			{/* toast popup */}
       {/* 북마크 설정 팝업 */}
@@ -193,7 +193,7 @@ const Tech = ()=>{
         state="success" 
         text="This session is no longer bookmarked."
       />
-		</TechContainer>
+		</S.TechContainer>
 	)
 }
 

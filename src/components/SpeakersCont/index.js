@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { SpeakersContainer, SpeakersInner, SpeakersWrap, SpeakersSection, SpeakersTitle } from './SpeakersContElements';
+import * as S from './style';
 import { SpeakersData } from '../../data/SpeakersData';
 import CardSpeaker from '../CardSpeaker';
 
@@ -90,12 +90,12 @@ const SpeakersCont = ()=>{
 	}, [])
 
 	return (
-    <SpeakersContainer>
-      <SpeakersInner>
+    <S.SpeakersContainer>
+      <S.SpeakersInner>
 
-        <SpeakersSection>
-          <SpeakersTitle>Keynote Speakers</SpeakersTitle>
-          <SpeakersWrap ref={cardRef}>
+        <S.SpeakersSection>
+          <S.SpeakersTitle>Keynote Speakers</S.SpeakersTitle>
+          <S.SpeakersWrap ref={cardRef}>
             {
               SpeakersData.map((item, idx)=>(
                 <CardSpeaker 
@@ -110,12 +110,12 @@ const SpeakersCont = ()=>{
 								/>
               ))
             }
-          </SpeakersWrap>
-        </SpeakersSection>
+          </S.SpeakersWrap>
+        </S.SpeakersSection>
 
-        <SpeakersSection>
-          <SpeakersTitle>Session Speakers</SpeakersTitle>
-          <SpeakersWrap ref={cardRef2}>
+        <S.SpeakersSection>
+          <S.SpeakersTitle>Session Speakers</S.SpeakersTitle>
+          <S.SpeakersWrap ref={cardRef2}>
             {
               SpeakersData.map((item, idx)=>(
                 <CardSpeaker 
@@ -130,11 +130,11 @@ const SpeakersCont = ()=>{
 								/>
               ))
             }
-          </SpeakersWrap>
-        </SpeakersSection>
+          </S.SpeakersWrap>
+        </S.SpeakersSection>
 
-      </SpeakersInner>
-    </SpeakersContainer>
+      </S.SpeakersInner>
+    </S.SpeakersContainer>
   )
 }
 

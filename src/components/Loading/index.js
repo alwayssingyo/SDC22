@@ -1,13 +1,13 @@
 import React from 'react';
-import { LoadingContainer, LoadingInner, LoadingItem } from './LoadingElements';
+import * as S from './style';
 
 const Loading = ()=>{
 	return (
-    <LoadingContainer>
-      <LoadingInner>
-        <LoadingItem></LoadingItem>
-      </LoadingInner>
-    </LoadingContainer>
+    <S.LoadingContainer>
+      <S.LoadingInner>
+        <S.LoadingItem></S.LoadingItem>
+      </S.LoadingInner>
+    </S.LoadingContainer>
 	)
 }
 

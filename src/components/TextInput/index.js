@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TextInputWrap, TextInputLabel, TextInputArea, TextInput, TextInputError } from './TextInputElement';
+import * as S from './style';
 
 // label: 제목
 // value: 인풋 값
@@ -13,10 +13,10 @@ import { TextInputWrap, TextInputLabel, TextInputArea, TextInput, TextInputError
 const InputText = ({label, value, onChangeText, placeholder, id, disabled, error, essential}) => {
 
   return(
-    <TextInputWrap>
-      <TextInputLabel htmlFor={id} className={essential ? 'is-essential' : null}>{label}</TextInputLabel>
-      <TextInputArea>
-        <TextInput
+    <S.TextInputWrap>
+      <S.TextInputLabel htmlFor={id} className={essential ? 'is-essential' : null}>{label}</S.TextInputLabel>
+      <S.TextInputArea>
+        <S.TextInput
           className={error ? 'is-error' : null}
           id={id}
           placeholder={placeholder}
@@ -25,10 +25,10 @@ const InputText = ({label, value, onChangeText, placeholder, id, disabled, error
           disabled={disabled}
         />
         {
-          error && <TextInputError>Error text Error text Error text</TextInputError>
+          error && <S.TextInputError>Error text Error text Error text</S.TextInputError>
         }
-      </TextInputArea>
-    </TextInputWrap>
+      </S.TextInputArea>
+    </S.TextInputWrap>
 
   )
 

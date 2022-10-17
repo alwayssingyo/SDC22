@@ -1,5 +1,5 @@
 import React from 'react';
-import { PopupContainer, PopupInner, PopupTitle, PopupCont, PopupItem, PopupClose} from './PopupCalendarElements';
+import * as S from './style';
 
 const PopupCalndar = ({setOpen})=>{
 
@@ -9,19 +9,19 @@ const PopupCalndar = ({setOpen})=>{
 	};
 
   return (
-    <PopupContainer>
-      <PopupInner>
-        <PopupTitle>Add to Calendar</PopupTitle>
-        <PopupCont>
-          <PopupItem className='apple'><img src={process.env.PUBLIC_URL + '/images/ico-apple.png'} alt=""/>Apple</PopupItem>
-          <PopupItem className='google'><img src={process.env.PUBLIC_URL + '/images/ico-google.png'} alt=""/>Google</PopupItem>
-          <PopupItem className='office'><img src={process.env.PUBLIC_URL + '/images/ico-office-365.png'} alt=""/>Office 365</PopupItem>
-          <PopupItem className='outlook'><img src={process.env.PUBLIC_URL + '/images/ico-outlook.png'} alt=""/>Outlook</PopupItem>
-          <PopupItem className='yahoo'><img src={process.env.PUBLIC_URL + '/images/ico-yahoo.png'} alt=""/>Yahoo</PopupItem>
-        </PopupCont>
-        <PopupClose onClick={closePopup}></PopupClose>
-      </PopupInner>
-    </PopupContainer>
+    <S.PopupContainer>
+      <S.PopupInner>
+        <S.PopupTitle>Add to Calendar</S.PopupTitle>
+        <S.PopupCont>
+          <S.PopupItem className='apple'><img src={process.env.PUBLIC_URL + '/images/ico-apple.png'} alt=""/>Apple</S.PopupItem>
+          <S.PopupItem className='google'><img src={process.env.PUBLIC_URL + '/images/ico-google.png'} alt=""/>Google</S.PopupItem>
+          <S.PopupItem className='office'><img src={process.env.PUBLIC_URL + '/images/ico-office-365.png'} alt=""/>Office 365</S.PopupItem>
+          <S.PopupItem className='outlook'><img src={process.env.PUBLIC_URL + '/images/ico-outlook.png'} alt=""/>Outlook</S.PopupItem>
+          <S.PopupItem className='yahoo'><img src={process.env.PUBLIC_URL + '/images/ico-yahoo.png'} alt=""/>Yahoo</S.PopupItem>
+        </S.PopupCont>
+        <S.PopupClose onClick={closePopup}></S.PopupClose>
+      </S.PopupInner>
+    </S.PopupContainer>
   );
 }
 

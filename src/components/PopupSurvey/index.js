@@ -1,8 +1,8 @@
 import React,{useLayoutEffect, useRef} from 'react';
 import {gsap} from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { PopupSurveyContainer, PopupSurveyInner } from './PopupSurveyElement';
-import { PopupClose } from '../Popup/PopupElements';
+import { PopupSurveyContainer, PopupSurveyInner } from './style';
+import { PopupClose } from '../Popup/style';
 import ALink from '../ALink';
 
 const PopupSurvey = ({setOpenSurvey})=>{

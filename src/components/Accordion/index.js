@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import {AccordionWrap, AccordionCon, AccordionHeader, AccordionButton, AccordionBody, AccordionText } from './AccordionElement';
+import * as S from './style';
 import Chevron from './Chevron';
 
 
@@ -19,19 +19,19 @@ const Accordion = (props)=> {
   }
 
 	  return (
-      <AccordionWrap>
-        <AccordionCon className={`${setActive}`}>
-          <AccordionHeader onClick={toggleAccordion}>
+      <S.AccordionWrap>
+        <S.AccordionCon className={`${setActive}`}>
+          <S.AccordionHeader onClick={toggleAccordion}>
             <span>Q</span>{props.title}
-            <AccordionButton className={`${setActive}`}>
+            <S.AccordionButton className={`${setActive}`}>
               <Chevron className={`arr ${setRotate}`} width={24} />
-            </AccordionButton>
-          </AccordionHeader>
-          <AccordionBody ref={content} style={ { maxHeight:`${setHeight}` } }>
-            <AccordionText dangerouslySetInnerHTML={{ __html : props.content }} />
-          </AccordionBody>
-        </AccordionCon>
-      </AccordionWrap>
+            </S.AccordionButton>
+          </S.AccordionHeader>
+          <S.AccordionBody ref={content} style={ { maxHeight:`${setHeight}` } }>
+            <S.AccordionText dangerouslySetInnerHTML={{ __html : props.content }} />
+          </S.AccordionBody>
+        </S.AccordionCon>
+      </S.AccordionWrap>
 	)
 }
 

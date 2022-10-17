@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardImage, VideoIcon, CardInfo, CardTitleVideo, CardText, CardLink } from '../CardSession/CardSessionElements';
+import * as S from '../CardSession/style';
 
 // id : 아이디 
 // col : card 너비
@@ -11,19 +11,19 @@ import { Card, CardImage, VideoIcon, CardInfo, CardTitleVideo, CardText, CardLin
 // link : 이동할 링크
 const CardSession = ({ id, col, border, image, title, discription, video, link  }) => {
   return(
-		<Card className={col} border={border} video={video}>
-      <CardLink href={link} target="_blank" rel="noreferrer">
-        <CardImage className={ video ? 'card_img has-dim' : 'card_img' }>
-          {  video ? <VideoIcon></VideoIcon> : null}
+		<S.Card className={col} border={border} video={video}>
+      <S.CardLink href={link} target="_blank" rel="noreferrer">
+        <S.CardImage className={ video ? 'card_img has-dim' : 'card_img' }>
+          {  video ? <S.VideoIcon></S.VideoIcon> : null}
           <img src={image} alt={discription}></img>
-        </CardImage>
+        </S.CardImage>
 
-        <CardInfo className='Text' video={video}>
-          <CardTitleVideo className='Title'>{title}</CardTitleVideo>
-          <CardText>{discription}</CardText>
-        </CardInfo>
-      </CardLink>
-		</Card>
+        <S.CardInfo className='Text' video={video}>
+          <S.CardTitleVideo className='Title'>{title}</S.CardTitleVideo>
+          <S.CardText>{discription}</S.CardText>
+        </S.CardInfo>
+      </S.CardLink>
+		</S.Card>
   )
 }
 

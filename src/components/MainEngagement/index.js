@@ -1,5 +1,5 @@
 import {React, useState, useEffect} from 'react';
-import { MainEngagementWrap, MainEngagementBoxBg,MainEngagementBox, MainEngagementBoxInner, MainEngagementTitle, MainEngagementText } from './MainEngagementElement';
+import * as S from './style';
 import ButtonLink from '../ButtonLink';
 
 const MainEngagementData = [
@@ -40,42 +40,42 @@ const MainEngagement = ()=>{
     return () => window.removeEventListener("resize", updateMedia);
   });
   return(
-    <MainEngagementWrap>
+    <S.MainEngagementWrap>
     {
       phase4 
       // phase4에서 Hackers Playgroud 배너 삭제
-      ? <MainEngagementBox> 
+      ? <S.MainEngagementBox> 
           {isDesktop ? (
-            <MainEngagementBoxBg style={{ backgroundImage: `url(${ MainEngagementData[1].bg })`,  }}></MainEngagementBoxBg>
+            <S.MainEngagementBoxBg style={{ backgroundImage: `url(${ MainEngagementData[1].bg })`,  }}></S.MainEngagementBoxBg>
           ) : (
-            <MainEngagementBoxBg style={{ backgroundImage: `url(${ MainEngagementData[1].mobileBg })`,  }}></MainEngagementBoxBg>
+            <S.MainEngagementBoxBg style={{ backgroundImage: `url(${ MainEngagementData[1].mobileBg })`,  }}></S.MainEngagementBoxBg>
           )}
-          <MainEngagementBoxInner>
-            <MainEngagementTitle className={MainEngagementData[1].theme}>{MainEngagementData[1].title}</MainEngagementTitle>
-            <MainEngagementText className={MainEngagementData[1].theme}>{MainEngagementData[1].discription}</MainEngagementText>
+          <S.MainEngagementBoxInner>
+            <S.MainEngagementTitle className={MainEngagementData[1].theme}>{MainEngagementData[1].title}</S.MainEngagementTitle>
+            <S.MainEngagementText className={MainEngagementData[1].theme}>{MainEngagementData[1].discription}</S.MainEngagementText>
             <div>
               <ButtonLink className='sdcStack' url={MainEngagementData[1].url} color={ MainEngagementData[1].theme === 'dark' ? 'white' : 'black' } size="medium">{MainEngagementData[1].btnText}</ButtonLink>
             </div>
-          </MainEngagementBoxInner>
-        </MainEngagementBox>
+          </S.MainEngagementBoxInner>
+        </S.MainEngagementBox>
       : MainEngagementData.map((item, idx)=>(
-        <MainEngagementBox key={idx}>
+        <S.MainEngagementBox key={idx}>
           {isDesktop ? (
-            <MainEngagementBoxBg style={{ backgroundImage: `url(${ item.bg })`,  }}></MainEngagementBoxBg>
+            <S.MainEngagementBoxBg style={{ backgroundImage: `url(${ item.bg })`,  }}></S.MainEngagementBoxBg>
           ) : (
-            <MainEngagementBoxBg style={{ backgroundImage: `url(${ item.mobileBg })`,  }}></MainEngagementBoxBg>
+            <S.MainEngagementBoxBg style={{ backgroundImage: `url(${ item.mobileBg })`,  }}></S.MainEngagementBoxBg>
           )}
-          <MainEngagementBoxInner>
-            <MainEngagementTitle className={item.theme}>{item.title}</MainEngagementTitle>
-            <MainEngagementText className={item.theme}>{item.discription}</MainEngagementText>
+          <S.MainEngagementBoxInner>
+            <S.MainEngagementTitle className={item.theme}>{item.title}</S.MainEngagementTitle>
+            <S.MainEngagementText className={item.theme}>{item.discription}</S.MainEngagementText>
             <div>
               <ButtonLink className='sdcStack' url={item.url} color={ item.theme === 'dark' ? 'white' : 'black' } size="medium">{item.btnText}</ButtonLink>
             </div>
-          </MainEngagementBoxInner>
-        </MainEngagementBox>
+          </S.MainEngagementBoxInner>
+        </S.MainEngagementBox>
       ))
     }
-    </MainEngagementWrap>
+    </S.MainEngagementWrap>
   )
 
 }

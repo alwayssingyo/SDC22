@@ -1,30 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Link, } from 'react-router-dom';
-import  {MainSession,
-        MainSessionTop,
-        MainSessionTitle,
-        MainSessionText,
-        MainSessionInner,
-        MainSessionCard,
-        MainSessionCardWrap,
-        MainSessionBlur,
-        MainSessionCardInner,
-        MainSessionCardInfo,
-        MainSessionCardTitle,
-        MainSessionCardDate,
-        MainSessionCardOverlay,
-        MainSessionSubText,
-        MainSessionCardBtnArea,
-        BookmarkToggle,
-        BookmarkTooltip,
-        LinkArea,
-        LoadingCard,
-        LoadingCardInner,
-        LoadingCardTop,
-        LoadingCardIcon,
-        LoadingCardBottom,
-        CardInner,
-        CardWrap} from './MainSessionElement'
+import * as S from './style'
 import { MainSessionData } from '../../data/MainSessionData';
 import ButtonLink from '../ButtonLink';
 import ToastPopup from '../ToastPopup';
@@ -57,7 +33,7 @@ const BookmarkToggleItem = ({ idx, setModal, setModalFalse, tooltipOpen, setTool
   }, [tooltipOpen, setTooltipOpen])
 
   return (
-    <BookmarkToggle className={Bookmark ? "Bookmark-checked" : ""} onClick={onClickHandler}></BookmarkToggle>
+    <S.BookmarkToggle className={Bookmark ? "Bookmark-checked" : ""} onClick={onClickHandler}></S.BookmarkToggle>
   );
 };
 
@@ -70,53 +46,53 @@ const CardItem = ({ item, idx, pictureMo, setModal, setModalFalse }) => {
   }
   
   return (
-    <MainSessionCard className='Card' style={{ backgroundImage: `url(${ item.pictureMo })`,  }}>
-      <MainSessionCardWrap>
+    <S.MainSessionCard className='Card' style={{ backgroundImage: `url(${ item.pictureMo })`,  }}>
+      <S.MainSessionCardWrap>
         <img src={item.picture} alt=""/>
-        <MainSessionBlur className='Blur'></MainSessionBlur>
+        <S.MainSessionBlur className='Blur'></S.MainSessionBlur>
         <Link className='MainSessionLink' to={`/${item.sessionLink}`}></Link>
-        <MainSessionCardInner className='CardInner'>
-          <MainSessionCardInfo className='Info'>
-            <MainSessionCardTitle className='Title'>{item.title}</MainSessionCardTitle>
-            <MainSessionCardDate className='Date'>{item.date}</MainSessionCardDate>
-          </MainSessionCardInfo>
-          <MainSessionCardOverlay className='More'>
-            <MainSessionSubText className='Text'>{item.discription}</MainSessionSubText>
-          </MainSessionCardOverlay>
-        </MainSessionCardInner>
-      </MainSessionCardWrap>
+        <S.MainSessionCardInner className='CardInner'>
+          <S.MainSessionCardInfo className='Info'>
+            <S.MainSessionCardTitle className='Title'>{item.title}</S.MainSessionCardTitle>
+            <S.MainSessionCardDate className='Date'>{item.date}</S.MainSessionCardDate>
+          </S.MainSessionCardInfo>
+          <S.MainSessionCardOverlay className='More'>
+            <S.MainSessionSubText className='Text'>{item.discription}</S.MainSessionSubText>
+          </S.MainSessionCardOverlay>
+        </S.MainSessionCardInner>
+      </S.MainSessionCardWrap>
       {/* Bookmark button */}
-      <MainSessionCardBtnArea className='Btns'>
+      <S.MainSessionCardBtnArea className='Btns'>
         <BookmarkToggleItem id={idx} setModal={setModal} setModalFalse={setModalFalse} tooltipOpen={tooltipOpen} setTooltipOpen={setTooltipOpen}/>
         {/* Bookmark tooltip */}
-        <BookmarkTooltip className={ tooltipOpen ? 'bookmark_tooltip is-open' : 'bookmark_tooltip' }>
+        <S.BookmarkTooltip className={ tooltipOpen ? 'bookmark_tooltip is-open' : 'bookmark_tooltip' }>
           Bookmarks are available after signing in. <a href="https://developer.samsung.com/dashboard/support">Sign in</a>
           <button className='close_btn' onClick={closeTooltip}></button>
-        </BookmarkTooltip> 
-      </MainSessionCardBtnArea>
-    </MainSessionCard>
+        </S.BookmarkTooltip> 
+      </S.MainSessionCardBtnArea>
+    </S.MainSessionCard>
   );
 }
 
 //Card loading component
 const LoadingItem = () => {
   return (
-    <LoadingCard>
-      <LoadingCardInner>
-        <LoadingCardTop>
-          <LoadingCardIcon>
+    <S.LoadingCard>
+      <S.LoadingCardInner>
+        <S.LoadingCardTop>
+          <S.LoadingCardIcon>
             <span className='dot'></span>
             <span className='dot'></span>
             <span className='dot'></span>
-          </LoadingCardIcon>
-        </LoadingCardTop>
-        <LoadingCardBottom>
+          </S.LoadingCardIcon>
+        </S.LoadingCardTop>
+        <S.LoadingCardBottom>
           <div></div>
           <div></div>
           <div></div>
-        </LoadingCardBottom>
-      </LoadingCardInner>
-    </LoadingCard>
+        </S.LoadingCardBottom>
+      </S.LoadingCardInner>
+    </S.LoadingCard>
   );
 }
 
@@ -192,16 +168,16 @@ const MainSessionContent = ()=>{
   ]
 
 	return (
-    <MainSession className={phase4 ? 'is-p4' : ''}>
-      <MainSessionTop className={phase4 ? 'is-p4' : ''}>
-        <MainSessionTitle>Tech Sessions</MainSessionTitle>
-        <MainSessionText>
+    <S.MainSession className={phase4 ? 'is-p4' : ''}>
+      <S.MainSessionTop className={phase4 ? 'is-p4' : ''}>
+        <S.MainSessionTitle>Tech Sessions</S.MainSessionTitle>
+        <S.MainSessionText>
         Get a deeper understanding of the tech mentioned during the keynote. Each session offers further insights into the innovations that will shape even more connected customer experiences.
-        </MainSessionText>
-      </MainSessionTop>
+        </S.MainSessionText>
+      </S.MainSessionTop>
       {
         !phase4 &&
-        <MainSessionInner>
+        <S.MainSessionInner>
           {
             MainSessionData.map((item, idx, id)=>(
               <CardItem key={idx} item={item} idx={idx} setModal={setModal} setModalFalse={setModalFalse}/>
@@ -213,23 +189,23 @@ const MainSessionContent = ()=>{
               <LoadingItem key={idx} />
             ))
           } */}
-        </MainSessionInner>
+        </S.MainSessionInner>
       }
       {
         phase4 &&
-        <CardWrap>
-          <CardInner>
+        <S.CardWrap>
+          <S.CardInner>
             {
               SessionData.map((item, idx)=>(
                 <CardSession key={idx} id={item.id} col="col-3" title={item.title} date={item.date} discription={item.discription} image={item.picture} bookmark={true} tag={item.tag} type={item.type} setModal={setModal} setModalFalse={setModalFalse}/>
               ))
             }
-          </CardInner>
-        </CardWrap>
+          </S.CardInner>
+        </S.CardWrap>
       }
-      <LinkArea>
+      <S.LinkArea>
         <ButtonLink url="/liveTech" color="black" size="medium">Go to Tech Sessions</ButtonLink>
-      </LinkArea>
+      </S.LinkArea>
 
       {/* toast popup */}
       {/* 북마크 설정 팝업 */}
@@ -247,7 +223,7 @@ const MainSessionContent = ()=>{
         state="success" 
         text="This session is no longer bookmarked."
       />
-    </MainSession>
+    </S.MainSession>
   )
 
 }

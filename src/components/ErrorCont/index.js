@@ -1,17 +1,17 @@
 import React from "react";
-import{ErrorWrap,ErrorWrapInner, ErrorNum, ErrorTitle, ErrorDesc} from './ErrorContElement';
+import * as S from './style';
 import ButtonLink from '../ButtonLink';
 
 const ErrorCont = (props) =>{
   return(
-    <ErrorWrap>
-      <ErrorWrapInner>
-        <ErrorNum>{props.num}</ErrorNum>
-        <ErrorTitle>{props.errorTitle}</ErrorTitle> 
-        <ErrorDesc dangerouslySetInnerHTML={{ __html : props.errorDesc }}/>
+    <S.ErrorWrap>
+      <S.ErrorWrapInner>
+        <S.ErrorNum>{props.num}</S.ErrorNum>
+        <S.ErrorTitle>{props.errorTitle}</S.ErrorTitle> 
+        <S.ErrorDesc dangerouslySetInnerHTML={{ __html : props.errorDesc }}/>
         <ButtonLink url="/error" color="black" size="medium">Back to Previous Page</ButtonLink>
-      </ErrorWrapInner>
-    </ErrorWrap>
+      </S.ErrorWrapInner>
+    </S.ErrorWrap>
   )
 }
 

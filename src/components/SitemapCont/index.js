@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {SitemapWrap, SitemapWrapInner, SitemapTitle, SitemapLinks } from './SitemapContElement'
+import * as S from './style'
 
 const SitemapCont = () => {
   return(
-    <SitemapWrap>
-      <SitemapWrapInner>
-        <SitemapTitle>Site map</SitemapTitle>
+    <S.SitemapWrap>
+      <S.SitemapWrapInner>
+        <S.SitemapTitle>Site map</S.SitemapTitle>
         {
           /* Links */
         }
-        <SitemapLinks>
+        <S.SitemapLinks>
           <Link className="link" to="/keynote">Keynote</Link>
           <div className="link">
             <span>Sessions</span>
@@ -19,9 +19,9 @@ const SitemapCont = () => {
             </div>
           <Link className="link" to="/schedule">Schedule</Link>
           <Link className="link" to="/support">Support</Link>
-        </SitemapLinks>
-      </SitemapWrapInner>
-    </SitemapWrap>
+        </S.SitemapLinks>
+      </S.SitemapWrapInner>
+    </S.SitemapWrap>
   )
 
 }

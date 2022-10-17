@@ -1,30 +1,30 @@
 import React from 'react';
-import { MapContainer, MapInner, MapWrap, MapText, MapTitle, MapDesc, MapLink, MapImage } from './ScheduleMapElements'
+import * as S from './style'
 import Section from '../Section';
 import Button from '../Button';
 
 const ScheduleMap = ()=>{
 	return (
-    <MapContainer>
-      <MapInner>
+    <S.MapContainer>
+      <S.MapInner>
         <Section title="Offline Map">
-          <MapWrap>
-            <MapText>
-              <MapTitle>SDC22 @ Moscone North</MapTitle>
-              <MapDesc>
+          <S.MapWrap>
+            <S.MapText>
+              <S.MapTitle>SDC22 @ Moscone North</S.MapTitle>
+              <S.MapDesc>
                 Join us to lead the future of new experiences, directly from Moscone North.
-              </MapDesc>
-            </MapText>
-            <MapImage>
+              </S.MapDesc>
+            </S.MapText>
+            <S.MapImage>
               <img src={process.env.PUBLIC_URL + '/images/img-map.png'} alt=""></img>
-            </MapImage>
-            <MapLink>
+            </S.MapImage>
+            <S.MapLink>
               <Button color="white" size="medium" outline="outline">View Detailed Map</Button>
-            </MapLink>
-          </MapWrap>
+            </S.MapLink>
+          </S.MapWrap>
         </Section>
-      </MapInner>
-    </MapContainer>
+      </S.MapInner>
+    </S.MapContainer>
 	)
 }
 

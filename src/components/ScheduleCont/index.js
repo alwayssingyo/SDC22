@@ -3,18 +3,18 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import { ScheduleContainer, ScheduleInner, ScheduleBanner, ScheduleWrap, ScheduleGrid, EngagementBox, EngagementBoxBg, EngagementBoxInner, EngagementTitle, EngagementText, GridInfo, GridInfoList, GridInfoItem, GridInfoMore } from './ScheduleContElements'
+import * as S from './style'
 import Button from '../Button';
 
 const GridItem = ( {title, time} )=>{
   return(
-    <GridInfoItem>
+    <S.GridInfoItem>
       <div className='item_title'>{title}</div>
       <div className='item_desc'>
         <span>{time}</span>
       </div>
       <Link to="/sessionDetail" className='item_link'>View More<span className='icon'></span></Link>
-    </GridInfoItem>
+    </S.GridInfoItem>
   )
 }
 
@@ -168,8 +168,8 @@ const ScheduleCont = ()=>{
 	}, [tab]);
 
 	return (
-    <ScheduleContainer>
-      <ScheduleInner>
+    <S.ScheduleContainer>
+      <S.ScheduleInner>
 
         <Tabs onSelect={tabHandler}>
           <TabList>
@@ -179,8 +179,8 @@ const ScheduleCont = ()=>{
 
           {/* Online Tab */}
           <TabPanel>
-            <ScheduleWrap ref={gridRef}>
-              <ScheduleGrid>
+            <S.ScheduleWrap ref={gridRef}>
+              <S.ScheduleGrid>
                 <div className='index'>
                   <div className='index_text'>10:00 PT</div>
                 </div>
@@ -201,18 +201,18 @@ const ScheduleCont = ()=>{
                       Go to Tech Sessions<span className='link_icon'></span>
                     </Link>
                   </div>
-                  <GridInfo>
+                  <S.GridInfo>
                     <div className='inner'>
-                      <GridInfoList>
+                      <S.GridInfoList>
                         <div className='title'>Session Room 1</div>
                         <GridItem title={sessionDataA.title} time={sessionDataA.time} speaker={sessionDataA.speaker}/>
-                      </GridInfoList>
-                      <GridInfoList>
+                      </S.GridInfoList>
+                      <S.GridInfoList>
                         <div className='title'>Session Room 2</div>
                         <GridItem title={sessionDataB.title} time={sessionDataB.time} speaker={sessionDataB.speaker}/>
-                      </GridInfoList>
+                      </S.GridInfoList>
                     </div>
-                  </GridInfo>
+                  </S.GridInfo>
                 </div>
                 <div className='index'>
                   <div className='index_text'>12:00 PT</div>
@@ -237,9 +237,9 @@ const ScheduleCont = ()=>{
                       Go to Tech Sessions<span className='link_icon'></span>
                     </Link>
                   </div>
-                  <GridInfo className={more ? 'is-appended' : ''}>
+                  <S.GridInfo className={more ? 'is-appended' : ''}>
                     <div className='inner'>
-                      <GridInfoList className={moreA ? 'is-appended' : ''}>
+                      <S.GridInfoList className={moreA ? 'is-appended' : ''}>
                         <button className='title' onClick={moreAHandler}>Session Room 1<span className='info_btn_icon'></span></button>
                         <div className='grid_session'>
                           {
@@ -248,8 +248,8 @@ const ScheduleCont = ()=>{
                             ))
                           }
                         </div>
-                      </GridInfoList>
-                      <GridInfoList className={moreB ? 'is-appended' : ''}>
+                      </S.GridInfoList>
+                      <S.GridInfoList className={moreB ? 'is-appended' : ''}>
                         <button className='title' onClick={moreBHandler}>Session Room 2<span className='info_btn_icon'></span></button>
                         <div className='grid_session'>
                           {
@@ -258,10 +258,10 @@ const ScheduleCont = ()=>{
                             ))
                           }
                         </div>
-                      </GridInfoList>
+                      </S.GridInfoList>
                     </div>
-                    <GridInfoMore onClick={textHandler} className={more ? 'is-appended' : ''}>{ more ? "Close" : "More" }</GridInfoMore>
-                  </GridInfo>
+                    <S.GridInfoMore onClick={textHandler} className={more ? 'is-appended' : ''}>{ more ? "Close" : "More" }</S.GridInfoMore>
+                  </S.GridInfo>
                 </div>
                 <div className='index'>
                   <div className='index_text'>16:30 PT</div>
@@ -275,34 +275,34 @@ const ScheduleCont = ()=>{
                       Go to Tech Sessions<span className='link_icon'></span>
                     </Link>
                   </div>
-                  <GridInfo>
+                  <S.GridInfo>
                     <div className='inner'>
-                      <GridInfoList>
+                      <S.GridInfoList>
                         <div className='title'>Keynote Hall</div>
                         <GridItem 
                           title="Immersive audio" 
                           time="16:30 - 17:00"
                           speaker="DJ Koh, Janghyun Yoon, Daniel Ahn"
                         />
-                      </GridInfoList>
-                      <GridInfoList className='is-margin'>
+                      </S.GridInfoList>
+                      <S.GridInfoList className='is-margin'>
                         <div className='title'>&nbsp;</div>
                         <GridItem 
                           title="Samsung Wallet, it's convenient, personal and safe"
                           time="17:00 - 17:40"
                           speaker="DJ Koh, Janghyun Yoon, Daniel Ahn"
                         />
-                      </GridInfoList>
+                      </S.GridInfoList>
                     </div>
-                  </GridInfo>
+                  </S.GridInfo>
                 </div>
-              </ScheduleGrid>
-            </ScheduleWrap>
+              </S.ScheduleGrid>
+            </S.ScheduleWrap>
           </TabPanel>
           {/* On-Site Tab */}
           <TabPanel>
-            <ScheduleWrap ref={gridRef}>
-              <ScheduleGrid className='on-site'>
+            <S.ScheduleWrap ref={gridRef}>
+              <S.ScheduleGrid className='on-site'>
                 <div className='index'>
                   <div className='index_text'>08:00 PT</div>
                 </div>
@@ -332,18 +332,18 @@ const ScheduleCont = ()=>{
                       Go to Tech Sessions<span className='link_icon'></span>
                     </Link>
                   </div>
-                  <GridInfo>
+                  <S.GridInfo>
                     <div className='inner'>
-                      <GridInfoList>
+                      <S.GridInfoList>
                         <div className='title'>Session Room 1</div>
                         <GridItem title={sessionDataA.title} time={sessionDataA.time} speaker={sessionDataA.speaker}/>
-                      </GridInfoList>
-                      <GridInfoList>
+                      </S.GridInfoList>
+                      <S.GridInfoList>
                         <div className='title'>Session Room 2</div>
                         <GridItem title={sessionDataB.title} time={sessionDataB.time} speaker={sessionDataB.speaker}/>
-                      </GridInfoList>
+                      </S.GridInfoList>
                     </div>
-                  </GridInfo>
+                  </S.GridInfo>
                 </div>
                 {
                   !isDesktop && <div className='index'></div>
@@ -374,9 +374,9 @@ const ScheduleCont = ()=>{
                       Go to Tech Sessions<span className='link_icon'></span>
                     </Link>
                   </div>
-                  <GridInfo className={more ? 'is-appended' : ''}>
+                  <S.GridInfo className={more ? 'is-appended' : ''}>
                     <div className='inner'>
-                      <GridInfoList className={moreA ? 'is-appended' : ''}>
+                      <S.GridInfoList className={moreA ? 'is-appended' : ''}>
                         <button className='title' onClick={moreAHandler}>Session Room 1<span className='info_btn_icon'></span></button>
                         <div className='grid_session'>
                           {
@@ -385,8 +385,8 @@ const ScheduleCont = ()=>{
                             ))
                           }
                         </div>
-                      </GridInfoList>
-                      <GridInfoList className={moreB ? 'is-appended' : ''}>
+                      </S.GridInfoList>
+                      <S.GridInfoList className={moreB ? 'is-appended' : ''}>
                         <button className='title' onClick={moreBHandler}>Session Room 2<span className='info_btn_icon'></span></button>
                         <div className='grid_session'>
                           {
@@ -395,10 +395,10 @@ const ScheduleCont = ()=>{
                             ))
                           }
                         </div>
-                      </GridInfoList>
+                      </S.GridInfoList>
                     </div>
-                    <GridInfoMore onClick={textHandler} className={more ? 'is-appended' : ''}>{ more ? "Close" : "More" }</GridInfoMore>
-                  </GridInfo>
+                    <S.GridInfoMore onClick={textHandler} className={more ? 'is-appended' : ''}>{ more ? "Close" : "More" }</S.GridInfoMore>
+                  </S.GridInfo>
                 </div>
                 <div className='index'>
                   <div className='index_text'>16:30 PT</div>
@@ -411,24 +411,24 @@ const ScheduleCont = ()=>{
                       Go to Tech Sessions<span className='link_icon'></span>
                     </Link>
                   </div>
-                  <GridInfo>
+                  <S.GridInfo>
                     <div className='inner'>
-                      <GridInfoList>
+                      <S.GridInfoList>
                         <div className='title'>Keynote Hall</div>
                         <GridItem 
                           title="Immersive audio" 
                           time="16:30 - 17:00"
                         />
-                      </GridInfoList>
-                      <GridInfoList className='is-margin'>
+                      </S.GridInfoList>
+                      <S.GridInfoList className='is-margin'>
                         <div className='title'>&nbsp;</div>
                         <GridItem 
                           title="Samsung Wallet, it's convenient, personal and safe"
                           time="17:00 - 17:40"
                         />
-                      </GridInfoList>
+                      </S.GridInfoList>
                     </div>
-                  </GridInfo>
+                  </S.GridInfo>
                 </div>
                 <div className='index last-index'>
                   <div className='index_text'>17:40 PT</div>
@@ -440,30 +440,30 @@ const ScheduleCont = ()=>{
                     <div className='time'>17:40 - 18:30</div>
                   </div>
                 </div>
-              </ScheduleGrid>
-            </ScheduleWrap>
+              </S.ScheduleGrid>
+            </S.ScheduleWrap>
           </TabPanel>
         </Tabs>
 
-        <ScheduleBanner>
-          <EngagementBox>
+        <S.ScheduleBanner>
+          <S.EngagementBox>
             {isDesktop ? (
-              <EngagementBoxBg style={{ backgroundImage: `url(${ MainEngagementData[0].bg })`,  }}></EngagementBoxBg>
+              <S.EngagementBoxBg style={{ backgroundImage: `url(${ MainEngagementData[0].bg })`,  }}></S.EngagementBoxBg>
             ) : (
-              <EngagementBoxBg style={{ backgroundImage: `url(${ MainEngagementData[0].mobileBg })`,  }}></EngagementBoxBg>
+              <S.EngagementBoxBg style={{ backgroundImage: `url(${ MainEngagementData[0].mobileBg })`,  }}></S.EngagementBoxBg>
             )}
-            <EngagementBoxInner>
-              <EngagementTitle className={MainEngagementData[0].theme}>{MainEngagementData[0].title}</EngagementTitle>
-              <EngagementText className={MainEngagementData[0].theme}>{MainEngagementData[0].discription}</EngagementText>
+            <S.EngagementBoxInner>
+              <S.EngagementTitle className={MainEngagementData[0].theme}>{MainEngagementData[0].title}</S.EngagementTitle>
+              <S.EngagementText className={MainEngagementData[0].theme}>{MainEngagementData[0].discription}</S.EngagementText>
               <div className='btn_wrap'>
                 <Button url={MainEngagementData[0].url1} color={ MainEngagementData[0].theme === 'dark' ? 'white' : 'black' } size="medium">{MainEngagementData[0].btnText1}</Button>
                 <Button url={MainEngagementData[0].url2} color={ MainEngagementData[0].theme === 'dark' ? 'white' : 'black' } size="medium">{MainEngagementData[0].btnText2}</Button>
               </div>
-            </EngagementBoxInner>
-          </EngagementBox>
-        </ScheduleBanner>
-      </ScheduleInner>
-    </ScheduleContainer>
+            </S.EngagementBoxInner>
+          </S.EngagementBox>
+        </S.ScheduleBanner>
+      </S.ScheduleInner>
+    </S.ScheduleContainer>
 	)
 }
 

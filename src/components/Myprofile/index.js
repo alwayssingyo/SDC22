@@ -1,24 +1,24 @@
 import React from 'react';
-import {MyProfileWrap, MyProfileWrapInner, MyProfileTitle, MyProfileTop, MyProfileBox, MyProfileName, MyProfileMail, MyProfileImg, MyProfileDetail} from './MyprofileElement'
+import * as S from './style'
 import ButtonLink from '../ButtonLink';
 
 const MyProfile = (props)=>{
 	
 	return (
-    <MyProfileWrap>
-      <MyProfileWrapInner>
-        <MyProfileTitle>My Profile</MyProfileTitle>
-        <MyProfileBox>
-          <MyProfileTop>
-            <MyProfileImg>
+    <S.MyProfileWrap>
+      <S.MyProfileWrapInner>
+        <S.MyProfileTitle>My Profile</S.MyProfileTitle>
+        <S.MyProfileBox>
+          <S.MyProfileTop>
+            <S.MyProfileImg>
               <img src={process.env.PUBLIC_URL + props.url} alt=""/>
-            </MyProfileImg>
+            </S.MyProfileImg>
             <div>
-              <MyProfileName>{props.name}</MyProfileName>
-              <MyProfileMail>{props.mail}</MyProfileMail>
+              <S.MyProfileName>{props.name}</S.MyProfileName>
+              <S.MyProfileMail>{props.mail}</S.MyProfileMail>
             </div>
-          </MyProfileTop>
-          <MyProfileDetail>
+          </S.MyProfileTop>
+          <S.MyProfileDetail>
             <ButtonLink className='btn-edit' url={props.editLink} color="border" size="small">Edit</ButtonLink>
             <table>
               <colgroup className='col'>
@@ -51,10 +51,10 @@ const MyProfile = (props)=>{
                 </tr>
               </tbody>
             </table>
-          </MyProfileDetail>
-        </MyProfileBox>
-      </MyProfileWrapInner>
-    </MyProfileWrap>
+          </S.MyProfileDetail>
+        </S.MyProfileBox>
+      </S.MyProfileWrapInner>
+    </S.MyProfileWrap>
 	)
 }
 

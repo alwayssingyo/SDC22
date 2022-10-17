@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContContainer } from './MainContentElements';
+import { ContContainer } from './style';
 import MainIntro from '../MainIntro';
 import MainSlide from '../MainSlide';
 import MainSessionContent from '../MainSession'

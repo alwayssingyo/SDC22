@@ -1,6 +1,6 @@
 import React, {useState, useRef} from 'react';
-import { KeynoteContContainer, KeynoteContInner, KeynoteContVideo, KeynoteContSoon, KeynoteContText, KeynoteContTitle, KeynoteContDesc, KeynoteBadge, KeynoteBadgeWrap } from '../KeynoteCont/KeynoteContElements';
-import { SessionRoomNoti, SessionRoomSchedule, RoomScheduleGrid, SessionRoomScheduleInner, RoomTitle, RoomScheduleBox, RoomScheduleInner, RoomScheduleTitle, RoomScheduleWrap } from './../SessionRoomCont/SessionRoomContElement';
+import * as S from '../KeynoteCont/style';
+import * as RS from '../SessionRoomCont/style';
 import Popup from '../Popup'
 import  ReactPlayer  from  'react-player/lazy'
 import { Link } from 'react-router-dom';
@@ -14,12 +14,12 @@ const MegaSessionCont = (props)=>{
   
 	return (
     <>
-      <KeynoteContContainer>
-      <KeynoteContInner className='KeynoteContInner'>
+      <S.KeynoteContContainer>
+      <S.KeynoteContInner className='KeynoteContInner'>
         {
           props.released
           ?
-          <KeynoteContVideo className='KeynoteContVideo' released={props.released}>
+          <S.KeynoteContVideo className='KeynoteContVideo' released={props.released}>
             <ReactPlayer
               ref={playerRef}
               className="react-player"
@@ -29,9 +29,9 @@ const MegaSessionCont = (props)=>{
               height="100%"
               controls={true}
               />
-          </KeynoteContVideo>
+          </S.KeynoteContVideo>
 
-          :	<KeynoteContVideo className='KeynoteContVideo'>
+          :	<S.KeynoteContVideo className='KeynoteContVideo'>
               <ReactPlayer
                 className="react-player"
                 url={process.env.PUBLIC_URL + '/images/video-commingsoon.mp4'}
@@ -42,65 +42,65 @@ const MegaSessionCont = (props)=>{
                 playsinline={true}
                 muted={true}
               />
-              <KeynoteContSoon className='LiveVideo'>
+              <S.KeynoteContSoon className='LiveVideo'>
                 <div className='title'>The next session<br/>will begin at 16:30 PM</div>
                 <div className='desc'>Please refresh this page at 16:30</div>
-              </KeynoteContSoon>
-          </KeynoteContVideo>
+              </S.KeynoteContSoon>
+          </S.KeynoteContVideo>
         }
-        <KeynoteContText className={ props.session ? 'KeynoteContText is-session' : 'KeynoteContText' }>
+        <S.KeynoteContText className={ props.session ? 'KeynoteContText is-session' : 'KeynoteContText' }>
           {
             props.released && !props.vodOpen // 라이브 오픈 후, vod 업로드 이전
-            ? <KeynoteBadgeWrap>
-                <KeynoteBadge>
+            ? <S.KeynoteBadgeWrap>
+                <S.KeynoteBadge>
                   <div className='inner'>
                     <span className='tag'>LIVE</span>
                   </div>
-                </KeynoteBadge>
-              </KeynoteBadgeWrap>
+                </S.KeynoteBadge>
+              </S.KeynoteBadgeWrap>
             : ''
           }
-          <KeynoteContTitle className='KeynoteContTitle'>
+          <S.KeynoteContTitle className='KeynoteContTitle'>
             <div className='title'>{props.title}</div>
-          </KeynoteContTitle>
-          <KeynoteContDesc className='KeynoteContDesc' dangerouslySetInnerHTML={{ __html : props.desc }} />
-          <SessionRoomNoti>Welcome to the Live Session Room! Catch live sessions streaming right here, in real time. Please note that actual running times may be subject to change and possibly differ slightly from what has been previously announced.</SessionRoomNoti>
-        </KeynoteContText>
-      </KeynoteContInner>
-    </KeynoteContContainer>
+          </S.KeynoteContTitle>
+          <S.KeynoteContDesc className='KeynoteContDesc' dangerouslySetInnerHTML={{ __html : props.desc }} />
+          <RS.SessionRoomNoti>Welcome to the Live Session Room! Catch live sessions streaming right here, in real time. Please note that actual running times may be subject to change and possibly differ slightly from what has been previously announced.</RS.SessionRoomNoti>
+        </S.KeynoteContText>
+      </S.KeynoteContInner>
+    </S.KeynoteContContainer>
 
     {/* SessionRoomSchedule */}
-      <SessionRoomSchedule>
-        <SessionRoomScheduleInner>
-          <RoomTitle>Schedule</RoomTitle>
+      <RS.SessionRoomSchedule>
+        <RS.SessionRoomScheduleInner>
+          <RS.RoomTitle>Schedule</RS.RoomTitle>
 
-          <RoomScheduleWrap>
-            <RoomScheduleInner>
+          <RS.RoomScheduleWrap>
+            <RS.RoomScheduleInner>
                 <div className='top'>
-                  <RoomScheduleTitle>16:30 - 17:40 PT</RoomScheduleTitle>
+                  <RS.RoomScheduleTitle>16:30 - 17:40 PT</RS.RoomScheduleTitle>
                 </div>
-                <RoomScheduleGrid>
-                  <RoomScheduleBox>
+                <RS.RoomScheduleGrid>
+                  <RS.RoomScheduleBox>
                     <Link to="/sessionDetail">
                       <div className='title'>Immersive audio</div>
                       <div className='time'>16:30 - 17:00</div>
                       <span>View More</span>
                     </Link>
-                  </RoomScheduleBox>
-                  <RoomScheduleBox>
+                  </RS.RoomScheduleBox>
+                  <RS.RoomScheduleBox>
                     <Link to="/sessionDetail">
                       <div className='title'>Samsung Wallet, it's convenient, personal and safe</div>
                       <div className='time'>17:00 - 17:40</div>
                       <span>View More</span>
                     </Link>
-                  </RoomScheduleBox>
-                </RoomScheduleGrid>
+                  </RS.RoomScheduleBox>
+                </RS.RoomScheduleGrid>
 
-            </RoomScheduleInner>
-          </RoomScheduleWrap>
+            </RS.RoomScheduleInner>
+          </RS.RoomScheduleWrap>
 
-        </SessionRoomScheduleInner>
-      </SessionRoomSchedule>
+        </RS.SessionRoomScheduleInner>
+      </RS.SessionRoomSchedule>
       {
         modal &&
         <Popup

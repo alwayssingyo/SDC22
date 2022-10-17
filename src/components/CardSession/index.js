@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardImage, VideoIcon, CardInfo, CardTitle, CardText, CardTagWrap, CardTag, CardMore, CardBookmark, KeynoteContMark, CardType, CardTypeInner, BookmarkTooltip, LoadingCard, LoadingCardInner, LoadingCardTop, LoadingCardTopInner, LoadingCardIcon, LoadingCardBottom } from './CardSessionElements';
+import * as S from './style';
 
 const BookmarkToggleItem = ({ setModal, setModalFalse, tooltipOpen, setTooltipOpen }) => {
   const [Bookmark, setBookmark] = useState(false);
@@ -30,7 +30,7 @@ const BookmarkToggleItem = ({ setModal, setModalFalse, tooltipOpen, setTooltipOp
   }, [tooltipOpen, setTooltipOpen])
 
   return (
-    <KeynoteContMark className={Bookmark ? "Bookmark-checked" : ""} onClick={onClickHandler}></KeynoteContMark>
+    <S.KeynoteContMark className={Bookmark ? "Bookmark-checked" : ""} onClick={onClickHandler}></S.KeynoteContMark>
   );
 };
 
@@ -94,82 +94,82 @@ const CardSession = ({ id, col, border, image, title, discription, bookmark, vid
   }
 
   return(
-		<Card className={loading ? 'loading ' + col : col} border={border} listYn={listYn}>
+		<S.Card className={loading ? 'loading ' + col : col} border={border} listYn={listYn}>
       {
         loading
-        ? <LoadingCard>
-            <LoadingCardInner>
-              <LoadingCardTop>
-                <LoadingCardTopInner>
-                  <LoadingCardIcon>
+        ? <S.LoadingCard>
+            <S.LoadingCardInner>
+              <S.LoadingCardTop>
+                <S.LoadingCardTopInner>
+                  <S.LoadingCardIcon>
                     <span className='dot'></span>
                     <span className='dot'></span>
                     <span className='dot'></span>
-                  </LoadingCardIcon>
-                </LoadingCardTopInner>
-              </LoadingCardTop>
-              <LoadingCardBottom>
+                  </S.LoadingCardIcon>
+                </S.LoadingCardTopInner>
+              </S.LoadingCardTop>
+              <S.LoadingCardBottom>
                 <div></div>
                 <div></div>
                 <div></div>
-              </LoadingCardBottom>
-            </LoadingCardInner>
-          </LoadingCard>
+              </S.LoadingCardBottom>
+            </S.LoadingCardInner>
+          </S.LoadingCard>
         :
           <>
             {/* 퍼블 : 동일한 세션 디테일 페이지로 이동시킴 */}
             <Link to={"/sessionDetail"}>
             {/* <Link to={"/liveTech/" + id}> */}
-              <CardImage className={ video ? 'card_img has-dim' : 'card_img' }>
+              <S.CardImage className={ video ? 'card_img has-dim' : 'card_img' }>
                 {  
-                  video && <VideoIcon></VideoIcon>
+                  video && <S.VideoIcon></S.VideoIcon>
                 }
                 <img src={image} alt={discription}></img>
                 {
                   type === "LIVE"
-                  ? <CardTitle className='is-live'>{title}</CardTitle>
-                  : <CardTitle>{title}</CardTitle>
+                  ? <S.CardTitle className='is-live'>{title}</S.CardTitle>
+                  : <S.CardTitle>{title}</S.CardTitle>
                 }
-              </CardImage>
+              </S.CardImage>
 
-              <CardInfo className='Text'>
-                <CardText>{discription}</CardText>
+              <S.CardInfo className='Text'>
+                <S.CardText>{discription}</S.CardText>
                 {
                   tag &&
-                  <CardTagWrap ref={tagWrapRef}>
+                  <S.CardTagWrap ref={tagWrapRef}>
                     <div className='tag_inner' ref={tagInner}>
                       {
                         tagData&&tagData.map((item, idx)=>(
-                          <CardTag key={idx}>{item}</CardTag>
+                          <S.CardTag key={idx}>{item}</S.CardTag>
                         ))
                       }
-                      <CardMore className={tag.length > 2 ? 'is-active' : null}>+ {tag.length - tagData.length}</CardMore>
+                      <S.CardMore className={tag.length > 2 ? 'is-active' : null}>+ {tag.length - tagData.length}</S.CardMore>
                     </div>
-                  </CardTagWrap>
+                  </S.CardTagWrap>
                 }
-              </CardInfo>
+              </S.CardInfo>
               {
                 type === "LIVE"
-                ? <CardType className={ isLive ? 'onLive' : '' }><CardTypeInner className='inner'><span className='tag'>{type}</span></CardTypeInner></CardType>
-                : <CardType ><CardTypeInner className='inner'><span className='tag'>{type}</span></CardTypeInner></CardType>
+                ? <S.CardType className={ isLive ? 'onLive' : '' }><S.CardTypeInner className='inner'><span className='tag'>{type}</span></S.CardTypeInner></S.CardType>
+                : <S.CardType ><S.CardTypeInner className='inner'><span className='tag'>{type}</span></S.CardTypeInner></S.CardType>
               }
             </Link>
 
             {
               bookmark && 
-              <CardBookmark>
+              <S.CardBookmark>
                 <BookmarkToggleItem setModal={setModal} setModalFalse={setModalFalse} tooltipOpen={tooltipOpen} setTooltipOpen={setTooltipOpen}/>
-              </CardBookmark>
+              </S.CardBookmark>
             }
 
             {/* Bookmark tooltip */}
-            <BookmarkTooltip className={ tooltipOpen ? 'bookmark_tooltip is-open' : 'bookmark_tooltip' }>
+            <S.BookmarkTooltip className={ tooltipOpen ? 'bookmark_tooltip is-open' : 'bookmark_tooltip' }>
               Bookmarks are available after signing in. <a href="https://developer.samsung.com/dashboard/support">Sign in</a>
               <button className='close_btn' onClick={closeTooltip}></button>
-            </BookmarkTooltip>
+            </S.BookmarkTooltip>
           </>
       }
-		</Card>
+		</S.Card>
   )
 }
 

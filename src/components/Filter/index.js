@@ -1,5 +1,5 @@
 import React from 'react';
-import { FilterContainer, FilterDim, FilterInner, FilterTop, FilterTitle, FilterClose, FilterClearWrap, FilterClear, FilterCont, FilterItem, FilterItemTitle, FilterItemCont } from './FilterElements';
+import * as S from './style';
 import ButtonFilter from '../ButtonFilter';
 
 const data = [
@@ -15,40 +15,40 @@ const Filter = ({setOpen})=>{
 	}
 
 	return (
-		<FilterContainer>
-			<FilterDim></FilterDim>
-			<FilterInner>
-				<FilterTop>
-					<FilterTitle>Filter</FilterTitle>
-					<FilterClose onClick={closeFilter}></FilterClose>
-				</FilterTop>
-				<FilterCont>
-					<FilterItem>
-						<FilterItemTitle>Type</FilterItemTitle>
-						<FilterItemCont>
+		<S.FilterContainer>
+			<S.FilterDim></S.FilterDim>
+			<S.FilterInner>
+				<S.FilterTop>
+					<S.FilterTitle>Filter</S.FilterTitle>
+					<S.FilterClose onClick={closeFilter}></S.FilterClose>
+				</S.FilterTop>
+				<S.FilterCont>
+					<S.FilterItem>
+						<S.FilterItemTitle>Type</S.FilterItemTitle>
+						<S.FilterItemCont>
 							{
 								data[0].map((item, idx)=>(
 									<ButtonFilter key={idx} item={item}/>
 								))
 							}
-						</FilterItemCont>
-					</FilterItem>
-					<FilterItem>
-						<FilterItemTitle>Topics</FilterItemTitle>
-						<FilterItemCont>
+						</S.FilterItemCont>
+					</S.FilterItem>
+					<S.FilterItem>
+						<S.FilterItemTitle>Topics</S.FilterItemTitle>
+						<S.FilterItemCont>
 							{
 								data[1].map((item, idx)=>(
 									<ButtonFilter key={idx} item={item}/>
 								))
 							}
-						</FilterItemCont>
-					</FilterItem>
-				</FilterCont>
-				<FilterClearWrap>
-					<FilterClear>Clear All <span className='count'>(2)</span></FilterClear>
-				</FilterClearWrap>
-			</FilterInner>
-		</FilterContainer>
+						</S.FilterItemCont>
+					</S.FilterItem>
+				</S.FilterCont>
+				<S.FilterClearWrap>
+					<S.FilterClear>Clear All <span className='count'>(2)</span></S.FilterClear>
+				</S.FilterClearWrap>
+			</S.FilterInner>
+		</S.FilterContainer>
 	)
 }
 

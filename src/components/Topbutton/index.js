@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import { TopbuttonContainer, TopbuttonItem } from './TopbuttonElement';
+import * as S from './style';
 
 function Topbutton() {
   const [scrolledY, setScrolledY] = useState(0);
@@ -46,9 +46,9 @@ function Topbutton() {
   }, [lastScrollY])
 
   return (
-    <TopbuttonContainer className={btnStatus ? "is-active" : ""}>
-      <TopbuttonItem onClick={moveToTop}></TopbuttonItem>
-    </TopbuttonContainer>
+    <S.TopbuttonContainer className={btnStatus ? "is-active" : ""}>
+      <S.TopbuttonItem onClick={moveToTop}></S.TopbuttonItem>
+    </S.TopbuttonContainer>
   );
 }
 

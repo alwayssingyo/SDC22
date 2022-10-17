@@ -1,13 +1,13 @@
 import React from 'react';
-import {SessionTopWrap, SessionDetailTopInner} from './SessionDetailTopContElement'
+import * as S from './style'
 import DetailContainer from '../DetailContainer';
 import KeynoteCont from '../KeynoteCont';
 
 const SessionDetailTop = ()=>{
 
 	return (
-		<SessionTopWrap>
-      <SessionDetailTopInner>
+		<S.SessionTopWrap>
+      <S.SessionDetailTopInner>
         <DetailContainer>
           <KeynoteCont
             title="Watch Ecosystem: The Next Phase"
@@ -29,8 +29,8 @@ const SessionDetailTop = ()=>{
             on_Demand = {false}
           />
           </DetailContainer>
-      </SessionDetailTopInner>
-		</SessionTopWrap>
+      </S.SessionDetailTopInner>
+		</S.SessionTopWrap>
 	)
 }
 

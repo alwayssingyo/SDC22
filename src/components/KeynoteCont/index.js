@@ -1,10 +1,10 @@
 import React, {useState, useEffect, useRef} from 'react';
 import Slider from 'react-slick';
-import { KeynoteContContainer, KeynoteContInner, KeynoteContVideo, KeynoteContSoon, KeynoteContText, KeynoteContTitle, KeynoteContMark, KeynoteContDesc, KeynoteContLink, KeynoteContTag, KeynoteContLike, KeynoteContType, KeynoteMore, SessionDesc, KeynotebtnWrap, KeynoteTimeStampWrap, BookmarkTooltip, KeynoteContLikeTooltip, KeynoteTimeStamp, KeynoteTimeStampTitle, KeynoteTimeStampItem, KeynoteTimeStampImg, KeynoteBadge, KeynoteBadgeWrap } from './KeynoteContElements';
-import { SessionRoomLink } from '../sessionDetailTopCont/SessionDetailTopContElement';
+import * as S from './style';
+import { SessionRoomLink } from '../sessionDetailTopCont/style';
 import  ReactPlayer  from  'react-player/lazy'
 import ToastPopup from '../ToastPopup';
-import './style.scss'
+import './style-slide.scss'
 
 const BookmarkToggleItem = ({ setModal, setModalFalse, tooltipOpen, setTooltipOpen }) => {
 
@@ -35,7 +35,7 @@ const BookmarkToggleItem = ({ setModal, setModalFalse, tooltipOpen, setTooltipOp
   }, [tooltipOpen, setTooltipOpen])
 
   return (
-    <KeynoteContMark className={Bookmark ? "Bookmark-checked" : ""} onClick={onClickHandler}></KeynoteContMark>
+    <S.KeynoteContMark className={Bookmark ? "Bookmark-checked" : ""} onClick={onClickHandler}></S.KeynoteContMark>
   );
 };
 
@@ -181,12 +181,12 @@ const KeynoteCont = (props)=>{
 
 	return (
 
-		<KeynoteContContainer>
-			<KeynoteContInner className='KeynoteContInner'>
+		<S.KeynoteContContainer>
+			<S.KeynoteContInner className='KeynoteContInner'>
       {
         props.released?
               props.session ?
-                      <KeynoteContVideo className='KeynoteContVideo'>
+                      <S.KeynoteContVideo className='KeynoteContVideo'>
                         <ReactPlayer
                           className="react-player"
                           url={process.env.PUBLIC_URL + '/images/video-commingsoon.mp4'}
@@ -197,13 +197,13 @@ const KeynoteCont = (props)=>{
                           playsinline={true}
                           muted={true}
                         />
-                        <KeynoteContSoon>
+                        <S.KeynoteContSoon>
                           <div className='title'>SDC22 is now live<br/> Click below to come in</div>
                           <SessionRoomLink className='room' dangerouslySetInnerHTML={{ __html : props.room }} />
-                        </KeynoteContSoon>
-                      </KeynoteContVideo>
+                        </S.KeynoteContSoon>
+                      </S.KeynoteContVideo>
 
-                  : <KeynoteContVideo className='KeynoteContVideo' released={props.released}>
+                  : <S.KeynoteContVideo className='KeynoteContVideo' released={props.released}>
                       <ReactPlayer
                         ref={playerRef}
                         className="react-player"
@@ -216,10 +216,10 @@ const KeynoteCont = (props)=>{
                           goToTime(prog.playedSeconds);
                         } }
                         />
-                  </KeynoteContVideo>
+                  </S.KeynoteContVideo>
 
         :	 props.uploadedBefore ?
-                <KeynoteContVideo className='KeynoteContVideo'>
+                <S.KeynoteContVideo className='KeynoteContVideo'>
                   <ReactPlayer
                     className="react-player"
                     url={process.env.PUBLIC_URL + '/images/video-commingsoon.mp4'}
@@ -230,13 +230,13 @@ const KeynoteCont = (props)=>{
                     playsinline={true}
                     muted={true}
                   />
-                  <KeynoteContSoon>
+                  <S.KeynoteContSoon>
                     <div className='title'>The Sessions <br/> will be uploaded soon.</div>
-                  </KeynoteContSoon>
-                </KeynoteContVideo>
+                  </S.KeynoteContSoon>
+                </S.KeynoteContVideo>
 
               : props.on_Demand ?
-                <KeynoteContVideo className='KeynoteContVideo' released={props.released}>
+                <S.KeynoteContVideo className='KeynoteContVideo' released={props.released}>
                   <ReactPlayer
                     ref={playerRef}
                     className="react-player"
@@ -246,8 +246,8 @@ const KeynoteCont = (props)=>{
                     height="100%"
                     controls={true}
                     />
-                </KeynoteContVideo>
-              :  <KeynoteContVideo className='KeynoteContVideo'>
+                </S.KeynoteContVideo>
+              :  <S.KeynoteContVideo className='KeynoteContVideo'>
                   <ReactPlayer
                     className="react-player"
                     url={process.env.PUBLIC_URL + '/images/video-commingsoon.mp4'}
@@ -258,100 +258,100 @@ const KeynoteCont = (props)=>{
                     playsinline={true}
                     muted={true}
                   />
-                  <KeynoteContSoon>
+                  <S.KeynoteContSoon>
                     <div className='title'>Coming Soon </div>
                     <div className='time'>Wed, Oct 12, 2022 {props.time}</div>{/*해당 세션 시작 시각 적용*/}
-                  </KeynoteContSoon>
-              </KeynoteContVideo>
+                  </S.KeynoteContSoon>
+              </S.KeynoteContVideo>
         }
 
         {
           props.session &&
           <>
             {/* On the session detail page, use the Sessiondesc component instead of the KeynoteContDesc*/}
-            <SessionDesc ref={ref} className={more ? 'SessionDesc is-appended' : 'SessionDesc'} dangerouslySetInnerHTML={{ __html : props.desc }} />
+            <S.SessionDesc ref={ref} className={more ? 'SessionDesc is-appended' : 'SessionDesc'} dangerouslySetInnerHTML={{ __html : props.desc }} />
             {/* More button in sessionDetail page */}
-            <KeynotebtnWrap className={btnBlock ? 'block' : ''}>
-              <KeynoteMore onClick={textHandler} className={  more ? 'is-appended' : ''}>
+            <S.KeynotebtnWrap className={btnBlock ? 'block' : ''}>
+              <S.KeynoteMore onClick={textHandler} className={  more ? 'is-appended' : ''}>
                 { more ? "Less" : "More" }
-              </KeynoteMore>
-            </KeynotebtnWrap>
+              </S.KeynoteMore>
+            </S.KeynotebtnWrap>
           </>
         }
-				<KeynoteContText className={ props.session ? 'KeynoteContText is-session' : 'KeynoteContText' }>
+				<S.KeynoteContText className={ props.session ? 'KeynoteContText is-session' : 'KeynoteContText' }>
           {
             !props.session && props.released && !props.vodOpen && // 라이브 오픈 후, vod 업로드 이전
-            <KeynoteBadgeWrap>
-              <KeynoteBadge>
+            <S.KeynoteBadgeWrap>
+              <S.KeynoteBadge>
                 <div className='inner'>
                   <span className='tag'>LIVE</span>
                 </div>
-              </KeynoteBadge>
-            </KeynoteBadgeWrap>
+              </S.KeynoteBadge>
+            </S.KeynoteBadgeWrap>
           }
-					<KeynoteContTitle className='KeynoteContTitle'>
+					<S.KeynoteContTitle className='KeynoteContTitle'>
 						<div className='title'>{props.title}</div>
               <div className='btn'>
                 {/* Like button in sessionDetail page */}
                 {
                   props.session &&
-                  <KeynoteContLike onClick={likeHandler} className={like ? 'is-active' : ''}>
-                    <KeynoteContLikeTooltip className='like_tooltip'>Was this helpful?</KeynoteContLikeTooltip>
-                  </KeynoteContLike>
+                  <S.KeynoteContLike onClick={likeHandler} className={like ? 'is-active' : ''}>
+                    <S.KeynoteContLikeTooltip className='like_tooltip'>Was this helpful?</S.KeynoteContLikeTooltip>
+                  </S.KeynoteContLike>
                 }
                 <BookmarkToggleItem setModal={setModal} setModalFalse={setModalFalse} tooltipOpen={tooltipOpen} setTooltipOpen={setTooltipOpen}/>
                 {/* Bookmark tooltip */}
-                <BookmarkTooltip className={ tooltipOpen ? 'bookmark_tooltip is-open' : 'bookmark_tooltip' }>
+                <S.BookmarkTooltip className={ tooltipOpen ? 'bookmark_tooltip is-open' : 'bookmark_tooltip' }>
                   Bookmarks are available after signing in. <a href="https://developer.samsung.com/dashboard/support">Sign in</a>
                   <button className='close_btn' onClick={closeTooltip}></button>
-                </BookmarkTooltip>
+                </S.BookmarkTooltip>
               </div>
               {/* Use in sessionDetail page */}
                 <div className='tag_wrap'>
                 {
-                  props.type && <KeynoteContType className={props.released ? 'released' : ''}><span>{props.type}</span></KeynoteContType>
+                  props.type && <S.KeynoteContType className={props.released ? 'released' : ''}><span>{props.type}</span></S.KeynoteContType>
                 }
                 {
                   TagData && TagData.map((item,idx)=>(
-                    <KeynoteContTag className='KeynoteContTag' key={idx}>{item}</KeynoteContTag>
+                    <S.KeynoteContTag className='KeynoteContTag' key={idx}>{item}</S.KeynoteContTag>
                   ))
                 }
               </div>
-					  </KeynoteContTitle>
-					  <KeynoteContDesc className='KeynoteContDesc' dangerouslySetInnerHTML={{ __html : props.desc }} />
+					  </S.KeynoteContTitle>
+					  <S.KeynoteContDesc className='KeynoteContDesc' dangerouslySetInnerHTML={{ __html : props.desc }} />
             {
               !phase4 &&
-              <KeynoteContLink  className='KeynoteContLink' href="https://www.youtube.com/watch?v=ElMqHkG26sM&list=PL7PfK8Mp1rLHOrUvW_v9h12pd7TFOXMEL&index=2" target="_blank">Watch last year's Keynote</KeynoteContLink>
+              <S.KeynoteContLink  className='KeynoteContLink' href="https://www.youtube.com/watch?v=ElMqHkG26sM&list=PL7PfK8Mp1rLHOrUvW_v9h12pd7TFOXMEL&index=2" target="_blank">Watch last year's Keynote</S.KeynoteContLink>
             }
 
             {
               !props.session && phase4 &&
               <>
-                <KeynoteTimeStampTitle>Chapter</KeynoteTimeStampTitle>
-                <KeynoteTimeStamp>
-                    <KeynoteTimeStampWrap className={ nextSlide !== 0 ? 'timestampe not-first' : 'timestampe' } >
+                <S.KeynoteTimeStampTitle>Chapter</S.KeynoteTimeStampTitle>
+                <S.KeynoteTimeStamp>
+                    <S.KeynoteTimeStampWrap className={ nextSlide !== 0 ? 'timestampe not-first' : 'timestampe' } >
                       <Slider {...settings}>
                         {
                           timestampValues.map( (val, idx) => (
-                            <KeynoteTimeStampItem key={idx} onClick={() => {setActiveId(val.id)}} className={ activeId === val.id ? "active" : "" }>
+                            <S.KeynoteTimeStampItem key={idx} onClick={() => {setActiveId(val.id)}} className={ activeId === val.id ? "active" : "" }>
                               <button onClick={() => playerRef.current.seekTo(val.time) }>
-                                <KeynoteTimeStampImg className='thumb'>
+                                <S.KeynoteTimeStampImg className='thumb'>
                                   <img src={val.thumbnail} alt={val.title}></img>
-                                </KeynoteTimeStampImg>
+                                </S.KeynoteTimeStampImg>
                                 <div className='title'>{val.title}</div>
                                 <div className='txt'> {val.text}</div>
                               </button>
-                            </KeynoteTimeStampItem>
+                            </S.KeynoteTimeStampItem>
                           ))
                         }
                       </Slider>
-                    </KeynoteTimeStampWrap>
-                  </KeynoteTimeStamp>
+                    </S.KeynoteTimeStampWrap>
+                  </S.KeynoteTimeStamp>
                 </>
               }
 
-            </KeynoteContText>
-			</KeynoteContInner>
+            </S.KeynoteContText>
+			</S.KeynoteContInner>
 
       {/* toast popup */}
       {/* 북마크 설정 팝업 */}
@@ -370,7 +370,7 @@ const KeynoteCont = (props)=>{
         text="This session is no longer bookmarked."
       />
 
-		</KeynoteContContainer>
+		</S.KeynoteContContainer>
 	)
 }
 

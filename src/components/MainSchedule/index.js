@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ScheduleContainer, ScheduleInner, ScheduleTop, ScheduleTitle, ScheduleDesc,  ScheduleCont, ScheduleContInner, ScheduleIndex, ScheduleCalendar, LinkArea } from './MainScheduleElements';
+import * as S from './style';
 import ButtonLink from '../ButtonLink';
 
 const MainSchedule = ()=>{
@@ -11,25 +11,25 @@ const MainSchedule = ()=>{
 		<>
 			{
 				!phase4 &&
-				<ScheduleContainer>
-					<ScheduleInner>
-						<ScheduleTop>
-							<ScheduleTitle>Schedule</ScheduleTitle>
-							<ScheduleDesc>
+				<S.ScheduleContainer>
+					<S.ScheduleInner>
+						<S.ScheduleTop>
+							<S.ScheduleTitle>Schedule</S.ScheduleTitle>
+							<S.ScheduleDesc>
 								SDC22 is back, both offline and online!<br /> We’re coming to you live from the stage of Moscone North.
-							</ScheduleDesc>
-						</ScheduleTop>
-						<ScheduleCont>
-							<ScheduleContInner>
-								<ScheduleIndex>
+							</S.ScheduleDesc>
+						</S.ScheduleTop>
+						<S.ScheduleCont>
+							<S.ScheduleContInner>
+								<S.ScheduleIndex>
 									<div className='item'>10:00 PT</div>
 									<div className='item'>	
 										<span>11:30 PT</span>
 										<span>17:30 PT</span>
 									</div>
 									<div className='item'>18:30 PT</div>
-								</ScheduleIndex>
-								<ScheduleCalendar>
+								</S.ScheduleIndex>
+								<S.ScheduleCalendar>
 									<div className='item item-01'>
 										<div className='title'>Keynote Live Streaming</div>
 										<div className='time'>10:00 - 11:20</div>
@@ -49,14 +49,14 @@ const MainSchedule = ()=>{
 										<div className='title'>Networking (In-person)</div>
 										<div className='time'>17:40 - 18:30</div>
 									</div>
-								</ScheduleCalendar>
-							</ScheduleContInner>
-						</ScheduleCont>
-						<LinkArea>
+								</S.ScheduleCalendar>
+							</S.ScheduleContInner>
+						</S.ScheduleCont>
+						<S.LinkArea>
 							<ButtonLink url="/schedule" color="black" size="medium">Go to Schedule</ButtonLink>
-						</LinkArea>
-					</ScheduleInner>
-				</ScheduleContainer>
+						</S.LinkArea>
+					</S.ScheduleInner>
+				</S.ScheduleContainer>
 			}
 		</>
 	)

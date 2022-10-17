@@ -1,25 +1,25 @@
 import React from 'react';
-import { Card, CardImage, CardInfo, CardTagWrap, CardType, CardTag, CardTitle, CardText } from './CardBlogElements';
+import * as S from './style';
 
 const CardSession = ({ id, image, title, discription, tag, type, link, loading}) => {
   
   return(
-		<Card className={loading ? 'loading' : ''}>
+		<S.Card className={loading ? 'loading' : ''}>
       <a href={link} target="_blank" rel="noopener noreferrer">
-        <CardImage className='card_img'>
+        <S.CardImage className='card_img'>
           <img src={image} alt={discription}></img>
-        </CardImage>
+        </S.CardImage>
 
-        <CardInfo className='Text'>
-          <CardTagWrap>
-            <CardType>{type}</CardType>
-            <CardTag>{tag}</CardTag>
-          </CardTagWrap>
-          <CardTitle>{title}</CardTitle>
-          <CardText>{discription}</CardText>
-        </CardInfo>
+        <S.CardInfo className='Text'>
+          <S.CardTagWrap>
+            <S.CardType>{type}</S.CardType>
+            <S.CardTag>{tag}</S.CardTag>
+          </S.CardTagWrap>
+          <S.CardTitle>{title}</S.CardTitle>
+          <S.CardText>{discription}</S.CardText>
+        </S.CardInfo>
       </a>
-		</Card>
+		</S.Card>
   )
 }
 

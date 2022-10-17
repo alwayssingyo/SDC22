@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import { Support, SupportWrap, SupportInner, SupportTitle, SupportBanner, SupportBannerTitle, SupportBannerInner, SupportItem, SupportItemTitle } from './SupportContElements';
+import * as S from './style';
 import Accordion from '../Accordion';
 import Banner from '../Banner';
 
@@ -10,11 +10,11 @@ const SupportCont = ()=> {
   const [phase4, setPhase4] = useState(false);
 
 	return (
-    <Support>
+    <S.Support>
       <Tabs>
-        <SupportBanner>
-          <SupportBannerTitle>SDC22 Support</SupportBannerTitle>
-          <SupportBannerInner>
+        <S.SupportBanner>
+          <S.SupportBannerTitle>SDC22 Support</S.SupportBannerTitle>
+          <S.SupportBannerInner>
             <Banner
               title="Technical Q&A Forum"
               desc="For more technical questions, take a scroll through the forum, or post your own question to get suggestions straight from the community."
@@ -31,18 +31,18 @@ const SupportCont = ()=> {
               buttonUrl="https://www.youtube.com/playlist? list=PL7PfK8Mp1rLHOrUvW_v9h12pd7TFOXMEL"
               buttonText="Go to see SDC21"
             />
-          </SupportBannerInner>
-        </SupportBanner>
-        <SupportTitle>FAQ</SupportTitle>
+          </S.SupportBannerInner>
+        </S.SupportBanner>
+        <S.SupportTitle>FAQ</S.SupportTitle>
         <TabList>
           <Tab>Online</Tab>
           <Tab>Offline</Tab>
         </TabList>
 
         <TabPanel>
-          <SupportWrap>
-            <SupportInner>
-              <SupportItem>
+          <S.SupportWrap>
+            <S.SupportInner>
+              <S.SupportItem>
                 <Accordion
                 title="What’s Samsung Developer Conference?"
                 content="SDC22 brings thousands of developers, creators and designers together to build connections and shape the future of customer experiences. Discover the latest technological innovations enabling the design of simple, convenient and seamless experiences between devices, and be empowered to create cutting-edge solutions within an expansive ecosystem. The event is packed with lectures by industry experts and opportunities for hands-on learning about the newest reveals, so you’ll get first-hand experience of the latest tech innovations shaping a new era of experiences."
@@ -83,15 +83,15 @@ const SupportCont = ()=> {
                 title="What should I do if I have other questions?"
                 content="If you have any further questions, feel free to contact us at <a href=mailto:sdcsupport@samsungdevelopers.com target='_blank' rel='noopener noreferrer'>sdcsupport@samsungdevelopers.com</a>."
                 />      
-              </SupportItem>  
-            </SupportInner>
-          </SupportWrap>
+              </S.SupportItem>  
+            </S.SupportInner>
+          </S.SupportWrap>
         </TabPanel>
         <TabPanel>
-          <SupportWrap>
-            <SupportInner>
-              <SupportItem>
-                <SupportItemTitle>General</SupportItemTitle>
+          <S.SupportWrap>
+            <S.SupportInner>
+              <S.SupportItem>
+                <S.SupportItemTitle>General</S.SupportItemTitle>
                 <Accordion
                 title="When and where is the conference?"
                 content="SDC22 will be held both online and offline on Oct 12, 2022. Taking place in Moscone North, San Francisco, the event will be attended in person by a limited audience."
@@ -132,9 +132,9 @@ const SupportCont = ()=> {
                 title="I have more questions that haven’t been mentioned here. What should I do?"
                 content="No problem! For any further questions, feel free to contact us at <a href=mailto:sdcsupport@samsungdevelopers.com target='_blank' rel='noopener noreferrer'>sdcsupport@samsungdevelopers.com</a>."
                 />
-              </SupportItem>
-              <SupportItem>
-                <SupportItemTitle>Registration</SupportItemTitle>
+              </S.SupportItem>
+              <S.SupportItem>
+                <S.SupportItemTitle>Registration</S.SupportItemTitle>
                 <Accordion
                 title="How can I pick up my badge?"
                 content="Please bring your badge confirmation email (with QR code) to the Registration Desk to pick up your badge. We do not allow bulk pick up or picking up for others. You may not pick up your badge without a QR code."
@@ -151,9 +151,9 @@ const SupportCont = ()=> {
                 title="Can I bring a guest?"
                 content="If you would like to bring a guest along with you to SDC22, they will also need to be registered as an attendee. The best thing to do for this, or any other special request you may have, is to reach out to the Samsung personnel who invited you, or send an email to <a href=mailto:sdcsupport@samsungdevelopers.com target='_blank' rel='noopener noreferrer'>sdcsupport@samsungdevelopers.com</a>."
                 />
-              </SupportItem>
-              <SupportItem>
-                <SupportItemTitle>COVID & Vaccination Policy</SupportItemTitle>
+              </S.SupportItem>
+              <S.SupportItem>
+                <S.SupportItemTitle>COVID & Vaccination Policy</S.SupportItemTitle>
                 <Accordion
                 title="Do I need to submit a proof of vaccination to attend?"
                 content="As of March 11, 2022 (current San Francisco Public Health Requirements), the vaccination or proof of negative test requirement will no longer apply in most of indoors and it is not required to submit for SDC22. However, we continue to have safety measures in place to ensure that we have a safe and healthy environment for our visitors and staff. The measures include frequent cleaning of high-touch areas and providing sanitizing stations."
@@ -162,23 +162,23 @@ const SupportCont = ()=> {
                 title="Are masks required?"
                 content="In accordance with City and Country of San Francisco guidance, masking is strongly recommended and we encourage you to wear mask indoors if you are more comfortable. If local health conditions change, masking requirements and other health precautions may be re-imposed."
                 />
-              </SupportItem>
+              </S.SupportItem>
               {
                 !phase4 &&
-                  <SupportItem>
-                    <SupportItemTitle>Hotel Reservations</SupportItemTitle>
+                  <S.SupportItem>
+                    <S.SupportItemTitle>Hotel Reservations</S.SupportItemTitle>
                     <Accordion
                     title="Could you help me with a hotel reservation for SDC22?"
                     content="We are pleased to help you for a hotel reservation. Please note that all rooms are available on a first-come, first-served basis and we encourage you to act quickly if you are still in need of accommodations. <a href=mailto:test@test.com target='_blank' rel='noopener noreferrer'>Request hotel reservations now.</a>"
                     />
-                  </SupportItem>
+                  </S.SupportItem>
                 }
-            </SupportInner>
+            </S.SupportInner>
 
-          </SupportWrap>
+          </S.SupportWrap>
         </TabPanel>
       </Tabs>
-    </Support>
+    </S.Support>
 
 	)
 }

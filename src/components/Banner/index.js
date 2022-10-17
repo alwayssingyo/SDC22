@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { BannerBox, BannerBoxInner, BannerBoxInfo, BannerTitle, BannerDesc, BannerLink, BannerBtnLink  } from "./BannerElement";
+import * as S from "./style";
 import ALink from "../ALink"
 import Button from "../Button"
 import Chevron from "./Chevron";
@@ -23,59 +23,59 @@ const Banner = (props) => {
     {
       !fullWidth
       ?(
-        <BannerBox>
-          <BannerBoxInner>
-            <BannerBoxInfo>
-              <BannerTitle>{props.title}</BannerTitle>
-              <BannerDesc>{props.desc}</BannerDesc>
+        <S.BannerBox>
+          <S.BannerBoxInner>
+            <S.BannerBoxInfo>
+              <S.BannerTitle>{props.title}</S.BannerTitle>
+              <S.BannerDesc>{props.desc}</S.BannerDesc>
 
               {
                 typeof url !== 'string'
                 ?
                   url && url.map((item, idx)=>(
-                    <BannerLink href={item} target="_blank" key={idx}><span>{linkText[idx]}</span><Chevron /></BannerLink>
+                    <S.BannerLink href={item} target="_blank" key={idx}><span>{linkText[idx]}</span><Chevron /></S.BannerLink>
                   ))
-                : <BannerLink className="moreLink" href={url} target="_blank"><span>{linkText}</span><Chevron /></BannerLink>
+                : <S.BannerLink className="moreLink" href={url} target="_blank"><span>{linkText}</span><Chevron /></S.BannerLink>
               }
 
               {
                 buttonLengthOne 
-                ? <BannerBtnLink className="fullWidth"><ALink className='btn' href={`${props.buttonUrl}`} color="border" size="medium" rel="noopener noreferrer">{props.buttonText}</ALink></BannerBtnLink>
+                ? <S.BannerBtnLink className="fullWidth"><ALink className='btn' href={`${props.buttonUrl}`} color="border" size="medium" rel="noopener noreferrer">{props.buttonText}</ALink></S.BannerBtnLink>
                 : <>
-                    <BannerBtnLink><ALink className='btn' href={`${props.buttonUrl}`} color="border" size="medium" rel="noopener noreferrer">{props.buttonText}</ALink></BannerBtnLink>
+                    <S.BannerBtnLink><ALink className='btn' href={`${props.buttonUrl}`} color="border" size="medium" rel="noopener noreferrer">{props.buttonText}</ALink></S.BannerBtnLink>
                     { 
                       popupRight
-                      ? <BannerBtnLink><Button onClick={popupHandler} color="border" size="medium" rel="noopener noreferrer">{props.buttonText2}</Button></BannerBtnLink>
-                      : <BannerBtnLink><ALink className='btn' href={`${props.buttonUrl}`} color="border" size="medium" rel="noopener noreferrer">{props.buttonText2}</ALink></BannerBtnLink>
+                      ? <S.BannerBtnLink><Button onClick={popupHandler} color="border" size="medium" rel="noopener noreferrer">{props.buttonText2}</Button></S.BannerBtnLink>
+                      : <S.BannerBtnLink><ALink className='btn' href={`${props.buttonUrl}`} color="border" size="medium" rel="noopener noreferrer">{props.buttonText2}</ALink></S.BannerBtnLink>
                     }
                   </>
               }
 
-            </BannerBoxInfo>
-          </BannerBoxInner>
-        </BannerBox>)
+            </S.BannerBoxInfo>
+          </S.BannerBoxInner>
+        </S.BannerBox>)
       :(
         /* If there is only one, add border class */
-        <BannerBox className={`fullWidth ${ props.border }`} >
-          <BannerBoxInner className="fullWidthInner">
-            <BannerBoxInfo>
-              <BannerTitle>{props.title}</BannerTitle>
-              <BannerDesc>{props.desc}</BannerDesc>
+        <S.BannerBox className={`fullWidth ${ props.border }`} >
+          <S.BannerBoxInner className="fullWidthInner">
+            <S.BannerBoxInfo>
+              <S.BannerTitle>{props.title}</S.BannerTitle>
+              <S.BannerDesc>{props.desc}</S.BannerDesc>
               {
                 typeof url !== 'string'
                 ?
                   url && url.map((item, idx)=>(
-                    <BannerLink href={item} target="_blank" key={idx}><span>{linkText[idx]}</span><Chevron /></BannerLink>
+                    <S.BannerLink href={item} target="_blank" key={idx}><span>{linkText[idx]}</span><Chevron /></S.BannerLink>
                   ))
-                : <BannerLink href={url} target="_blank"><span>{linkText}</span><Chevron /></BannerLink>
+                : <S.BannerLink href={url} target="_blank"><span>{linkText}</span><Chevron /></S.BannerLink>
               }
 
               {
-                buttonUrl && <BannerBtnLink className="right"><ALink className='btn' href={`${props.buttonUrl}`} color="border" size="medium" rel="noopener noreferrer">{props.buttonText}</ALink></BannerBtnLink>
+                buttonUrl && <S.BannerBtnLink className="right"><ALink className='btn' href={`${props.buttonUrl}`} color="border" size="medium" rel="noopener noreferrer">{props.buttonText}</ALink></S.BannerBtnLink>
               }
-            </BannerBoxInfo>
-          </BannerBoxInner>
-        </BannerBox>)
+            </S.BannerBoxInfo>
+          </S.BannerBoxInner>
+        </S.BannerBox>)
 
 
     }

@@ -1,26 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardImage, CardText, CardTitle, CardTime, CardType, CardTypeInner, CardBtn } from './CardRoomElements';
+import * as S from './style';
 
 const CardRoom = ({ link, image, title, time, live }) => {
   return(
-		<Card className='card_item'>
+		<S.Card className='card_item'>
       <Link to={"/" + link}>
-        <CardType className={ live ? 'on-live card_type' : 'card_type' }>
-          <CardTypeInner className='inner'>
+        <S.CardType className={ live ? 'on-live card_type' : 'card_type' }>
+          <S.CardTypeInner className='inner'>
             <span className='tag'>LIVE</span>
-          </CardTypeInner>
-        </CardType>
-        <CardImage className='card_img'>
+          </S.CardTypeInner>
+        </S.CardType>
+        <S.CardImage className='card_img'>
           <img src={image} alt=""></img>
-          <CardText>
-            <CardTitle>{title}</CardTitle>
-            <CardTime>{time}</CardTime>
-          </CardText>
-        </CardImage>
-        <CardBtn className='card_btn'>View More</CardBtn>
+          <S.CardText>
+            <S.CardTitle>{title}</S.CardTitle>
+            <S.CardTime>{time}</S.CardTime>
+          </S.CardText>
+        </S.CardImage>
+        <S.CardBtn className='card_btn'>View More</S.CardBtn>
       </Link>
-		</Card>
+		</S.Card>
   )
 }
 

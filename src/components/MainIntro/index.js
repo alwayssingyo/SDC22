@@ -3,7 +3,7 @@ import { ScrollScene } from "scrollscene";
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import lottie from "lottie-web";
-import { IntroContainer, IntroInner, IntroTop, IntroMotion, IntroMotionText, IntroText, LinkArea } from './MainIntroElements';
+import * as S from './style';
 import Button from '../Button';
 import motionJSON from "../../data/motion.json";
 
@@ -171,35 +171,35 @@ const MainIntro = ()=>{
 	}
 
 	return (
-		<IntroContainer className={ phase4 ? '' : 'is-active' }>
-			<IntroInner ref={introRef} phase3={phase3}>
+		<S.IntroContainer className={ phase4 ? '' : 'is-active' }>
+			<S.IntroInner ref={introRef} phase3={phase3}>
 
 				{
 					phase3
-					?	<IntroTop ref={bgContainerRef}>
+					?	<S.IntroTop ref={bgContainerRef}>
 							<div ref={bgRef} className="intro_motion"/>
-							<IntroMotionText ref={textRef}>
+							<S.IntroMotionText ref={textRef}>
 								<div className='item-01'>Shape</div>
 								<div className='item-02'>Design</div>
 								<div className='item-03'>Create</div>
-							</IntroMotionText>
-						</IntroTop> 
-					:	<IntroMotion ref={textRef}>
+							</S.IntroMotionText>
+						</S.IntroTop> 
+					:	<S.IntroMotion ref={textRef}>
 							<div className='item-01'>Shape</div>
 							<div className='item-02'>Design</div>
 							<div className='item-03'>Create</div>
-						</IntroMotion>
+						</S.IntroMotion>
 				}
 
-				<IntroText phase3={phase3}>
+				<S.IntroText phase3={phase3}>
 					Now meets next at SDC22 as we explore the untapped potential of today's tech. <br/>Join us, be inspired, and get in on the excitement. <br/>This year's reveal is bigger than ever. You won’t want to miss it. 
-				</IntroText>
-				<LinkArea>
+				</S.IntroText>
+				<S.LinkArea>
 					<Button onClick={goToPage} color="black" size="medium">Sign Up Now</Button>
-				</LinkArea>
+				</S.LinkArea>
 
-			</IntroInner>
-		</IntroContainer>
+			</S.IntroInner>
+		</S.IntroContainer>
 	)
 }
 

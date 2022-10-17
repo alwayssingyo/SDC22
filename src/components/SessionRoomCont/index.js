@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
-import { KeynoteContContainer, KeynoteContInner, KeynoteContVideo, KeynoteContSoon, KeynoteContText, KeynoteContTitle, KeynoteContDesc, KeynoteBadge, KeynoteBadgeWrap } from '../KeynoteCont/KeynoteContElements';
-import { SessionRoomNoti, SessionRoomSchedule, RoomScheduleGrid, SessionRoomScheduleInner, RoomTitle, RoomScheduleBox, RoomScheduleInner, RoomScheduleTitle, RoomScheduleWrap } from './SessionRoomContElement';
+import * as S from '../KeynoteCont/style';
+import * as RS from './style';
 import  ReactPlayer  from  'react-player/lazy'
 import { Link } from 'react-router-dom';
 
@@ -11,13 +11,13 @@ const SessionRoomCont = (props)=>{
 
 	return (
     <>	
-      <KeynoteContContainer>
-        <KeynoteContInner className='KeynoteContInner'>
+      <S.KeynoteContContainer>
+        <S.KeynoteContInner className='KeynoteContInner'>
 
           {
             props.released
             ?
-            <KeynoteContVideo className='KeynoteContVideo' released={props.released}>
+            <S.KeynoteContVideo className='KeynoteContVideo' released={props.released}>
               <ReactPlayer
                 ref={playerRef}
                 className="react-player"
@@ -27,9 +27,9 @@ const SessionRoomCont = (props)=>{
                 height="100%"
                 controls={true}
                 />
-            </KeynoteContVideo>
+            </S.KeynoteContVideo>
 
-            :	<KeynoteContVideo className='KeynoteContVideo'>
+            :	<S.KeynoteContVideo className='KeynoteContVideo'>
                 <ReactPlayer
                   className="react-player"
                   url={process.env.PUBLIC_URL + '/images/video-commingsoon.mp4'}
@@ -40,110 +40,110 @@ const SessionRoomCont = (props)=>{
                   playsinline={true}
                   muted={true}
                 />
-                <KeynoteContSoon className='LiveVideo'>
+                <S.KeynoteContSoon className='LiveVideo'>
                   <div className='title'>The next session<br/>will begin at 11:30 AM</div>
-                </KeynoteContSoon>
-            </KeynoteContVideo>
+                </S.KeynoteContSoon>
+            </S.KeynoteContVideo>
           }
 
-          <KeynoteContText className={ props.session ? 'KeynoteContText is-session' : 'KeynoteContText' }>
+          <S.KeynoteContText className={ props.session ? 'KeynoteContText is-session' : 'KeynoteContText' }>
             {
               props.released && !props.vodOpen && // 라이브 오픈 후, vod 업로드 이전
-              <KeynoteBadgeWrap>
-                <KeynoteBadge>
+              <S.KeynoteBadgeWrap>
+                <S.KeynoteBadge>
                   <div className='inner'>
                     <span className='tag'>LIVE</span>
                   </div>
-                </KeynoteBadge>
-              </KeynoteBadgeWrap>
+                </S.KeynoteBadge>
+              </S.KeynoteBadgeWrap>
             }
-            <KeynoteContTitle className='KeynoteContTitle'>
+            <S.KeynoteContTitle className='KeynoteContTitle'>
               <div className='title'>{props.title}</div>
-            </KeynoteContTitle>
-            <KeynoteContDesc className='KeynoteContDesc' dangerouslySetInnerHTML={{ __html : props.desc }} />
-            <SessionRoomNoti>Welcome to the Live Session Room! Catch live sessions streaming right here, in real time. Please note that actual running times may be subject to change and possibly differ slightly from what has been previously announced. </SessionRoomNoti>
-          </KeynoteContText>
-      </KeynoteContInner>
-    </KeynoteContContainer>
+            </S.KeynoteContTitle>
+            <S.KeynoteContDesc className='KeynoteContDesc' dangerouslySetInnerHTML={{ __html : props.desc }} />
+            <RS.SessionRoomNoti>Welcome to the Live Session Room! Catch live sessions streaming right here, in real time. Please note that actual running times may be subject to change and possibly differ slightly from what has been previously announced. </RS.SessionRoomNoti>
+          </S.KeynoteContText>
+      </S.KeynoteContInner>
+    </S.KeynoteContContainer>
   
     {/* SessionRoomSchedule */}
-    <SessionRoomSchedule>
-      <SessionRoomScheduleInner>
-        <RoomTitle>Schedule</RoomTitle>
+    <RS.SessionRoomSchedule>
+      <RS.SessionRoomScheduleInner>
+        <RS.RoomTitle>Schedule</RS.RoomTitle>
 
-        <RoomScheduleWrap>
-          <RoomScheduleInner>
+        <RS.RoomScheduleWrap>
+          <RS.RoomScheduleInner>
               <div className='top'>
-                <RoomScheduleTitle>11:30 - 11:55 PT</RoomScheduleTitle>
+                <RS.RoomScheduleTitle>11:30 - 11:55 PT</RS.RoomScheduleTitle>
               </div>
-              <RoomScheduleGrid className='w-100'>
-                <RoomScheduleBox>
+              <RS.RoomScheduleGrid className='w-100'>
+                <RS.RoomScheduleBox>
                   <Link to="/sessionDetail">
                     <div className='title'>What's new in One UI 5</div>
                     <div className='time'>11:30 - 11:55</div>
                     <span>View More</span>
                   </Link>
-                </RoomScheduleBox>
-              </RoomScheduleGrid>
+                </RS.RoomScheduleBox>
+              </RS.RoomScheduleGrid>
 
-          </RoomScheduleInner>
-        </RoomScheduleWrap>
+          </RS.RoomScheduleInner>
+        </RS.RoomScheduleWrap>
 
-        <RoomScheduleWrap>
-          <RoomScheduleInner>
+        <RS.RoomScheduleWrap>
+          <RS.RoomScheduleInner>
             <div className='top'>
-              <RoomScheduleTitle>13:00 - 16:30 PT</RoomScheduleTitle>
+              <RS.RoomScheduleTitle>13:00 - 16:30 PT</RS.RoomScheduleTitle>
             </div>
-            <RoomScheduleGrid>
-              <RoomScheduleBox>
+            <RS.RoomScheduleGrid>
+              <RS.RoomScheduleBox>
                 <Link to="/sessionDetail">
                   <div className='title'>SmartThings Find: Find alongside 200+ million users</div>
                   <div className='time'>13:00 - 13:25</div>
                   <span>View More</span>
                 </Link>
-              </RoomScheduleBox>
-              <RoomScheduleBox>
+              </RS.RoomScheduleBox>
+              <RS.RoomScheduleBox>
                 <Link to="/sessionDetail">
                   <div className='title'>What's new in Bixby for Smart Home</div>
                   <div className='time'>13:35 - 14:00</div>
                   <span>View More</span>
                 </Link>
-              </RoomScheduleBox>
-              <RoomScheduleBox>
+              </RS.RoomScheduleBox>
+              <RS.RoomScheduleBox>
                 <Link to="/sessionDetail">
                   <div className='title'>Google and Samsung strengthen enterprise ecosystem together</div>
                   <div className='time'>14:10 - 14:35</div>
                   <span>View More</span>
                 </Link>
-              </RoomScheduleBox>
-              <RoomScheduleBox>
+              </RS.RoomScheduleBox>
+              <RS.RoomScheduleBox>
                 <Link to="/sessionDetail">
                   <div className='title'>Intuitive multitasking experience based upon Android 12L </div>
                   <div className='time'>14:45 – 15:10</div>
                   <span>View More</span>
                 </Link>
-              </RoomScheduleBox>
-              <RoomScheduleBox>
+              </RS.RoomScheduleBox>
+              <RS.RoomScheduleBox>
                 <Link to="/sessionDetail">
                   <div className='title'>What's new in Tizen?</div>
                   <div className='time'>15:20 - 15:45</div>
                   <span>View More</span>
                 </Link>
-              </RoomScheduleBox>
-             <RoomScheduleBox>
+              </RS.RoomScheduleBox>
+             <RS.RoomScheduleBox>
                <Link to="/sessionDetail">
                   <div className='title'>Healthcare research hub</div>
                   <div className='time'>15:55 – 16:30</div>
                   <span>View More</span>
                 </Link>
-              </RoomScheduleBox>
-            </RoomScheduleGrid>
+              </RS.RoomScheduleBox>
+            </RS.RoomScheduleGrid>
 
-          </RoomScheduleInner>
-        </RoomScheduleWrap>
+          </RS.RoomScheduleInner>
+        </RS.RoomScheduleWrap>
 
-      </SessionRoomScheduleInner>
-    </SessionRoomSchedule>
+      </RS.SessionRoomScheduleInner>
+    </RS.SessionRoomSchedule>
     </>
 	
 	)

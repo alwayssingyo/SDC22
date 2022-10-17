@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { ToastPopupContainer, ToastPopupInner, ToastPopupIcon, ToastPopupText } from './ToastPopupElements';
+import * as S from './style';
 
 const Popup = ({modal, setModal, state, text})=>{
 	const [popupState, setPopupState] = useState(state);
@@ -21,12 +21,12 @@ const Popup = ({modal, setModal, state, text})=>{
 	}, [modal, setModal])
 
   return (
-	<ToastPopupContainer modal={modal}>
-		<ToastPopupInner>
-			<ToastPopupIcon state={popupState}></ToastPopupIcon>
-			<ToastPopupText>{text}</ToastPopupText>
-		</ToastPopupInner>
-	</ToastPopupContainer>
+	<S.ToastPopupContainer modal={modal}>
+		<S.ToastPopupInner>
+			<S.ToastPopupIcon state={popupState}></S.ToastPopupIcon>
+			<S.ToastPopupText>{text}</S.ToastPopupText>
+		</S.ToastPopupInner>
+	</S.ToastPopupContainer>
   );
 }
 

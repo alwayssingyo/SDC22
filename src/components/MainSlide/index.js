@@ -1,16 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import Slider from 'react-slick';
-import { MainKeynoteArea,
-         MainKeynoteAreaTitle,
-         MainKeynoteAreaTop,
-         MainKeynoteAreaText,
-         CardWrap,
-         CardInner,
-         LinkArea } from './MainSlide'
-import { MainSpeakers } from '../../data/MainSlideData';
-import './style.scss'
+import * as S from './style'
+import './style-slide.scss'
 import ButtonLink from '../ButtonLink';
 import Card from '../CardSpeaker';
+import { MainSpeakers } from '../../data/MainSlideData';
 
 function SlideNextArrow(props) {
   const { className, style, onClick } = props;
@@ -84,15 +78,15 @@ const MainSlide = () => {
 
   return (
     <>
-    <MainKeynoteArea>
-      <MainKeynoteAreaTop>
-        <MainKeynoteAreaTitle>Keynote</MainKeynoteAreaTitle>
-        <MainKeynoteAreaText>
+    <S.MainKeynoteArea>
+      <S.MainKeynoteAreaTop>
+        <S.MainKeynoteAreaTitle>Keynote</S.MainKeynoteAreaTitle>
+        <S.MainKeynoteAreaText>
         Unveiling Samsung's latest software advances, building toward a future of smarter, safer and highly personalized connected living. Discover our expansive ecosystem of powerful, next-generation technologies.
-        </MainKeynoteAreaText>
-      </MainKeynoteAreaTop>
-      <CardWrap className='main_slide'>
-        <CardInner className={phase4 ? 'is-phase4' : ''}>
+        </S.MainKeynoteAreaText>
+      </S.MainKeynoteAreaTop>
+      <S.CardWrap className='main_slide'>
+        <S.CardInner className={phase4 ? 'is-phase4' : ''}>
           {
             phase4
             ? <Slider {...settings}>
@@ -142,13 +136,13 @@ const MainSlide = () => {
                   }
                 </Slider>
           }
-        </CardInner>
-      </CardWrap>
-      <LinkArea className={phase4 ? 'is-phase4' : ''}>
+        </S.CardInner>
+      </S.CardWrap>
+      <S.LinkArea className={phase4 ? 'is-phase4' : ''}>
         <ButtonLink url="/keynote" color="black" size="medium">Go to Keynote</ButtonLink>
-      </LinkArea>
+      </S.LinkArea>
 
-    </MainKeynoteArea>
+    </S.MainKeynoteArea>
     </>
 
   )

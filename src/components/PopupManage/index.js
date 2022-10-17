@@ -1,20 +1,5 @@
 import React, { useState } from 'react';
-import { PopupContainer, 
-  PopupInner, 
-  PopupTitle, 
-  PopupDesc, 
-  PopupCont, 
-  PopupBottom,
-  PopupButton,
-  CookieItem,
-  CookieTitle,
-  CookieDesc,
-  CookieView,
-  CookieGrid,
-  CookieBottom,
-  CookieBtn,
-  PopupClose,
-} from './PopupCookieElements';
+import * as S from './style';
 import Button from '../Button';
 
 const PopupManage = ({setOpen, setOpenConfirm})=>{
@@ -34,24 +19,24 @@ const PopupManage = ({setOpen, setOpenConfirm})=>{
   const [agreeYn04, setAgreeYn04] = useState(false);
 
   return (
-    <PopupContainer>
-      <PopupInner>
-        <PopupTitle>Manage Your Cookies</PopupTitle>
-        <PopupDesc>We use cookies to improve your experience on our website and to show you relevant advertising. Manage yout settings for our cookies below.</PopupDesc>
-        <PopupCont>
+    <S.PopupContainer>
+      <S.PopupInner>
+        <S.PopupTitle>Manage Your Cookies</S.PopupTitle>
+        <S.PopupDesc>We use cookies to improve your experience on our website and to show you relevant advertising. Manage yout settings for our cookies below.</S.PopupDesc>
+        <S.PopupCont>
 
-          <CookieItem>
-            <CookieTitle>Essential Cookies</CookieTitle>
-            <CookieDesc>
+          <S.CookieItem>
+            <S.CookieTitle>Essential Cookies</S.CookieTitle>
+            <S.CookieDesc>
               These cookies are essential as they enable you to move arounfd the website. This category cannot be disabled.
-            </CookieDesc>
-            <CookieBottom>
-              <CookieView className={ view01 ? 'is-active' : '' } onClick={function(e){
+            </S.CookieDesc>
+            <S.CookieBottom>
+              <S.CookieView className={ view01 ? 'is-active' : '' } onClick={function(e){
                 e.preventDefault();
                 setView01(!view01);
-              }}>View Cookies</CookieView>
-            </CookieBottom>
-            <CookieGrid className={ view01 ? 'is-active' : '' }>
+              }}>View Cookies</S.CookieView>
+            </S.CookieBottom>
+            <S.CookieGrid className={ view01 ? 'is-active' : '' }>
               <table>
                 <colgroup className='col'>
                   <col/>
@@ -70,20 +55,20 @@ const PopupManage = ({setOpen, setOpenConfirm})=>{
                   </tr>
                 </tbody>
               </table>
-            </CookieGrid>
-          </CookieItem>
+            </S.CookieGrid>
+          </S.CookieItem>
 
-          <CookieItem>
-            <CookieTitle>Analytical/Performance Cookies</CookieTitle>
-            <CookieDesc>
+          <S.CookieItem>
+            <S.CookieTitle>Analytical/Performance Cookies</S.CookieTitle>
+            <S.CookieDesc>
             These cookies collect information about how you use our website. for example which pages you vistit most often. All information these cookies collect is used to improve how the website works.
-            </CookieDesc>
-            <CookieBottom>
-              <CookieView className={ view02 ? 'is-active' : '' } onClick={function(e){
+            </S.CookieDesc>
+            <S.CookieBottom>
+              <S.CookieView className={ view02 ? 'is-active' : '' } onClick={function(e){
                 e.preventDefault();
                 setView02(!view02);
-              }}>View Cookies</CookieView>
-              <CookieBtn>
+              }}>View Cookies</S.CookieView>
+              <S.CookieBtn>
                 <button className={ agreeYn02 ? 'button' : 'button is-active' } onClick={function(e){
                   e.preventDefault();
                   setAgreeYn02(false);
@@ -92,9 +77,9 @@ const PopupManage = ({setOpen, setOpenConfirm})=>{
                   e.preventDefault();
                   setAgreeYn02(true);
                 }}><span>YES</span></button>
-              </CookieBtn>
-            </CookieBottom>
-            <CookieGrid className={ view02 ? 'is-active' : '' }>
+              </S.CookieBtn>
+            </S.CookieBottom>
+            <S.CookieGrid className={ view02 ? 'is-active' : '' }>
               <table>
                 <colgroup className='col'>
                   <col width="36.231%"/>
@@ -121,20 +106,20 @@ const PopupManage = ({setOpen, setOpenConfirm})=>{
                   </tr>
                 </tbody>
               </table>
-            </CookieGrid>
-          </CookieItem>
+            </S.CookieGrid>
+          </S.CookieItem>
 
-          <CookieItem>
-            <CookieTitle>Functionality Cookies</CookieTitle>
-            <CookieDesc>
+          <S.CookieItem>
+            <S.CookieTitle>Functionality Cookies</S.CookieTitle>
+            <S.CookieDesc>
               These cookies allow our website to remember choices you make (such as your user name, language or the region your are in) and tailor the website to provide enhanced features and content for you.
-            </CookieDesc>
-            <CookieBottom>
-              <CookieView className={ view03 ? 'is-active' : '' } onClick={function(e){
+            </S.CookieDesc>
+            <S.CookieBottom>
+              <S.CookieView className={ view03 ? 'is-active' : '' } onClick={function(e){
                 e.preventDefault();
                 setView03(!view03);
-              }}>View Cookies</CookieView>
-              <CookieBtn>
+              }}>View Cookies</S.CookieView>
+              <S.CookieBtn>
                 <button className={ agreeYn03 ? 'button' : 'button is-active' } onClick={function(e){
                   e.preventDefault();
                   setAgreeYn03(false);
@@ -143,9 +128,9 @@ const PopupManage = ({setOpen, setOpenConfirm})=>{
                   e.preventDefault();
                   setAgreeYn03(true);
                 }}><span>YES</span></button>
-              </CookieBtn>
-            </CookieBottom>
-            <CookieGrid className={ view03 ? 'is-active' : '' }>
+              </S.CookieBtn>
+            </S.CookieBottom>
+            <S.CookieGrid className={ view03 ? 'is-active' : '' }>
               <table>
                 <colgroup className='col'>
                   <col width="36.231%"/>
@@ -164,20 +149,20 @@ const PopupManage = ({setOpen, setOpenConfirm})=>{
                   </tr>
                 </tbody>
               </table>
-            </CookieGrid>
-          </CookieItem>
+            </S.CookieGrid>
+          </S.CookieItem>
 
-          <CookieItem>
-            <CookieTitle>Advertising Cookies</CookieTitle>
-            <CookieDesc>
+          <S.CookieItem>
+            <S.CookieTitle>Advertising Cookies</S.CookieTitle>
+            <S.CookieDesc>
               These cookies gather information about your browser habits. They remember that you've visited our website and share this information with other organizations such as advertisers.
-            </CookieDesc>
-            <CookieBottom>
-              <CookieView className={ view04 ? 'is-active' : '' } onClick={function(e){
+            </S.CookieDesc>
+            <S.CookieBottom>
+              <S.CookieView className={ view04 ? 'is-active' : '' } onClick={function(e){
                 e.preventDefault();
                 setView04(!view04);
-              }}>View Cookies</CookieView>
-              <CookieBtn>
+              }}>View Cookies</S.CookieView>
+              <S.CookieBtn>
                 <button className={ agreeYn04 ? 'button' : 'button is-active' } onClick={function(e){
                   e.preventDefault();
                   setAgreeYn04(false);
@@ -186,9 +171,9 @@ const PopupManage = ({setOpen, setOpenConfirm})=>{
                   e.preventDefault();
                   setAgreeYn04(true);
                 }}><span>YES</span></button>
-              </CookieBtn>
-            </CookieBottom>
-            <CookieGrid className={ view04 ? 'is-active' : '' }>
+              </S.CookieBtn>
+            </S.CookieBottom>
+            <S.CookieGrid className={ view04 ? 'is-active' : '' }>
               <table>
                 <colgroup className='col'>
                   <col width="36.231%"/>
@@ -215,12 +200,12 @@ const PopupManage = ({setOpen, setOpenConfirm})=>{
                   </tr>
                 </tbody>
               </table>
-            </CookieGrid>
-          </CookieItem>
+            </S.CookieGrid>
+          </S.CookieItem>
 
-        </PopupCont>
-        <PopupBottom>
-          <PopupButton>
+        </S.PopupCont>
+        <S.PopupBottom>
+          <S.PopupButton>
             <span className='button'>
               <Button color="black" size="medium" fullWidth={true} onClick={function(e){
                 e.preventDefault();
@@ -228,11 +213,11 @@ const PopupManage = ({setOpen, setOpenConfirm})=>{
                 setOpenConfirm(true);
               }}>Save Preferences</Button>
             </span>
-          </PopupButton>
-        </PopupBottom>
-        <PopupClose onClick={closePopup}></PopupClose>
-      </PopupInner>
-    </PopupContainer>
+          </S.PopupButton>
+        </S.PopupBottom>
+        <S.PopupClose onClick={closePopup}></S.PopupClose>
+      </S.PopupInner>
+    </S.PopupContainer>
   );
 }
 

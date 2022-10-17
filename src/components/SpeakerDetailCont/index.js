@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { SpeakerDetailWrap, SpeakerDetailInner, SpeakerDetailInfo, SpeakerDetailTitle, SpeakerDetailSubTitle, SpeakerDetailDesc, SpeakerDetailImage, SpeakerDetailMoreWrap, SpeakerDetailMore } from './SpeakerDetailContElement';
+import * as S from './style';
 
 
 const SpeakerDetailCont = (props)=>{
@@ -35,23 +35,23 @@ const SpeakerDetailCont = (props)=>{
   }, [descHandler]);
 
   return(
-    <SpeakerDetailWrap>
-      <SpeakerDetailInner>
-        <SpeakerDetailInfo>
-          <SpeakerDetailTitle>{props.title}</SpeakerDetailTitle>
-          <SpeakerDetailSubTitle>{props.subTitle}</SpeakerDetailSubTitle>
-          <SpeakerDetailDesc className={more ? 'is-appended' : btnBlock ? 'is-more' : ''}>
+    <S.SpeakerDetailWrap>
+      <S.SpeakerDetailInner>
+        <S.SpeakerDetailInfo>
+          <S.SpeakerDetailTitle>{props.title}</S.SpeakerDetailTitle>
+          <S.SpeakerDetailSubTitle>{props.subTitle}</S.SpeakerDetailSubTitle>
+          <S.SpeakerDetailDesc className={more ? 'is-appended' : btnBlock ? 'is-more' : ''}>
             <div ref={descRef}>{props.desc}</div>
-          </SpeakerDetailDesc>
-          <SpeakerDetailMoreWrap className={btnBlock ? 'block' : ''}>
-            <SpeakerDetailMore onClick={textHandler} className={more ? 'is-appended' : ''}>
+          </S.SpeakerDetailDesc>
+          <S.SpeakerDetailMoreWrap className={btnBlock ? 'block' : ''}>
+            <S.SpeakerDetailMore onClick={textHandler} className={more ? 'is-appended' : ''}>
               { more ? "Less" : "More" }
-            </SpeakerDetailMore>
-          </SpeakerDetailMoreWrap>
-        </SpeakerDetailInfo>
-        <SpeakerDetailImage  style={{ backgroundImage: `url(${ process.env.PUBLIC_URL + '/images/MainSpeaker_1.png' })` }}></SpeakerDetailImage>
-      </SpeakerDetailInner>
-    </SpeakerDetailWrap>
+            </S.SpeakerDetailMore>
+          </S.SpeakerDetailMoreWrap>
+        </S.SpeakerDetailInfo>
+        <S.SpeakerDetailImage  style={{ backgroundImage: `url(${ process.env.PUBLIC_URL + '/images/MainSpeaker_1.png' })` }}></S.SpeakerDetailImage>
+      </S.SpeakerDetailInner>
+    </S.SpeakerDetailWrap>
 
   )
 }

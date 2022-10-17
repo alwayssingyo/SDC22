@@ -1,17 +1,17 @@
 import React from 'react';
-import { DetailHeroContainer, DetailHeroInner, DetailHeroText, DetailHeroTitle, DetailHeroSamsung } from './DetailHeroElements';
+import * as S from './style';
 
 const DetailHero = ({bgPc, bgMo, title, desc})=>{
 
 	return (
-		<DetailHeroContainer bgPc={bgPc} bgMo={bgMo}>
-			<DetailHeroInner>
-				<DetailHeroText>
-					<DetailHeroSamsung>Samsung Developer Conference</DetailHeroSamsung>
-					<DetailHeroTitle>{title}</DetailHeroTitle>
-				</DetailHeroText>
-			</DetailHeroInner>
-		</DetailHeroContainer>
+		<S.DetailHeroContainer bgPc={bgPc} bgMo={bgMo}>
+			<S.DetailHeroInner>
+				<S.DetailHeroText>
+					<S.DetailHeroSamsung>Samsung Developer Conference</S.DetailHeroSamsung>
+					<S.DetailHeroTitle>{title}</S.DetailHeroTitle>
+				</S.DetailHeroText>
+			</S.DetailHeroInner>
+		</S.DetailHeroContainer>
   )
 }
 

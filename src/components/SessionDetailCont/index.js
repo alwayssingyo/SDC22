@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {DetailContContainer, DetailContInner, SectionWrap} from './SessionDetailContElements'
+import * as S from './style'
 import Section from '../Section';
 import CardSpeaker from '../CardSpeaker';
 import CardSession from '../CardSession';
@@ -102,43 +102,43 @@ const SessionDetailCont = ()=>{
 
 	return (
     <>
-      <DetailContContainer>
-        <DetailContInner>
+      <S.DetailContContainer>
+        <S.DetailContInner>
           <Section title="Speakers">
-            <SectionWrap>
+            <S.SectionWrap>
               {
                 SpeakersData.map((item, idx)=>(
                   <CardSpeaker key={idx} id={item.id} title={item.title} discription={item.discription} personImage={item.personImage}/>
                 ))
               }
-            </SectionWrap>
+            </S.SectionWrap>
           </Section>
           <Section title="Related Sessions">
-            <SectionWrap>
+            <S.SectionWrap>
               {
                 SessionData.map((item, idx)=>(
                   <CardSession key={idx} id={item.id} col="col-3" title={item.title} date={item.date} discription={item.discription} image={item.picture} bookmark={true} tag={item.tag} type={item.type} setModal={setModal} setModalFalse={setModalFalse}/>
                 ))
               }
-            </SectionWrap>
+            </S.SectionWrap>
           </Section>
           <Section title="Related Videos">
-            <SectionWrap>
+            <S.SectionWrap>
               {
                 CodelabData.map((item, idx)=>(
                   <CardLink key={idx} id={item.id} col="col-3" title={item.title} discription={item.discription} image={item.picture} video={true} link={item.link}/>
                 ))
               }
-            </SectionWrap>
+            </S.SectionWrap>
           </Section>
           <Section title="Code Lab">
-            <SectionWrap>
+            <S.SectionWrap>
               {
                 LabData.map((item, idx)=>(
                   <Codelab key={idx} id={item.id} title={item.title} discription={item.discription} image={item.picture} link={item.link}/>
                 ))
               }
-            </SectionWrap>
+            </S.SectionWrap>
           </Section>
           <Section title="Resources">
             <Banner
@@ -166,8 +166,8 @@ const SessionDetailCont = ()=>{
               linkText={BannerText}
            />
           </Section>
-        </DetailContInner>
-      </DetailContContainer>
+        </S.DetailContInner>
+      </S.DetailContContainer>
 
 			{/* toast popup */}
       {/* 북마크 설정 팝업 */}

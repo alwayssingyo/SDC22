@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DetailBottomContainer, DetailBottomInner, SectionWrap } from './SpeakerDetailBottomElement';
+import * as S from './style';
 import Section from '../Section';
 import CardSession from '../CardSession';
 import ToastPopup from '../ToastPopup';
@@ -41,18 +41,18 @@ const SpeakerDetailBottom = (props)=>{
   const [modalFalse, setModalFalse] = useState(false);
 
   return(
-    <DetailBottomContainer>
-      <DetailBottomInner>
+    <S.DetailBottomContainer>
+      <S.DetailBottomInner>
         <Section title="Related Sessions">
-          <SectionWrap>
+          <S.SectionWrap>
             {
               SessionData.map((item, idx)=>(
                 <CardSession key={idx} id={item.id} col="col-3" title={item.title} date={item.date} discription={item.discription} image={item.picture} bookmark={true} tag={item.tag} type={item.type} setModal={setModal} setModalFalse={setModalFalse} keynote={item.keynote}/>
               ))
             }
-          </SectionWrap>
+          </S.SectionWrap>
         </Section>
-      </DetailBottomInner>
+      </S.DetailBottomInner>
 
 			{/* toast popup */}
       {/* 북마크 설정 팝업 */}
@@ -70,7 +70,7 @@ const SpeakerDetailBottom = (props)=>{
         state="success" 
         text="This session is no longer bookmarked."
       />
-    </DetailBottomContainer>
+    </S.DetailBottomContainer>
   )
 }
 

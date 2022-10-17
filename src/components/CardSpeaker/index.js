@@ -1,44 +1,44 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardImage, CardInfo, CardTitle, CardText, LoadingCard, LoadingCardInner, LoadingCardTop, LoadingCardTopInner, LoadingCardIcon, LoadingCardBottom} from './CardSpeakerElements';
+import * as S from './style';
 
 const CardSpeaker = ({ id, personImage, title, discription, slide, border, listYn, phase4, loading }) => {
   return(
-		<Card className={ slide ? 'is-slide' : loading ? 'loading' : null } border={border} listYn={listYn} phase4={phase4}>
+		<S.Card className={ slide ? 'is-slide' : loading ? 'loading' : null } border={border} listYn={listYn} phase4={phase4}>
 			{
 				loading 
-				? <LoadingCard>
-						<LoadingCardInner>
-							<LoadingCardTop listYn={listYn}>
-								<LoadingCardTopInner>
-									<LoadingCardIcon>
+				? <S.LoadingCard>
+						<S.LoadingCardInner>
+							<S.LoadingCardTop listYn={listYn}>
+								<S.LoadingCardTopInner>
+									<S.LoadingCardIcon>
 										<span className='dot'></span>
 										<span className='dot'></span>
 										<span className='dot'></span>
-									</LoadingCardIcon>
-								</LoadingCardTopInner>
-							</LoadingCardTop>
-							<LoadingCardBottom listYn={listYn}>
+									</S.LoadingCardIcon>
+								</S.LoadingCardTopInner>
+							</S.LoadingCardTop>
+							<S.LoadingCardBottom listYn={listYn}>
 								<div></div>
 								<div></div>
-							</LoadingCardBottom>
-						</LoadingCardInner>
-					</LoadingCard>
+							</S.LoadingCardBottom>
+						</S.LoadingCardInner>
+					</S.LoadingCard>
 				: <>
 						{/* 퍼블 : 동일한 스피터 디테일 페이지로 이동시킴 */}
 						<Link to={"/speakerDetail"}>
 						{/* <Link to={"/speakers/" +id}> */}
-							<CardImage className='card_img' listYn={listYn}>
+							<S.CardImage className='card_img' listYn={listYn}>
 								<img src={personImage === '' ? process.env.PUBLIC_URL + '/images/img-speaker-default.png' : personImage} alt={discription}></img>
-							</CardImage>
-							<CardInfo className='Text' listYn={listYn}>
-								<CardTitle listYn={listYn}>{title}</CardTitle>
-								<CardText listYn={listYn}>{discription}</CardText>
-							</CardInfo>
+							</S.CardImage>
+							<S.CardInfo className='Text' listYn={listYn}>
+								<S.CardTitle listYn={listYn}>{title}</S.CardTitle>
+								<S.CardText listYn={listYn}>{discription}</S.CardText>
+							</S.CardInfo>
 						</Link>
 					</>
 			}
-		</Card>
+		</S.Card>
   )
 }
 

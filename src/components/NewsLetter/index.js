@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { NewsLetterCon, NewsLetterInner, NewsLetterTitle, NewsLetterSubtitle, NewsLetterInnerContent, NewsLetterInput,NewsLetterAgree, LinkArea } from './NewsLetterElement';
+import * as S from './style';
 import InputText from '../TextInput';
 import CheckBox from '../Checkbox';
 import Button from '../Button'
@@ -13,26 +13,26 @@ const NewsLetter = ()=>{
   }
 
 	return (
-    <NewsLetterCon>
-      <NewsLetterInner>
-        <NewsLetterTitle>Subscribe to the SDC22 & Samsung Developers Newsletter</NewsLetterTitle>
-        <NewsLetterSubtitle>Stay on the front-end of innovation. Sign up to receive registration and event updates first.</NewsLetterSubtitle>
-        <NewsLetterInnerContent>
-          <NewsLetterInput>
+    <S.NewsLetterCon>
+      <S.NewsLetterInner>
+        <S.NewsLetterTitle>Subscribe to the SDC22 & Samsung Developers Newsletter</S.NewsLetterTitle>
+        <S.NewsLetterSubtitle>Stay on the front-end of innovation. Sign up to receive registration and event updates first.</S.NewsLetterSubtitle>
+        <S.NewsLetterInnerContent>
+          <S.NewsLetterInput>
             <div>
               <InputText label="Email address" placeholder="example@samsung.com" id="Email address"/>
             </div>
             <InputText label="First Name" placeholder="First Name" id="First Name"/>
             <InputText label="Last Name" placeholder="Last Name" id="Lastt Name"/>
-          </NewsLetterInput>
-          <NewsLetterAgree>
+          </S.NewsLetterInput>
+          <S.NewsLetterAgree>
             <CheckBox id={"chkAgree"}/><span className='text'>I agree that Samsung Developers may use the data given by me for the newsletter.</span><a href="https://developer.samsung.com/privacy?lang=en" target="_blank" rel="noopener noreferrer">Detail</a>
-          </NewsLetterAgree>
-          <LinkArea>
+          </S.NewsLetterAgree>
+          <S.LinkArea>
             <Button color="black" size="medium" onClick={openPopup}>Subscribe</Button>
-          </LinkArea>
-        </NewsLetterInnerContent>
-      </NewsLetterInner>
+          </S.LinkArea>
+        </S.NewsLetterInnerContent>
+      </S.NewsLetterInner>
       {/* newsletter confirm popup */}
       {
         modal &&
@@ -44,7 +44,7 @@ const NewsLetter = ()=>{
           btnText="OK"
         />
       }
-    </NewsLetterCon>
+    </S.NewsLetterCon>
   )
 
 }

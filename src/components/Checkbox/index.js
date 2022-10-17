@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CheckboxItem, CheckboxInput, Label, } from './CheckboxElement';
+import * as S from './style';
 
 const CheckBox = ({label, value, id, onChangeValue, disabled}) => {
 
@@ -16,18 +16,18 @@ const CheckBox = ({label, value, id, onChangeValue, disabled}) => {
 	}, [value]);
 
   return(
-		<CheckboxItem>
-			<CheckboxInput 
+		<S.CheckboxItem>
+			<S.CheckboxInput 
 				type="checkbox"
 				id={id} 
 				checked={checked}
 				onChange={checkHandler}
-			></CheckboxInput>
-			<Label 
+			></S.CheckboxInput>
+			<S.Label 
 				htmlFor={id}
 				label={label}
-			>{label}</Label>
-		</CheckboxItem>
+			>{label}</S.Label>
+		</S.CheckboxItem>
   )
 
 }

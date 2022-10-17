@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { TermsContContainer, TermsContInner, TermsDropdownGroup, TermsContWrap, TermsContTop, TermsContTitle ,TermsContDesc , TermsContItem, TermsItemTitle, TermsItemP, TermsItemLink, TermsContToc, TermsTocInner, TermsTocItem } from '../TermsCont/TermsContElements';
+import * as S from '../TermsCont/style';
 import Dropdown from '../Dropdown';
 
 const TermPrivacyCont = ()=>{
@@ -46,13 +46,13 @@ const TermPrivacyCont = ()=>{
   const dropdownDateUrl = ["/privacy/lang=us", "/privacy/lang=us&version=1"];
 
 	return (
-    <TermsContContainer>
-      <TermsContInner>
-        <TermsContWrap>
+    <S.TermsContContainer>
+      <S.TermsContInner>
+        <S.TermsContWrap>
 
-          <TermsContTop>
-            <TermsContTitle>Samsung Developer Conference<br />Privacy Policy</TermsContTitle>
-            <TermsDropdownGroup>
+          <S.TermsContTop>
+            <S.TermsContTitle>Samsung Developer Conference<br />Privacy Policy</S.TermsContTitle>
+            <S.TermsDropdownGroup>
               <Dropdown
                 btnText="US"
                 url= {dropdownUrl}
@@ -63,92 +63,92 @@ const TermPrivacyCont = ()=>{
                 itemText = {dropdownBtnTextDate}
                 url= {dropdownDateUrl}
               />
-            </TermsDropdownGroup>
-            <TermsContDesc>
+            </S.TermsDropdownGroup>
+            <S.TermsContDesc>
               Samsung Electronics Co., Ltd. (“<strong>Samsung</strong>,”) knows how important privacy is to its customers and their employees and partners, and we strive to be clear about how we collect, use, disclose, transfer and store your information. This Privacy Policy provides an overview of our information practices with respect to personal information collected through or for the Samsung Developer Conference (the "<strong>Business Services</strong>").
               <br/><br />
               This Privacy Policy may be updated periodically to reflect changes in our personal information practices with respect to the Business Services or changes in the applicable law. We will indicate at the top of this Privacy Policy when it was most recently updated. If we update the Privacy Policy, we will let you know in advance about changes we consider to be material by placing a notice on the Business Services or by emailing you, where appropriate.
-            </TermsContDesc>
-          </TermsContTop>
+            </S.TermsContDesc>
+          </S.TermsContTop>
 
-          <TermsContItem ref={el => (tocRef.current[0] = el)}>
-            <TermsItemTitle>What information do we collect about you?</TermsItemTitle>
+          <S.TermsContItem ref={el => (tocRef.current[0] = el)}>
+            <S.TermsItemTitle>What information do we collect about you?</S.TermsItemTitle>
             We may collect various types of personal information in connection with the Business Services.
             <br/><br/>
             For example:
             <br/><br/>
-            <TermsItemP>We will collect personal information that you provide, such as your name, country,  e-mail address, nickname, password, phone number and contact details, job title and position, company related information, language, registration details, bookmarked contents and any communications you send or deliver to us;</TermsItemP>
-            <TermsItemP>We collect information related to your attendance and participation of the Business Service, including information needed to identify you during the attendance of the Business Services; and</TermsItemP>
-            <TermsItemP>We will collect photos and videos taken of you during your participation of the Business Services</TermsItemP>
-          </TermsContItem>
+            <S.TermsItemP>We will collect personal information that you provide, such as your name, country,  e-mail address, nickname, password, phone number and contact details, job title and position, company related information, language, registration details, bookmarked contents and any communications you send or deliver to us;</S.TermsItemP>
+            <S.TermsItemP>We collect information related to your attendance and participation of the Business Service, including information needed to identify you during the attendance of the Business Services; and</S.TermsItemP>
+            <S.TermsItemP>We will collect photos and videos taken of you during your participation of the Business Services</S.TermsItemP>
+          </S.TermsContItem>
 
-          <TermsContItem ref={el => (tocRef.current[1] = el)}>
-            <TermsItemTitle>How do we use your information?</TermsItemTitle>
+          <S.TermsContItem ref={el => (tocRef.current[1] = el)}>
+            <S.TermsItemTitle>How do we use your information?</S.TermsItemTitle>
             We may use information we collect for the following purposes:
             <br/><br/>
-            <TermsItemP>to provide the Business Services, including identifying and authenticating you;</TermsItemP>
-            <TermsItemP>to respond to your questions or requests for information;</TermsItemP>
-            <TermsItemP>for assessment and analysis of our market, customers, products, and services (including asking you for your opinions on our products and services and carrying out customer surveys);</TermsItemP>
-            <TermsItemP>for commercial purposes, such as using photos and videos taken of you for creating and using promotional materials;</TermsItemP>
-            <TermsItemP>to understand the way companies use the Business Services so that we can improve them and develop new products and services, including for example assessing your ability as a speaker or attendee; </TermsItemP>
-            <TermsItemP>to provide maintenance services and to maintain a sufficient level of security on the Business Services;</TermsItemP>
-            <TermsItemP>to protect the rights, property, or safety of Samsung, or any of our respective affiliates, business partners, employees or customers, for example, in legal proceedings, internal investigations and investigations by competent authorities; and</TermsItemP>
-            <TermsItemP>otherwise with your consent or as described to at the time your information is collected.</TermsItemP>
+            <S.TermsItemP>to provide the Business Services, including identifying and authenticating you;</S.TermsItemP>
+            <S.TermsItemP>to respond to your questions or requests for information;</S.TermsItemP>
+            <S.TermsItemP>for assessment and analysis of our market, customers, products, and services (including asking you for your opinions on our products and services and carrying out customer surveys);</S.TermsItemP>
+            <S.TermsItemP>for commercial purposes, such as using photos and videos taken of you for creating and using promotional materials;</S.TermsItemP>
+            <S.TermsItemP>to understand the way companies use the Business Services so that we can improve them and develop new products and services, including for example assessing your ability as a speaker or attendee; </S.TermsItemP>
+            <S.TermsItemP>to provide maintenance services and to maintain a sufficient level of security on the Business Services;</S.TermsItemP>
+            <S.TermsItemP>to protect the rights, property, or safety of Samsung, or any of our respective affiliates, business partners, employees or customers, for example, in legal proceedings, internal investigations and investigations by competent authorities; and</S.TermsItemP>
+            <S.TermsItemP>otherwise with your consent or as described to at the time your information is collected.</S.TermsItemP>
             <div className='space'></div>
             We may use third-party analytics services on the Business Services, such as those of Google Analytics. The service providers that administer these analytics services help us to analyze your use of the Business Services and improve the Business Services. The information we obtain may be disclosed to or collected directly by these providers and other relevant third parties who use the information, for example, to evaluate use of the Business Services, help administer the Business Services and diagnose technical issues.
             <br/>
             To learn more about Google Analytics, please visit
             <br/>
-            <TermsItemLink href="http://www.google.com/analytics/learn/privacy.html" target='_blank' rel='noopener noreferrer'>http://www.google.com/analytics/learn/privacy.html </TermsItemLink> and 
+            <S.TermsItemLink href="http://www.google.com/analytics/learn/privacy.html" target='_blank' rel='noopener noreferrer'>http://www.google.com/analytics/learn/privacy.html </S.TermsItemLink> and 
             <br/>
-            <TermsItemLink href="https://www.google.com/policies/privacy/partners/" target='_blank' rel='noopener noreferrer'>https://www.google.com/policies/privacy/partners/</TermsItemLink>.
+            <S.TermsItemLink href="https://www.google.com/policies/privacy/partners/" target='_blank' rel='noopener noreferrer'>https://www.google.com/policies/privacy/partners/</S.TermsItemLink>.
             
-          </TermsContItem>
+          </S.TermsContItem>
 
-          <TermsContItem ref={el => (tocRef.current[2] = el)}>
-            <TermsItemTitle>To whom do we disclose your information?</TermsItemTitle>
+          <S.TermsContItem ref={el => (tocRef.current[2] = el)}>
+            <S.TermsItemTitle>To whom do we disclose your information?</S.TermsItemTitle>
             We will disclose your information internally within our business and the following entities, but only for the above purposes.
             <br/><br/>
-            <TermsItemP>companies that provide services for or on behalf of us, such as companies that help us with the event operating process;</TermsItemP>
-            <TermsItemP>
+            <S.TermsItemP>companies that provide services for or on behalf of us, such as companies that help us with the event operating process;</S.TermsItemP>
+            <S.TermsItemP>
               other parties:
               <br/>
               (i) to comply with the law or respond to compulsory legal process (such as a search warrant or other court order);<br/>
               (ii) to verify or enforce compliance with the policies governing our Business Services;<br/>
               (iii) to protect the rights, property, or safety of Samsung, or any of our respective affiliates, business partners, or customers;<br/>
-              (iv) as part of a merger or transfer, or in the event of a bankruptcy;</TermsItemP>
-            <TermsItemP>with other third parties when you consent to or request such sharing.</TermsItemP>
-          </TermsContItem>
+              (iv) as part of a merger or transfer, or in the event of a bankruptcy;</S.TermsItemP>
+            <S.TermsItemP>with other third parties when you consent to or request such sharing.</S.TermsItemP>
+          </S.TermsContItem>
 
-          <TermsContItem ref={el => (tocRef.current[3] = el)}>
-            <TermsItemTitle>What do we do to keep your information secure?</TermsItemTitle>
+          <S.TermsContItem ref={el => (tocRef.current[3] = el)}>
+            <S.TermsItemTitle>What do we do to keep your information secure?</S.TermsItemTitle>
             We have put in place reasonable physical and technical measures to safeguard the information we collect in connection with the Business Services. However, please note that although we take reasonable steps to protect your information, no website, Internet transmission, computer system or wireless connection is completely secure.
-          </TermsContItem>
+          </S.TermsContItem>
 
-          <TermsContItem ref={el => (tocRef.current[4] = el)}>
-            <TermsItemTitle>Where do we transfer your information?</TermsItemTitle>
+          <S.TermsContItem ref={el => (tocRef.current[4] = el)}>
+            <S.TermsItemTitle>Where do we transfer your information?</S.TermsItemTitle>
             Your use or participation in the Business Services may involve transfer, storage and processing of your information outside of your country of residence, consistent with this policy.  Please note that the data protection and other laws of countries to which your information may be transferred might not be as comprehensive as those in your country.  We will take appropriate measures, in compliance with applicable law, to ensure that your personal information remains protected.
-          </TermsContItem>
+          </S.TermsContItem>
 
-          <TermsContItem ref={el => (tocRef.current[5] = el)}>
-            <TermsItemTitle>What are your rights?</TermsItemTitle>
+          <S.TermsContItem ref={el => (tocRef.current[5] = el)}>
+            <S.TermsItemTitle>What are your rights?</S.TermsItemTitle>
             Under the laws of some jurisdictions, you may have the right to request details about the information we collect about you, delete information collected about you, and to correct inaccuracies in that information. We may decline to process requests that are unreasonably repetitive, require disproportionate technical effort, jeopardize the privacy of others, are extremely impractical, or for which access is not otherwise required by local law.
             <br/><br/>
             If you request deletion of personal information, you acknowledge that you may not be able to access or use the Business Services and that residual personal information may continue to reside in Samsung's records and archives for some time, but Samsung will not use that information for commercial purposes. You understand that, despite your request for deletion, Samsung reserves the right to keep your personal information, or a relevant part of it, if Samsung has suspended, limited, or terminated your access to the website for violating the Samsung Terms of Use, when necessary to protect the rights, property, or safety of Samsung, or any of our respective affiliates, business partners, employees or customers.
-          </TermsContItem>
+          </S.TermsContItem>
 
-          <TermsContItem ref={el => (tocRef.current[6] = el)}>
-            <TermsItemTitle>How long do we keep your information?</TermsItemTitle>      
+          <S.TermsContItem ref={el => (tocRef.current[6] = el)}>
+            <S.TermsItemTitle>How long do we keep your information?</S.TermsItemTitle>      
             We take reasonable steps to ensure that we retain information about you only for so long as is necessary for the purpose for which it was collected, or as required under applicable law.
-            </TermsContItem>
+            </S.TermsContItem>
 
-          <TermsContItem ref={el => (tocRef.current[7] = el)}>
-            <TermsItemTitle>Third-Party Links and Products on Our Services</TermsItemTitle>
+          <S.TermsContItem ref={el => (tocRef.current[7] = el)}>
+            <S.TermsItemTitle>Third-Party Links and Products on Our Services</S.TermsItemTitle>
             Our Business Services may link to third-party websites and services that are outside our control. We are not responsible for the security or privacy of any information collected by websites or other services. You should exercise caution, and review the privacy statements applicable to the third-party websites and services you use.
-          </TermsContItem>
+          </S.TermsContItem>
 
-          <TermsContItem ref={el => (tocRef.current[8] = el)}>
-            <TermsItemTitle>Cookies, Beacons and Similar Technologies</TermsItemTitle>
+          <S.TermsContItem ref={el => (tocRef.current[8] = el)}>
+            <S.TermsItemTitle>Cookies, Beacons and Similar Technologies</S.TermsItemTitle>
             We, as well as certain third parties that provide content, advertising, or other functionality on our Business Services, may use cookies, beacons, and other technologies in certain areas of our Business Services.
             <br/><br/>
             <strong>Cookies</strong><br/>
@@ -156,16 +156,16 @@ const TermPrivacyCont = ()=>{
             <br/>
             For example:
             <br/><br/>
-            <TermsItemP>
+            <S.TermsItemP>
               Cookies can remember your sign-in credentials so you don’t have to enter those credentials each time you log on to a service.<br/>
               Cookies help us and third parties understand which parts of our Business Services are the most popular because they help us to see which pages and features visitors are accessing and how much time they are spending on the pages.  By studying this kind of information, we are better able to adapt the Business Services and provide you with a better experience.
-            </TermsItemP>
-            <TermsItemP>
+            </S.TermsItemP>
+            <S.TermsItemP>
               Cookies help us and third parties understand which ads you have seen so that you don’t receive the same ad each time you access the MSS Service.
-            </TermsItemP>
-            <TermsItemP>
+            </S.TermsItemP>
+            <S.TermsItemP>
               Cookies help us and third parties provide you with relevant content and advertising by collecting information about your use of our Business Services and other websites and apps.
-            </TermsItemP>
+            </S.TermsItemP>
             <br/>
             When you use a web browser to access the Business Services, you can configure your browser to accept all cookies, reject all cookies, or notify you when a cookie is sent. Each browser is different, so check the “Help” menu of your browser to learn how to change your cookie preferences. The operating system of your device may contain additional controls for cookies.
             <br/><br/>
@@ -178,32 +178,32 @@ const TermPrivacyCont = ()=>{
             We, along with certain third parties, also may use technologies called beacons (or “pixels”) that communicate information from your device to a server. Beacons can be embedded in online content, videos, and emails, and can allow a server to read certain types of information from your device, know when you have viewed particular content or a particular email message, determine the time and date on which you viewed the beacon, and the IP address of your device. We and certain third parties use beacons for a variety of purposes, including to analyze the use of our Business Services and (in conjunction with cookies) to provide content and ads that are more relevant to you.
             <br/><br/>
             By accessing and using our Business Services, you consent to the storage of cookies, other local storage technologies, beacons and other information on your devices.  You also consent to the access of such cookies, local storage technologies, beacons and information by us and by the third parties mentioned above.
-          </TermsContItem>
+          </S.TermsContItem>
 
-          <TermsContItem ref={el => (tocRef.current[9] = el)}>
-            <TermsItemTitle>Contact</TermsItemTitle>
+          <S.TermsContItem ref={el => (tocRef.current[9] = el)}>
+            <S.TermsItemTitle>Contact</S.TermsItemTitle>
             If you have any questions regarding this policy, please contact us at : &nbsp;
-            <TermsItemLink href='mailto:sdcsupport@samsungdevelopers.com' target='_blank' rel='noopener noreferrer'>sdcsupport@samsungdevelopers.com.</TermsItemLink>
-          </TermsContItem>
+            <S.TermsItemLink href='mailto:sdcsupport@samsungdevelopers.com' target='_blank' rel='noopener noreferrer'>sdcsupport@samsungdevelopers.com.</S.TermsItemLink>
+          </S.TermsContItem>
 
-        </TermsContWrap>
+        </S.TermsContWrap>
 
-        <TermsContToc>
-          <TermsTocInner>
-            <TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[0])} } className={tocRef.current[0] === currentItem ? 'is-active' : ''}>What information do we collect about you?</TermsTocItem>
-            <TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[1])} } className={tocRef.current[1] === currentItem ? 'is-active' : ''}>How do we use your information?</TermsTocItem>
-            <TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[2])} } className={tocRef.current[2] === currentItem ? 'is-active' : ''}>To whom do we disclose your information?</TermsTocItem>
-            <TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[3])} } className={tocRef.current[3] === currentItem ? 'is-active' : ''}>What do we do to keep your information secure?</TermsTocItem>
-            <TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[4])} } className={tocRef.current[4] === currentItem ? 'is-active' : ''}>Where do we transfer your information?</TermsTocItem>
-            <TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[5])} } className={tocRef.current[5] === currentItem ? 'is-active' : ''}>What are your rights?</TermsTocItem>
-            <TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[6])} } className={tocRef.current[6] === currentItem ? 'is-active' : ''}>How long do we keep your information?</TermsTocItem>
-            <TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[7])} } className={tocRef.current[7] === currentItem ? 'is-active' : ''}>Third-Party Links and Products on Our Services</TermsTocItem>
-            <TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[8])} } className={tocRef.current[8] === currentItem ? 'is-active' : ''}>Cookies, Beacons and Similar Technologies</TermsTocItem>
-            <TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[9])} } className={tocRef.current[9] === currentItem ? 'is-active' : ''}>Contact</TermsTocItem>
-          </TermsTocInner>
-        </TermsContToc>
-      </TermsContInner>
-    </TermsContContainer>
+        <S.TermsContToc>
+          <S.TermsTocInner>
+            <S.TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[0])} } className={tocRef.current[0] === currentItem ? 'is-active' : ''}>What information do we collect about you?</S.TermsTocItem>
+            <S.TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[1])} } className={tocRef.current[1] === currentItem ? 'is-active' : ''}>How do we use your information?</S.TermsTocItem>
+            <S.TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[2])} } className={tocRef.current[2] === currentItem ? 'is-active' : ''}>To whom do we disclose your information?</S.TermsTocItem>
+            <S.TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[3])} } className={tocRef.current[3] === currentItem ? 'is-active' : ''}>What do we do to keep your information secure?</S.TermsTocItem>
+            <S.TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[4])} } className={tocRef.current[4] === currentItem ? 'is-active' : ''}>Where do we transfer your information?</S.TermsTocItem>
+            <S.TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[5])} } className={tocRef.current[5] === currentItem ? 'is-active' : ''}>What are your rights?</S.TermsTocItem>
+            <S.TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[6])} } className={tocRef.current[6] === currentItem ? 'is-active' : ''}>How long do we keep your information?</S.TermsTocItem>
+            <S.TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[7])} } className={tocRef.current[7] === currentItem ? 'is-active' : ''}>Third-Party Links and Products on Our Services</S.TermsTocItem>
+            <S.TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[8])} } className={tocRef.current[8] === currentItem ? 'is-active' : ''}>Cookies, Beacons and Similar Technologies</S.TermsTocItem>
+            <S.TermsTocItem onClick={ ()=>{scrollHandler(tocRef.current[9])} } className={tocRef.current[9] === currentItem ? 'is-active' : ''}>Contact</S.TermsTocItem>
+          </S.TermsTocInner>
+        </S.TermsContToc>
+      </S.TermsContInner>
+    </S.TermsContContainer>
 	)
 }
 
